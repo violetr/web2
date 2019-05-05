@@ -10,7 +10,7 @@ description: "Grafiquitos a partir de los datos de la bot @columnistOS"
 output: html_document
 ---
 
-Desde la cuenta de twitter @columnistOS relevan cada día la cantidad y el porcentaje de mujeres que opinaron en los medios de comunicación más grandes de Argentina (La Nación, Clarín y Página 12). En [esta nota](http://economiafeminita.com/columnistosbot/), hacen un análisis de los datos que relevaron durante todo el 2018 donde se visibiliza la poca de proporción de mujeres que tienen la posibilidad de opinar en un gran medio cada día. 
+Desde la cuenta de twitter @columnistOS relevan cada día la cantidad de mujeres que firmaron notas de opinión en los medios de comunicación más grandes de Argentina (La Nación, Clarín y Página 12). En [esta nota](http://economiafeminita.com/columnistosbot/), hacen un análisis de los datos que relevaron durante todo el 2018 donde se visibiliza la poca de proporción de mujeres que tienen la posibilidad de opinar en un gran medio cada día. 
 
 Como los datos están abiertos se me ocurrió hacer otra visualización que me gusta: un cuadrito [como los de github](https://github.com/violetr) pero que muestre la cantidad de mujeres que opinaron en cada día del año. Cada cuadradito representa un día del año que corresponde al día de la semana y número de semana correspondiente. El color representa el número de mujeres que opinaron ese día, desde gris (0) a verde oscuro (muchas). 
 
@@ -340,7 +340,7 @@ plot_ly(
 ```
 
 
-La comparación es abrumadora. Como me quedó un gráfico mayoritariamente verde pasto y otro verde matcha/gris pongo también uno en el que sólo se tienen en cuenta los valores de las mujeres para ver un poco mejor los patrones.
+La disparidad es evidente. Como me quedó un gráfico mayoritariamente verde pasto y otro verde matcha/gris pongo también uno en el que sólo se tienen en cuenta los valores de las mujeres para ver un poco mejor los patrones.
 
 ```{r, echo=F, warning=F, message=F}
 m <- list(
@@ -355,7 +355,7 @@ plot_ly(
   type = "heatmap",
   colorscale = colz, xgap = 0.6, ygap = 0.6,
   showscale = FALSE, hoverinfo = "text",
-  text = hover_heatmap
+  text = hover_heatmap, height = 200
 ) %>%
   layout(
     yaxis = list(
@@ -378,7 +378,7 @@ plot_ly(
 
 ```
 
-Se ve el pico del 14 de junio (aprobación de ley del aborto en diputados), la mayor cantidad de opiniones los viernes (Las12) y el blanco de los domingos exclusivos para varones. Además de los días en los que ninguna mujer opinó.
+Se ve el pico del 14 de junio (aprobación de ley del aborto en diputados), la mayor cantidad de opiniones los viernes (Las12) y el blanco de los domingos exclusivos para varones. Además de los días en los que ninguna mujer opinó (cosa que no ocurre en el caso de los varones).
 
 Para los gráficos usé plotly by R. Por último, quise postearlo en twitter interactivo y seguí las instrucciones de [este post](https://datatitian.com/how-to-turn-your-ggplot2-visualization-into-an-interactive-tweet/).
 
