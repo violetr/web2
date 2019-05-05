@@ -283,6 +283,7 @@ nrow = 7
 ```
 
 
+
 ```{r, echo=F, warning=F, message=F}
 plot_ly(
   z = matrix_heatmap,
@@ -354,10 +355,9 @@ plot_ly(
   type = "heatmap",
   colorscale = colz, xgap = 0.6, ygap = 0.6,
   showscale = FALSE, hoverinfo = "text",
-  text = hover_heatmap, height = 200
+  text = hover_heatmap
 ) %>%
   layout(
-    margin = list(autoexpand = F),
     yaxis = list(
       ticktext = lab_row_days, ticks = "",
       tickmode = "array",
@@ -365,6 +365,7 @@ plot_ly(
       tickvals = 0:6,
       zeroline = FALSE
     ),
+    autosize = T,
     xaxis = list(
       side = "top", ticktext = lab_column_months, ticks = "",
       tickmode = "array", tickangle = 0,

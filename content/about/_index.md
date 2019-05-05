@@ -3,7 +3,7 @@ date: "2016-11-05T21:05:33+05:30"
 title: "About me"
 ---
 
-Hi! This is me!
+Hi! I'm Violeta Roizman.
 
 
 <img src="/img/about.jpg" width=30%>
