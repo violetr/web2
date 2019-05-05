@@ -1,0 +1,68 @@
+---
+title: "Explorando los votos — Segunda parte: modelo, tidygraph y ggraph"
+author: "Violeta Roizman"
+date: "2018-12-18"
+type: "post"
+showonlyimage: true
+image: "img/congreso_3.jpg"
+description: "El objetivo de esta segunda parte es contar el modelo aplicado al dataset (que obtuve en la primera parte a partir de los datos de decadavotada [1]) para obtener al igual que [2] un grafo de esta pinta:"
+output: html_document
+---
+
+
+
+<p><img src="https://cdn-images-1.medium.com/max/1000/1*6bdwe1Onq_2CsgWPb3-SFw.jpeg" /> <span class="figcaption_hack">Foto de <a href="https://www.flickr.com/photos/hernanpc/">Hernán Piñera</a> en Flickr</span></p>
+<p>El objetivo de esta segunda parte es contar el modelo aplicado al dataset (que obtuve en la <a href="https://medium.com/@violeroizman/explorando-los-votos-primera-parte-dominando-tidyverse-626326310d9a">primera parte</a> a partir de los datos de <a href="http://www.decadavotada.com.ar/">decadavotada</a><strong> </strong>[1])** **para obtener al igual que [2] un grafo de esta pinta:</p>
+<div class="figure">
+<img src="https://cdn-images-1.medium.com/max/1000/1*gm7KKk0L89GGk8qtlm1sLg.jpeg" />
+
+</div>
+<p>A partir del cual podemos con una sola imagen darnos una idea del comportamiento de los diputadxs al votar durante un período legislativo completo, más alla de nuestras especulaciones oficialismo-oposición, etc.</p>
+<p>Los <strong>modelos gráficos</strong> nos permiten visualizar fácilmente relaciones entre distintas variables aleatorias a partir de un grafo, en donde cada nodo representa una variable y las aristas representan sus dependencias condicionales. Algunas preguntas que nos ayudan a responder: ¿Son dos variables independientes conociendo el valor de una tercera? ¿Hay grupos establecidos de variables? ¿Es “A” una variable importante?</p>
+<p>El siguiente ejemplo de modelo gráfico no-dirigido ilustra la codificación de dependencias: la cantidad de accidentes de tránsito tiene una correlación con la cantidad de paraguas en la calle, pero si conocemos el valor de la variable aleatoria “llueve”, el saber la cantidad de paraguas que hay en la calle no nos ayuda para calcular la cantidad de accidentes que se producen.</p>
+<p><span class="figcaption_hack">Toy example de modelo gráfico no-dirigido</span></p>
+<p>Para explicar los votos utilizamos un modelo Ising. Este modelo, proveniente de la física estadística, modela un sistema de <em>p</em> partículas fijas con un spin positivo o negativo que interactúan bajo el efecto de un campo magnético.</p>
+<p><span class="figcaption_hack">Reticulado de partículas en el modelo Ising de jgtechnologysolutions</span></p>
+<p>En el modelo Ising la función de probabilidad puntual es</p>
+<p><strong>OBS:</strong> Si te parece chino, podés saltear la ecuación porque igual se entiende.</p>
+<p>Cada una de las partículas del modelo será un legislador y el spin de la misma representará la posición a favor o en contra que este toma en una votación.</p>
+<p>Hay un parámetro por cada diputadx (Θ_j) que representa su tendencia a votar positivamente y por otro lado hay parámetros de link entre dos diputadxs ( Θ_jk) que representan la tendencia de estos legisladores a votar del mismo modo o de modo contrario. Si Θ_jk es positivo quiere decir que lxs diputadxs <em>j</em> y <em>k </em>tienden a votar del mismo modo. Si por el contrario es negativo, representa que tienden a votar distinto.</p>
+<p>Ajustamos el modelo Ising al dataset de la Primera Parte para generar el grafo usando el paquete <strong>IsingFit </strong>[3]. El único parámetro que tenemos que ajustar es <em>gamma. </em>Este representa el grado de regularización del modelo del mismo modo que <em>lambda</em> en el modelo de regresión <em>lasso</em>. Si <em>gamma</em> es pequeño tendremos muchas aristas (poca regularización) y cuanto más grande sea menos aristas veremos. Básicamente elegí el valor del parámetro que devuelve un resultado visualmente razonable. Sin demasiadas aristas pero tampoco vacío.</p>
+<pre><code>modelo = IsingFit(dataset, gamma = 0.25)</code></pre>
+<p>IsingFit devuelve un objeto con toda la información del modelo y un grafo, pero como no me parece ni muy lindo ni muy claro volví a graficarlo con ggraph.</p>
+<p>Lo convierto a formato <strong>ggraph</strong> a partir de la matriz de adyacencia con pesos (modelo$weiadj) usando <strong>tidygraph</strong> para agregar los bloques a los nodos (para acceder al color del partido) y el tipo de link a las aristas (para pintarlas de rojo o verde) :</p>
+<pre><code>grafo_crudo &lt;- as_tbl_graph(modelo$weiadj, directed = FALSE)
+
+grafo &lt;- grafo_crudo %&gt;%
+  activate(nodes) %&gt;%
+  mutate(bloque = matching_bloques[name]) %&gt;%
+  activate(edges) %&gt;%
+  mutate(link = ifelse(weight &gt; 0, &#39;positivo&#39;, &#39;negativo&#39;)) %&gt;%
+  mutate(weight = abs(weight))</code></pre>
+<p>Por último grafico usando <strong>ggraph </strong>filtrando los distintos bloques por separado ya que quiero graficarlos con un color específico:</p>
+<pre><code>ggraph(grafo) +
+  geom_edge_link(aes(colour = link), alpha = 0.4) +
+  scale_edge_colour_manual(values=c(&#39;#af270f&#39;, &#39;#0faf62&#39;)) +
+  geom_node_text(aes(label = name), repel = TRUE) +
+  geom_node_point(aes(filter=bloque==67), size=3, color=&quot;#1f77b4&quot; , alpha=0.5) +
+  geom_node_point(aes(filter=bloque==172), size=3, color=&quot;#d62728&quot; , alpha=0.5) +
+  geom_node_point(aes(filter=bloque==78), size=3, color=&quot;#0b615e&quot; , alpha=0.5) +
+  geom_node_point(aes(filter=bloque==179), size=3, color=&quot;#e7ba52&quot; , alpha=0.5) +
+  geom_node_point(aes(filter=bloque==64), size=3, color=&quot;#85c1e9&quot; , alpha=0.5) +
+  theme_void()</code></pre>
+<p>Este es el grafo que obtuvimos:</p>
+<p><span class="figcaption_hack">Resultado para el período 2014–2015 graficado con ggnet</span></p>
+<p><strong>Nota: </strong>con el código disponible se obtiene un grafo un poco distinto (ggraph en lugar del desactualizado ggnet) y con distintos filtrados.</p>
+<p>Para leer algunas observaciones sobre el grafo anterior se puede leer la parte del análisis en el <a href="https://github.com/LatinR/presentaciones-LatinR2018/blob/master/posters/LatinR2018_Roizman-et-al.pdf">poster</a> que presentamos en <strong>LatinR</strong>.</p>
+<p>Queda pendiente, por ejemplo, identificar a los diputadxs “reguladores” (subgrafo en forma de estrella) y contrastar con la realidad. También estudiar los pesos de los links.</p>
+<hr />
+<div id="referencias" class="section level4">
+<h4>Referencias:</h4>
+<p>[1] [decadavotada.com.ar](<a href="http://decadavotada.com.ar/" class="uri">http://decadavotada.com.ar/</a>)</p>
+<p>[2]* Banerjee et al. <em>2008. Model Selection Through Sparse Maximum Likelihood Estimation for Multivariate Gaussian or Binary Data. </em>J. Mach. Learn. Res.* 9 (June 2008), 485–516.</p>
+<p>[3] <em>Van Borkulo et al. </em>2014. A new method for constructing networks from binary data.</p>
+<hr />
+<p><strong>Este trabajo fue presentado como poster en latinR:</strong> <a href="https://github.com/LatinR/presentaciones-LatinR2018/blob/master/posters/LatinR2018_Roizman-et-al.pdf">poster</a></p>
+<p><strong>Código disponible en:</strong> <a href="https://github.com/violetr">github.com/violetr</a></p>
+<p><strong>:)</strong></p>
+</div>

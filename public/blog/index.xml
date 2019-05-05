@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on Violeta Roizman</title>
+    <link>/blog/</link>
+    <description>Recent content in Blogs on Violeta Roizman</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 18 Dec 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Explorando los votos — Segunda parte: modelo, tidygraph y ggraph</title>
+      <link>/blog/blogpost2/</link>
+      <pubDate>Tue, 18 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/blogpost2/</guid>
+      <description>Foto de Hernán Piñera en Flickr
+El objetivo de esta segunda parte es contar el modelo aplicado al dataset (que obtuve en la primera parte a partir de los datos de decadavotada [1])** **para obtener al igual que [2] un grafo de esta pinta:
+A partir del cual podemos con una sola imagen darnos una idea del comportamiento de los diputadxs al votar durante un período legislativo completo, más alla de nuestras especulaciones oficialismo-oposición, etc.</description>
+    </item>
+    
+    <item>
+      <title>Explorando los votos — Primera parte: dominando tidyverse</title>
+      <link>/blog/blogpost1/</link>
+      <pubDate>Mon, 26 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/blogpost1/</guid>
+      <description>Congreso Nacional por Pablo Gonzalez en Flickr
+El objetivo de esta entrada y la siguiente es contar una aplicación de mi tesis de licenciatura para la cual usé modelos gráficos no dirigidos para modelar los períodos de votación de las Cámaras del Congreso de la Nación Argentina al estilo de [1].
+La idea en particular de esta primera parte es contar cómo manipular los datos en crudo que descargué de acá [2] hasta formar una tabla ordenada que contenga toda la información necesaria.</description>
+    </item>
+    
+  </channel>
+</rss>

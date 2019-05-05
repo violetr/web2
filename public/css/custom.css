@@ -1,0 +1,16 @@
+/* your styles go here */
+
+section {
+    position: relative;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+ /* FOR ADDING VERTICAL SCROLL BAR TO LONG TEXT BOXES */
+
+pre {
+  white-space: pre !important;
+  overflow-y: scroll !important;
+  max-height: 75vh !important;
+}

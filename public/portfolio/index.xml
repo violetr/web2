@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Portfolios on Violeta Roizman</title>
+    <link>/portfolio/</link>
+    <description>Recent content in Portfolios on Violeta Roizman</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 05 Nov 2016 19:41:01 +0530</lastBuildDate>
+    
+	<atom:link href="/portfolio/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Shiny App #TidyTuesday</title>
+      <link>/portfolio/work2/</link>
+      <pubDate>Sat, 05 Nov 2016 19:41:01 +0530</pubDate>
+      
+      <guid>/portfolio/work2/</guid>
+      <description>This is the first Shiny App I developed and also my first #TidyTuesday submission.
+I show the participation of twitter users to the hashtag #TidyTuesday with an interactive Github Heatmap I created with plotly.
+You can find the app here: https://violetr.shinyapps.io/tidytuesdaytweets/.
+You can find the code to generate it here: https://github.com/violetr/tidytuesday/tree/master/2019_01_01_shiny.</description>
+    </item>
+    
+    <item>
+      <title>World Bank Health</title>
+      <link>/portfolio/work3/</link>
+      <pubDate>Sat, 05 Nov 2016 19:44:32 +0530</pubDate>
+      
+      <guid>/portfolio/work3/</guid>
+      <description>&lt;p&gt;This App was developed for the UseR!2019 Datathon&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>BeautifieR</title>
+      <link>/portfolio/work4/</link>
+      <pubDate>Sat, 05 Nov 2016 19:50:47 +0530</pubDate>
+      
+      <guid>/portfolio/work4/</guid>
+      <description>&lt;p&gt;Give me a chart and I&amp;rsquo;ll makeover it powered by &lt;code&gt;ggplot2&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Subte E</title>
+      <link>/portfolio/work5/</link>
+      <pubDate>Sat, 05 Nov 2016 19:53:42 +0530</pubDate>
+      
+      <guid>/portfolio/work5/</guid>
+      <description>&lt;p&gt;Una pequeña App para quejarse de la peor línea ever in the world&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
