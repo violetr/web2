@@ -12,42 +12,12 @@
     
     
     <item>
-      <title>Shiny App #TidyTuesday</title>
+      <title>#TidyTuesday and #DatosDeMieRcoles</title>
       <link>/project/work2/</link>
       <pubDate>Sat, 05 Nov 2016 19:41:01 +0530</pubDate>
       
       <guid>/project/work2/</guid>
-      <description>This is the first Shiny App I developed and also my first #TidyTuesday submission.
-I show the participation of twitter users to the hashtag #TidyTuesday with an interactive Github Heatmap I created with plotly.
-You can find the app here: https://violetr.shinyapps.io/tidytuesdaytweets/.
-You can find the code to generate it here: https://github.com/violetr/tidytuesday/tree/master/2019_01_01_shiny.</description>
-    </item>
-    
-    <item>
-      <title>World Bank Health</title>
-      <link>/project/work3/</link>
-      <pubDate>Sat, 05 Nov 2016 19:44:32 +0530</pubDate>
-      
-      <guid>/project/work3/</guid>
-      <description>&lt;p&gt;This App was developed for the UseR!2019 Datathon&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>BeautifieR</title>
-      <link>/project/work4/</link>
-      <pubDate>Sat, 05 Nov 2016 19:50:47 +0530</pubDate>
-      
-      <guid>/project/work4/</guid>
-      <description>&lt;p&gt;Give me a chart and I&amp;rsquo;ll makeover it powered by &lt;code&gt;ggplot2&lt;/code&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Subte E</title>
-      <link>/project/work5/</link>
-      <pubDate>Sat, 05 Nov 2016 19:53:42 +0530</pubDate>
-      
-      <guid>/project/work5/</guid>
-      <description>&lt;p&gt;Una pequeña App para quejarse de la peor línea ever in the world&lt;/p&gt;</description>
+      <description>Here I put all the data wrangling, visualization and analyses that I made just for fun related to the #TidyTuesday and #DatosDeMieRcoles (Spanish version) initiatives.</description>
     </item>
     
     <item>
@@ -60,12 +30,12 @@ You can find the code to generate it here: https://github.com/violetr/tidytuesda
     </item>
     
     <item>
-      <title>work8</title>
-      <link>/post/work8/</link>
-      <pubDate>Mon, 04 Mar 2019 00:00:00 +0000</pubDate>
+      <title>¿Cuántas mujeres opinaron hoy?</title>
+      <link>/blog/columnistos/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/work8/</guid>
-      <description></description>
+      <guid>/blog/columnistos/</guid>
+      <description>Desde la cuenta de twitter @columnistOS relevan cada día la cantidad y el porcentaje de mujeres que opinaron en los medios de comunicación más grandes de Argentina (La Nación, Clarín y Página 12). En esta nota, hacen un análisis de los datos que relevaron durante todo el 2018 donde se visibiliza la poca de proporción de mujeres que tienen la posibilidad de opinar en un gran medio cada día.</description>
     </item>
     
     <item>
