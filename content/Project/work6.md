@@ -1,8 +1,8 @@
 ---
 date: "2016-11-05T19:53:42+05:30"
 draft: false
-image: "img/portfolio/r4ds-es.png"
-showonlyimage: true
+image: "img/condor.jpg"
+showonlyimage: false
 title: Traducción de R4DS
 weight: 5
 ---
@@ -14,6 +14,8 @@ Colaboré revisando traducciones en el proyecto colectivo de traducción al espa
 Descripción del proyecto:
 
 >Este proyecto tiene por objetivo desarrollar una traducción colaborativa del libro R for Data Science para la comunidad hispanoparlante. Se puede acceder a la versión en español en proceso y sin editar acá.
+
+<img src="/img/portfolio/r4ds-es.png" width=30%>
 
 Te interesa, ¿Cómo participar?
 

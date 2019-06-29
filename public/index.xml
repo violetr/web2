@@ -17,7 +17,9 @@
       <pubDate>Sat, 05 Nov 2016 19:41:01 +0530</pubDate>
       
       <guid>/project/work2/</guid>
-      <description>Here I put all the data wrangling, visualization and analyses that I made just for fun related to the #TidyTuesday and #DatosDeMieRcoles (Spanish version) initiatives.</description>
+      <description>Here I put all the data wrangling, visualization and analyses that I made just for fun related to the #TidyTuesday and #DatosDeMieRcoles (Spanish version) initiatives.
+ Twitter data analysis  I analyzed all #Tidytuesday tweets from 2018 to create a Shiny App that shows your contibution to the challenge with an interactive Github heatmap. app here. code here
+ Rate Men/Women at work  I used the xkcd theme to make a simple barplot showing the percent of women per Activity group.</description>
     </item>
     
     <item>
@@ -35,7 +37,7 @@
       <pubDate>Sun, 05 May 2019 00:00:00 +0000</pubDate>
       
       <guid>/blog/columnistos/</guid>
-      <description>Desde la cuenta de twitter @columnistOS relevan cada día la cantidad y el porcentaje de mujeres que opinaron en los medios de comunicación más grandes de Argentina (La Nación, Clarín y Página 12). En esta nota, hacen un análisis de los datos que relevaron durante todo el 2018 donde se visibiliza la poca de proporción de mujeres que tienen la posibilidad de opinar en un gran medio cada día.</description>
+      <description>Desde la cuenta de twitter @columnistOS relevan cada día la cantidad de mujeres que firmaron notas de opinión en los medios de comunicación más grandes de Argentina (La Nación, Clarín y Página 12). En esta nota, hacen un análisis de los datos que relevaron durante todo el 2018 donde se visibiliza la poca de proporción de mujeres que tienen la posibilidad de opinar en un gran medio cada día.</description>
     </item>
     
     <item>
