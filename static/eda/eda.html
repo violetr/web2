@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Análisis exploratorio de datos</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Violeta" />
+    <meta name="date" content="2019-07-28" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+background-color: #272822
+
+
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+# &lt;center&gt;&lt;font style='color:#E495A5'&gt;A&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;n&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;á&lt;/font&gt;&lt;font style='color:#96B56C'&gt;l&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;i&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;s&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;i&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;s&lt;/font&gt; &lt;font style='color:#C29DDE'&gt;e&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;x&lt;/font&gt;&lt;font style='color:#E495A5'&gt;p&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;l&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;o&lt;/font&gt;&lt;font style='color:#96B56C'&gt;r&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;a&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;t&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;o&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;r&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;i&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;o&lt;/font&gt; &lt;font style='color:#E495A5'&gt;d&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;e&lt;/font&gt; &lt;font style='color:#BDAB66'&gt;d&lt;/font&gt;&lt;font style='color:#96B56C'&gt;a&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;t&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;o&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;s&lt;/font&gt;&lt;/center&gt; 
+## &lt;center&gt;&lt;font style='color:#E495A5'&gt;(&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;E&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;D&lt;/font&gt;&lt;font style='color:#96B56C'&gt;A&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;)&lt;/font&gt;&lt;/center&gt; 
+### &lt;center&gt;&lt;font style='color:#E495A5'&gt;2&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;0&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;1&lt;/font&gt;&lt;font style='color:#96B56C'&gt;9&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;-&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;0&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;7&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;-&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;2&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;8&lt;/font&gt;&lt;/center&gt;
+---
+
+##&lt;font style='color:#E495A5'&gt;A&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;n&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;á&lt;/font&gt;&lt;font style='color:#96B56C'&gt;l&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;i&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;s&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;i&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;s&lt;/font&gt; &lt;font style='color:#C29DDE'&gt;e&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;x&lt;/font&gt;&lt;font style='color:#E495A5'&gt;p&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;l&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;o&lt;/font&gt;&lt;font style='color:#96B56C'&gt;r&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;a&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;t&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;o&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;r&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;i&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;o&lt;/font&gt; &lt;font style='color:#E495A5'&gt;d&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;e&lt;/font&gt; &lt;font style='color:#BDAB66'&gt;d&lt;/font&gt;&lt;font style='color:#96B56C'&gt;a&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;t&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;o&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;s&lt;/font&gt;
+
+### -Material: Datos crudos
+
+### -Objetivo: Entender los datos
+
+### -Flujo de trabajo: iterar 1 y 2 en profundidad
+
+1. Hacerse preguntas sobre los datos
+
+2. Responderlas a partir de transformación, visualización y modelos
+
+### -Requerimientos de paquetes: tidyverse (el más importante), ggstance, lvplot, ggbeeswarm, nycflights13, hexbin
+
+---
+
+.center[
+![](https://media.giphy.com/media/XHVmD4RyXgSjd8aUMb/giphy.gif)]
+
+### ¿Cómo varían las variables?
+
+- ¿Rango?¿Hay valores atípicos (outliers)?¿Hay valores faltantes (NA)?
+
+### ¿Cómo co-varían las variables?
+
+---
+
+background-color: #272822
+
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+# &lt;center&gt;&lt;font style='color:#E495A5'&gt;V&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;A&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;R&lt;/font&gt;&lt;font style='color:#96B56C'&gt;I&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;A&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;N&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;Z&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;A&lt;/font&gt;&lt;/center&gt; 
+
+
+---
+
+##&lt;font style='color:#E495A5'&gt;V&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;a&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;r&lt;/font&gt;&lt;font style='color:#96B56C'&gt;i&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;a&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;b&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;i&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;l&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;i&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;d&lt;/font&gt;&lt;font style='color:#E495A5'&gt;a&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;d&lt;/font&gt;
+
+### Def: tendencia de los valores de una variable a cambiar de observación en observación
+
+Visualizamos la distribución de las variables a partir de gráficos de  según el tipo de variable
+
+### Si categórica (factor o character)-&gt; gráfico de barras
+
+### Si continua (numeric o date) -&gt; histograma
+
+---
+
+##&lt;font style='color:#E495A5'&gt;B&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;a&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;r&lt;/font&gt;&lt;font style='color:#96B56C'&gt;p&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;l&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;o&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;t&lt;/font&gt; &lt;font style='color:#91ACE1'&gt;v&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;s&lt;/font&gt; &lt;font style='color:#DE94C8'&gt;H&lt;/font&gt;&lt;font style='color:#E495A5'&gt;i&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;s&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;t&lt;/font&gt;&lt;font style='color:#96B56C'&gt;o&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;g&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;r&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;a&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;m&lt;/font&gt;
+
+
+
+```r
+p1 &lt;- ggplot(data = diamonds) +
+  geom_bar(mapping = aes(x = cut))
+p2 &lt;- ggplot(data = diamonds) +
+  geom_histogram(mapping = aes(x = carat), binwidth = 0.5)
+p1 + p2
+```
+
+![](eda_files/figure-html/unnamed-chunk-6-1.png)&lt;!-- --&gt;
+
+---
+
+
+
+```r
+diamonds %&gt;% 
+  count(cut)
+```
+
+```
+## # A tibble: 5 x 2
+##   cut           n
+##   &lt;ord&gt;     &lt;int&gt;
+## 1 Fair       1610
+## 2 Good       4906
+## 3 Very Good 12082
+## 4 Premium   13791
+## 5 Ideal     21551
+```
+
+```r
+diamonds %&gt;%
+  count(cut_width(carat, 0.5))
+```
+
+```
+## # A tibble: 11 x 2
+##    `cut_width(carat, 0.5)`     n
+##    &lt;fct&gt;                   &lt;int&gt;
+##  1 [-0.25,0.25]              785
+##  2 (0.25,0.75]             29498
+##  3 (0.75,1.25]             15977
+##  4 (1.25,1.75]              5313
+##  5 (1.75,2.25]              2002
+##  6 (2.25,2.75]               322
+##  7 (2.75,3.25]                32
+##  8 (3.25,3.75]                 5
+##  9 (3.75,4.25]                 4
+## 10 (4.25,4.75]                 1
+## 11 (4.75,5.25]                 1
+```
+
+---
+
+
+```r
+smaller &lt;- diamonds %&gt;% 
+  filter(carat &lt; 3)
+p1 &lt;- ggplot(mapping = aes(x = carat)) +
+  geom_histogram(data = filter(smaller, cut == "Ideal"),
+                 fill = "yellow", binwidth = 0.1, alpha = 0.5) +
+  geom_histogram(data = filter(smaller, cut == "Premium"),
+                 fill = "green", binwidth = 0.1, alpha = 0.5) +
+  geom_histogram(data = filter(smaller, cut == "Fair"),
+                 fill = "purple", binwidth = 0.1, alpha = 0.5)
+p2 &lt;- ggplot(data = smaller, mapping = aes(x = carat, colour = cut)) +
+  geom_freqpoly(binwidth = 0.1)
+p1 / p2
+```
+
+&lt;img src="eda_files/figure-html/unnamed-chunk-8-1.png" width="504" /&gt;
+
+---
+
+##&lt;font style='color:#E495A5'&gt;V&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;a&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;l&lt;/font&gt;&lt;font style='color:#96B56C'&gt;o&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;r&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;e&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;s&lt;/font&gt; &lt;font style='color:#91ACE1'&gt;i&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;n&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;u&lt;/font&gt;&lt;font style='color:#E495A5'&gt;s&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;u&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;a&lt;/font&gt;&lt;font style='color:#96B56C'&gt;l&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;e&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;s&lt;/font&gt; &lt;font style='color:#55B8D0'&gt;(&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;o&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;u&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;t&lt;/font&gt;&lt;font style='color:#E495A5'&gt;l&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;i&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;e&lt;/font&gt;&lt;font style='color:#96B56C'&gt;r&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;s&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;)&lt;/font&gt;
+
+
+```r
+ggplot(diamonds) + 
+  geom_histogram(mapping = aes(x = y), binwidth = 0.5)
+```
+
+![](eda_files/figure-html/unnamed-chunk-10-1.png)&lt;!-- --&gt;
+
+Vemos que el rango en la variable y es muy grande pero no vemos ninguna barrita hacia a la derecha
+
+---
+
+Entonces hacemos zoom a los valores más chicos de el eje vertical
+
+
+```r
+ggplot(diamonds) + 
+  geom_histogram(mapping = aes(x = y), binwidth = 0.5) +
+  coord_cartesian(ylim = c(0, 50))
+```
+
+![](eda_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
+
+
+---
+
+Y finalmente pescamos estos valores raros
+
+
+```r
+unusual &lt;- diamonds %&gt;% 
+  filter(y &lt; 3 | y &gt; 20) %&gt;% 
+  select(price, x, y, z) %&gt;%
+  arrange(y)
+unusual
+```
+
+```
+## # A tibble: 9 x 4
+##   price     x     y     z
+##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1  5139  0      0    0   
+## 2  6381  0      0    0   
+## 3 12800  0      0    0   
+## 4 15686  0      0    0   
+## 5 18034  0      0    0   
+## 6  2130  0      0    0   
+## 7  2130  0      0    0   
+## 8  2075  5.15  31.8  5.12
+## 9 12210  8.09  58.9  8.06
+```
+
+Buena práctica: hacer análisis con y sin outliers. Si los outliers son claramente errores, p.ej. una persona que mide 100 metros, entonces podemos reemplazar por NA.
+
+---
+
+##&lt;font style='color:#E495A5'&gt;E&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;j&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;e&lt;/font&gt;&lt;font style='color:#96B56C'&gt;r&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;c&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;i&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;c&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;i&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;o&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;s&lt;/font&gt; &lt;font style='color:#E495A5'&gt;d&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;e&lt;/font&gt; &lt;font style='color:#BDAB66'&gt;v&lt;/font&gt;&lt;font style='color:#96B56C'&gt;a&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;r&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;i&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;a&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;b&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;i&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;l&lt;/font&gt;&lt;font style='color:#E495A5'&gt;i&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;d&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;a&lt;/font&gt;&lt;font style='color:#96B56C'&gt;d&lt;/font&gt;
+
+1. Explore the distribution of each of the x, y, and z variables in diamonds. What do you learn? Think about a diamond and how you might decide which dimension is the length, width, and depth.
+
+2.  Explore the distribution of price. Do you discover anything unusual or surprising? (Hint: Carefully think about the binwidth and make sure you try a wide range of values.)
+
+3.  How many diamonds are 0.99 carat? How many are 1 carat? What do you think is the cause of the difference?
+
+4.  Compare and contrast coord_cartesian() vs xlim() or ylim() when zooming in on a histogram. What happens if you leave binwidth unset? What happens if you try and zoom so only half a bar shows?
+
+---
+
+background-color: #272822
+
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+# &lt;center&gt;&lt;font style='color:#E495A5'&gt;S&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;P&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;O&lt;/font&gt;&lt;font style='color:#96B56C'&gt;I&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;L&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;E&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;R&lt;/font&gt; &lt;font style='color:#91ACE1'&gt;A&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;L&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;E&lt;/font&gt;&lt;font style='color:#E495A5'&gt;R&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;T&lt;/font&gt;&lt;/center&gt; 
+
+---
+
+## 1. &lt;img src="diamond2.jpg", width = "12%"&gt;
+
+
+```r
+p1 &lt;- ggplot(data = diamonds) +
+  geom_histogram(mapping = aes(x = x), binwidth = 0.5)
+p2 &lt;- ggplot(data = diamonds) +
+  geom_histogram(mapping = aes(x = y), binwidth = 0.5)
+p3 &lt;- ggplot(data = diamonds) +
+  geom_histogram(mapping = aes(x = z), binwidth = 0.5)
+p1 + p2 + p3
+```
+
+![](eda_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
+
+---
+
+## 2. price
+
+
+```r
+p1 &lt;- ggplot(data = diamonds) +
+  geom_histogram(mapping = aes(x = price), binwidth = 10)
+p2 &lt;- ggplot(data = diamonds) +
+  geom_histogram(mapping = aes(x = price), binwidth = 100)
+p3 &lt;- ggplot(data = diamonds) +
+  geom_histogram(mapping = aes(x = price), binwidth = 500)
+p1 / p2 / p3
+```
+
+![](eda_files/figure-html/unnamed-chunk-16-1.png)&lt;!-- --&gt;
+
+---
+
+## 3. 0.99 vs 1
+
+
+```r
+diamonds %&gt;%
+  filter(carat == 1 | carat == 0.99) %&gt;%
+  count(carat)
+```
+
+```
+## # A tibble: 2 x 2
+##   carat     n
+##   &lt;dbl&gt; &lt;int&gt;
+## 1  0.99    23
+## 2  1     1558
+```
+
+La gente tiende a elegir números redondos, además de que en el caso de quilates conviene redorndear para arriba mientras que en los precios por ejemplo se tiende a poner precios con 0.99
+
+---
+
+## 4. coord_cartesian vs xlim
+
+- Coor_cartesian xlim corta el gráfico una vez ya terminado con los datos originales
+
+- xlim filtra a los datos en el rango y hace el gráfico a partir de ese filtrado
+
+
+---
+
+##&lt;font style='color:#E495A5'&gt;V&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;a&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;l&lt;/font&gt;&lt;font style='color:#96B56C'&gt;o&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;r&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;e&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;s&lt;/font&gt; &lt;font style='color:#91ACE1'&gt;f&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;a&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;l&lt;/font&gt;&lt;font style='color:#E495A5'&gt;t&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;a&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;n&lt;/font&gt;&lt;font style='color:#96B56C'&gt;t&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;e&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;s&lt;/font&gt; &lt;font style='color:#55B8D0'&gt;(&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;N&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;A&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;)&lt;/font&gt;
+
+Hay que hacer algo con los valores raros. Algunas opciones:
+
+- Eliminar toda la observación que tenga un outlier
+
+
+```r
+diamonds2 &lt;- diamonds %&gt;% 
+  filter(between(y, 3, 20))
+```
+
+
+- Reemplazar al valor por NA
+
+
+```r
+diamonds2 &lt;- diamonds %&gt;% 
+  mutate(y = ifelse(y &lt; 3 | y &gt; 20, NA, y))
+```
+
+Con NA las funciones de ggplot por ejemplo tiran warnings, que se pueden evitar con na.rm.
+
+OBS:`ifelse` es muy útil, `case_when` sirve para cuando hay más casos y no tener que anidar `ifelse`s.
+
+---
+
+##&lt;font style='color:#E495A5'&gt;E&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;j&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;e&lt;/font&gt;&lt;font style='color:#96B56C'&gt;r&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;c&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;i&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;c&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;i&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;o&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;s&lt;/font&gt; &lt;font style='color:#E495A5'&gt;c&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;o&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;n&lt;/font&gt; &lt;font style='color:#96B56C'&gt;m&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;i&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;s&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;s&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;i&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;n&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;g&lt;/font&gt; &lt;font style='color:#E495A5'&gt;d&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;a&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;t&lt;/font&gt;&lt;font style='color:#96B56C'&gt;a&lt;/font&gt;
+
+1. What happens to missing values in a histogram? What happens to missing values in a bar chart? Why is there a difference?
+
+2. What does na.rm = TRUE do in mean() and sum()?
+
+---
+
+background-color: #272822
+
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+# &lt;center&gt;&lt;font style='color:#E495A5'&gt;S&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;P&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;O&lt;/font&gt;&lt;font style='color:#96B56C'&gt;I&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;L&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;E&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;R&lt;/font&gt; &lt;font style='color:#91ACE1'&gt;A&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;L&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;E&lt;/font&gt;&lt;font style='color:#E495A5'&gt;R&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;T&lt;/font&gt;&lt;/center&gt; 
+
+---
+
+## 1
+
+
+```r
+p1 &lt;- ggplot() +
+  geom_histogram(aes(c(rnorm(100), NA)))
+p2 &lt;- diamonds %&gt;%
+  mutate(cut = if_else(runif(n()) &lt; 0.1, NA_character_, as.character(cut))) %&gt;%
+  ggplot() +
+  geom_bar(mapping = aes(x = cut))
+p1 / p2
+```
+
+```
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+```
+
+```
+## Warning: Removed 1 rows containing non-finite values (stat_bin).
+```
+
+![](eda_files/figure-html/unnamed-chunk-23-1.png)&lt;!-- --&gt;
+
+---
+
+## 2
+
+Si no pongo na.rm = TRUE y tengo NAs entonces el resultado es NA
+
+
+```r
+mean(c(0, 1, 2, NA))
+```
+
+```
+## [1] NA
+```
+
+```r
+mean(c(0, 1, 2, NA), na.rm = TRUE)
+```
+
+```
+## [1] 1
+```
+
+---
+
+background-color: #272822
+
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+# &lt;center&gt;&lt;font style='color:#E495A5'&gt;C&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;O&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;V&lt;/font&gt;&lt;font style='color:#96B56C'&gt;A&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;R&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;I&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;A&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;N&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;Z&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;A&lt;/font&gt;&lt;/center&gt; 
+
+---
+
+##&lt;font style='color:#E495A5'&gt;C&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;o&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;v&lt;/font&gt;&lt;font style='color:#96B56C'&gt;a&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;r&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;i&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;a&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;b&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;i&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;l&lt;/font&gt;&lt;font style='color:#E495A5'&gt;i&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;d&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;a&lt;/font&gt;&lt;font style='color:#96B56C'&gt;d&lt;/font&gt;
+
+### Def: es la tendencia de los valores de dos o más variables a variar juntos con alguna relación. Por ejemplo: el peso tiende a ser mayor en una persona con mayor altura.
+
+De nuevo hacemos gráficos para estudiar esto dependiendo de los tipos de variables involucradas.
+
+- continua con categórica
+
+- categórica con categórica
+
+- continua con continua
+
+---
+
+##&lt;font style='color:#E495A5'&gt;C&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;o&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;n&lt;/font&gt;&lt;font style='color:#96B56C'&gt;t&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;i&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;n&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;u&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;a&lt;/font&gt; &lt;font style='color:#C29DDE'&gt;c&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;o&lt;/font&gt;&lt;font style='color:#E495A5'&gt;n&lt;/font&gt; &lt;font style='color:#D89F7F'&gt;c&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;a&lt;/font&gt;&lt;font style='color:#96B56C'&gt;t&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;e&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;g&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;ó&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;r&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;i&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;c&lt;/font&gt;&lt;font style='color:#E495A5'&gt;a&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;:&lt;/font&gt; &lt;font style='color:#BDAB66'&gt;f&lt;/font&gt;&lt;font style='color:#96B56C'&gt;r&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;e&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;q&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;p&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;o&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;l&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;y&lt;/font&gt;
+
+
+
+```r
+ggplot(data = diamonds, mapping = aes(x = price, y = ..density..)) + 
+  geom_freqpoly(mapping = aes(colour = cut), binwidth = 500)
+```
+
+&lt;img src="eda_files/figure-html/unnamed-chunk-28-1.png" width="504" /&gt;
+
+---
+
+##&lt;font style='color:#E495A5'&gt;C&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;o&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;n&lt;/font&gt;&lt;font style='color:#96B56C'&gt;t&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;i&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;n&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;u&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;a&lt;/font&gt; &lt;font style='color:#C29DDE'&gt;c&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;o&lt;/font&gt;&lt;font style='color:#E495A5'&gt;n&lt;/font&gt; &lt;font style='color:#D89F7F'&gt;c&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;a&lt;/font&gt;&lt;font style='color:#96B56C'&gt;t&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;e&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;g&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;ó&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;r&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;i&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;c&lt;/font&gt;&lt;font style='color:#E495A5'&gt;a&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;:&lt;/font&gt; &lt;font style='color:#BDAB66'&gt;b&lt;/font&gt;&lt;font style='color:#96B56C'&gt;o&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;x&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;p&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;l&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;o&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;t&lt;/font&gt;
+
+&lt;img src="eda-boxplot.png", width = "95%"&gt;
+
+---
+
+##&lt;font style='color:#E495A5'&gt;B&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;o&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;x&lt;/font&gt;&lt;font style='color:#96B56C'&gt;p&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;l&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;o&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;t&lt;/font&gt;
+
+
+
+```r
+ggplot(data = diamonds, mapping = aes(x = cut, y = price)) +
+  geom_boxplot()
+```
+
+![](eda_files/figure-html/unnamed-chunk-31-1.png)&lt;!-- --&gt;
+
+la variable `cut` tiene un orden determinado
+
+---
+
+##&lt;font style='color:#E495A5'&gt;B&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;o&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;x&lt;/font&gt;&lt;font style='color:#96B56C'&gt;p&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;l&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;o&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;t&lt;/font&gt; &lt;font style='color:#91ACE1'&gt;c&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;o&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;n&lt;/font&gt; &lt;font style='color:#E495A5'&gt;r&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;e&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;o&lt;/font&gt;&lt;font style='color:#96B56C'&gt;r&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;d&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;e&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;r&lt;/font&gt;
+
+
+
+```r
+ggplot(data = mpg) +
+  geom_boxplot(mapping = aes(x = reorder(class, hwy, FUN = median), y = hwy)) +
+  coord_flip()
+```
+
+![](eda_files/figure-html/unnamed-chunk-33-1.png)&lt;!-- --&gt;
+
+---
+
+##&lt;font style='color:#E495A5'&gt;E&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;j&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;e&lt;/font&gt;&lt;font style='color:#96B56C'&gt;r&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;c&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;i&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;c&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;i&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;o&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;s&lt;/font&gt; &lt;font style='color:#E495A5'&gt;c&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;o&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;v&lt;/font&gt;&lt;font style='color:#96B56C'&gt;a&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;r&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;i&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;a&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;n&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;z&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;a&lt;/font&gt; &lt;font style='color:#E495A5'&gt;c&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;o&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;n&lt;/font&gt;&lt;font style='color:#96B56C'&gt;t&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;i&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;n&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;u&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;a&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;-&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;c&lt;/font&gt;&lt;font style='color:#E495A5'&gt;a&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;t&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;e&lt;/font&gt;&lt;font style='color:#96B56C'&gt;g&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;ó&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;r&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;i&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;c&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;a&lt;/font&gt;
+
+1. Use what you’ve learned to improve the visualisation of the departure times of cancelled vs. non-cancelled flights.
+
+
+```r
+nycflights13::flights %&gt;% 
+  mutate(
+    cancelled = is.na(dep_time),
+    sched_hour = sched_dep_time %/% 100,
+    sched_min = sched_dep_time %% 100,
+    sched_dep_time = sched_hour + sched_min / 60
+  ) %&gt;% 
+  ggplot(mapping = aes(sched_dep_time)) + 
+    geom_freqpoly(mapping = aes(colour = cancelled), binwidth = 1/4)
+```
+
+![](eda_files/figure-html/unnamed-chunk-35-1.png)&lt;!-- --&gt;
+
+
+2. What variable in the diamonds dataset is most important for predicting the price of a diamond? How is that variable correlated with cut? Why does the combination of those two relationships lead to lower quality diamonds being more expensive?
+
+---
+
+4. One problem with boxplots is that they were developed in an era of much smaller datasets and tend to display a prohibitively large number of “outlying values”. One approach to remedy this problem is the letter value plot. Install the lvplot package, and try using geom_lv() to display the distribution of price vs cut. 
+
+5. Compare and contrast geom_violin() with a facetted geom_histogram(), or a coloured geom_freqpoly(). What are the pros and cons of each method?
+
+6. If you have a small dataset, it’s sometimes useful to use geom_jitter() to see the relationship between a continuous and categorical variable. The ggbeeswarm package provides a number of methods similar to geom_jitter().
+
+
+
+---
+
+background-color: #272822
+
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+# &lt;center&gt;&lt;font style='color:#E495A5'&gt;S&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;P&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;O&lt;/font&gt;&lt;font style='color:#96B56C'&gt;I&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;L&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;E&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;R&lt;/font&gt; &lt;font style='color:#91ACE1'&gt;A&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;L&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;E&lt;/font&gt;&lt;font style='color:#E495A5'&gt;R&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;T&lt;/font&gt;&lt;/center&gt; 
+
+---
+
+
+##  1
+
+```r
+nycflights13::flights %&gt;% 
+  mutate(
+    cancelled = is.na(dep_time),
+    sched_hour = sched_dep_time %/% 100,
+    sched_min = sched_dep_time %% 100,
+    sched_dep_time = sched_hour + sched_min / 60
+  ) %&gt;% 
+  ggplot(mapping = aes(sched_dep_time, y = ..density..)) + 
+    geom_freqpoly(mapping = aes(colour = cancelled), binwidth = 1/4)
+```
+
+![](eda_files/figure-html/unnamed-chunk-37-1.png)&lt;!-- --&gt;
+
+---
+
+
+```r
+p1 &lt;- ggplot(diamonds, aes(x = cut, y = price)) +
+  geom_lv() 
+p2 &lt;- ggplot(data = mpg) +
+  geom_beeswarm(mapping = aes(
+    x = reorder(class, hwy, FUN = median),
+    y = hwy
+  ))
+p1 + p2
+```
+
+![](eda_files/figure-html/unnamed-chunk-38-1.png)&lt;!-- --&gt;
+
+---
+
+##&lt;font style='color:#E495A5'&gt;2&lt;/font&gt; &lt;font style='color:#D89F7F'&gt;c&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;a&lt;/font&gt;&lt;font style='color:#96B56C'&gt;t&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;e&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;g&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;ó&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;r&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;i&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;c&lt;/font&gt;&lt;font style='color:#E495A5'&gt;a&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;s&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;:&lt;/font&gt; &lt;font style='color:#96B56C'&gt;c&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;o&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;u&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;n&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;t&lt;/font&gt;
+
+
+```r
+ggplot(data = diamonds) +
+  geom_count(mapping = aes(x = cut, y = color))
+```
+
+![](eda_files/figure-html/unnamed-chunk-40-1.png)&lt;!-- --&gt;
+
+---
+
+
+##&lt;font style='color:#E495A5'&gt;2&lt;/font&gt; &lt;font style='color:#D89F7F'&gt;c&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;a&lt;/font&gt;&lt;font style='color:#96B56C'&gt;t&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;e&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;g&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;ó&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;r&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;i&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;c&lt;/font&gt;&lt;font style='color:#E495A5'&gt;a&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;s&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;:&lt;/font&gt; &lt;font style='color:#96B56C'&gt;h&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;e&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;a&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;t&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;m&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;a&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;p&lt;/font&gt;
+
+
+```r
+diamonds %&gt;% 
+  count(color, cut) %&gt;%  
+  ggplot(mapping = aes(x = color, y = cut)) +
+    geom_tile(mapping = aes(fill = n))
+```
+
+![](eda_files/figure-html/unnamed-chunk-42-1.png)&lt;!-- --&gt;
+
+
+---
+
+##&lt;font style='color:#E495A5'&gt;E&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;j&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;e&lt;/font&gt;&lt;font style='color:#96B56C'&gt;r&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;c&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;i&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;c&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;i&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;o&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;s&lt;/font&gt; &lt;font style='color:#E495A5'&gt;c&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;o&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;n&lt;/font&gt; &lt;font style='color:#96B56C'&gt;2&lt;/font&gt; &lt;font style='color:#65BC8C'&gt;c&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;a&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;t&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;e&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;g&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;ó&lt;/font&gt;&lt;font style='color:#E495A5'&gt;r&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;i&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;c&lt;/font&gt;&lt;font style='color:#96B56C'&gt;a&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;s&lt;/font&gt;
+
+
+2. Use geom_tile() together with dplyr to explore how average flight delays vary by destination and month of year. What makes the plot difficult to read? How could you improve it?
+
+3. Why is it slightly better to use aes(x = color, y = cut) rather than aes(x = cut, y = color) in the example above?
+
+---
+
+
+## 1
+
+
+```r
+flights %&gt;%
+  group_by(month, dest) %&gt;%
+  summarise(dep_delay = mean(dep_delay, na.rm = TRUE)) %&gt;%
+  ggplot(aes(x = factor(month), y = dest, fill = dep_delay)) +
+  geom_tile() +
+  labs(x = "Month", y = "Destination", fill = "Departure Delay")
+```
+
+![](eda_files/figure-html/unnamed-chunk-44-1.png)&lt;!-- --&gt;
+
+
+## 2 Para que no se superpongan los labels de cut que son más largos
+ 
+---
+
+##&lt;font style='color:#E495A5'&gt;2&lt;/font&gt; &lt;font style='color:#D89F7F'&gt;c&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;o&lt;/font&gt;&lt;font style='color:#96B56C'&gt;n&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;t&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;i&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;n&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;u&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;a&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;s&lt;/font&gt;&lt;font style='color:#E495A5'&gt;:&lt;/font&gt; &lt;font style='color:#D89F7F'&gt;s&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;c&lt;/font&gt;&lt;font style='color:#96B56C'&gt;a&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;t&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;t&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;e&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;r&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;p&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;l&lt;/font&gt;&lt;font style='color:#E495A5'&gt;o&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;t&lt;/font&gt;
+
+
+```r
+p1 &lt;- ggplot(data = diamonds) +
+  geom_point(mapping = aes(x = carat, y = price))
+p2 &lt;- ggplot(data = diamonds) + 
+  geom_point(mapping = aes(x = carat, y = price), alpha = 0.1)
+p1 + p2
+```
+
+![](eda_files/figure-html/unnamed-chunk-46-1.png)&lt;!-- --&gt;
+
+---
+
+##&lt;font style='color:#E495A5'&gt;2&lt;/font&gt; &lt;font style='color:#D89F7F'&gt;c&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;o&lt;/font&gt;&lt;font style='color:#96B56C'&gt;n&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;t&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;i&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;n&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;u&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;a&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;s&lt;/font&gt;&lt;font style='color:#E495A5'&gt;:&lt;/font&gt; &lt;font style='color:#D89F7F'&gt;o&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;t&lt;/font&gt;&lt;font style='color:#96B56C'&gt;r&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;a&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;s&lt;/font&gt; &lt;font style='color:#55B8D0'&gt;s&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;o&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;l&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;u&lt;/font&gt;&lt;font style='color:#E495A5'&gt;c&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;i&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;o&lt;/font&gt;&lt;font style='color:#96B56C'&gt;n&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;e&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;s&lt;/font&gt; &lt;font style='color:#55B8D0'&gt;a&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;l&lt;/font&gt; &lt;font style='color:#C29DDE'&gt;o&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;v&lt;/font&gt;&lt;font style='color:#E495A5'&gt;e&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;r&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;p&lt;/font&gt;&lt;font style='color:#96B56C'&gt;l&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;o&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;t&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;t&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;i&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;n&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;g&lt;/font&gt;
+
+
+
+```r
+p1 &lt;- ggplot(data = smaller) +
+  geom_bin2d(mapping = aes(x = carat, y = price))
+# install.packages("hexbin")
+p2 &lt;- ggplot(data = smaller) +
+  geom_hex(mapping = aes(x = carat, y = price))
+p1 + p2
+```
+
+![](eda_files/figure-html/unnamed-chunk-48-1.png)&lt;!-- --&gt;
+
+---
+
+##&lt;font style='color:#E495A5'&gt;2&lt;/font&gt; &lt;font style='color:#D89F7F'&gt;c&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;o&lt;/font&gt;&lt;font style='color:#96B56C'&gt;n&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;t&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;i&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;n&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;u&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;a&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;s&lt;/font&gt;&lt;font style='color:#E495A5'&gt;:&lt;/font&gt; &lt;font style='color:#D89F7F'&gt;o&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;t&lt;/font&gt;&lt;font style='color:#96B56C'&gt;r&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;a&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;s&lt;/font&gt; &lt;font style='color:#55B8D0'&gt;s&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;o&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;l&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;u&lt;/font&gt;&lt;font style='color:#E495A5'&gt;c&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;i&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;o&lt;/font&gt;&lt;font style='color:#96B56C'&gt;n&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;e&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;s&lt;/font&gt; &lt;font style='color:#55B8D0'&gt;a&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;l&lt;/font&gt; &lt;font style='color:#C29DDE'&gt;o&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;v&lt;/font&gt;&lt;font style='color:#E495A5'&gt;e&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;r&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;p&lt;/font&gt;&lt;font style='color:#96B56C'&gt;l&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;o&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;t&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;t&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;i&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;n&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;g&lt;/font&gt;
+
+
+
+```r
+p1 &lt;- ggplot(data = smaller, mapping = aes(x = carat, y = price)) + 
+  geom_boxplot(mapping = aes(group = cut_width(carat, 0.1)))
+p2 &lt;- ggplot(data = smaller, mapping = aes(x = carat, y = price)) + 
+  geom_boxplot(mapping = aes(group = cut_number(carat, 20)))
+p1 + p2
+```
+
+![](eda_files/figure-html/unnamed-chunk-50-1.png)&lt;!-- --&gt;
+
+---
+
+##&lt;font style='color:#E495A5'&gt;E&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;j&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;e&lt;/font&gt;&lt;font style='color:#96B56C'&gt;r&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;c&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;i&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;c&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;i&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;o&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;s&lt;/font&gt; &lt;font style='color:#E495A5'&gt;c&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;o&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;n&lt;/font&gt; &lt;font style='color:#96B56C'&gt;2&lt;/font&gt; &lt;font style='color:#65BC8C'&gt;c&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;o&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;n&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;t&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;i&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;n&lt;/font&gt;&lt;font style='color:#E495A5'&gt;u&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;a&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;s&lt;/font&gt;
+
+1. Instead of summarising the conditional distribution with a boxplot, you could use a frequency polygon. What do you need to consider when using cut_width() vs cut_number()? How does that impact a visualisation of the 2d distribution of carat and price?
+
+2. Visualise the distribution of carat, partitioned by price.
+
+3. How does the price distribution of very large diamonds compare to small diamonds? Is it as you expect, or does it surprise you?
+
+4. Combine two of the techniques you’ve learned to visualise the combined distribution of cut, carat, and price.
+
+---
+
+5. Two dimensional plots reveal outliers that are not visible in one dimensional plots. For example, some points in the plot below have an unusual combination of x and y values, which makes the points outliers even though their x and y values appear normal when examined separately.
+
+
+
+```r
+ggplot(data = diamonds) +
+  geom_point(mapping = aes(x = x, y = y)) +
+  coord_cartesian(xlim = c(4, 11), ylim = c(4, 11))
+```
+
+![](eda_files/figure-html/unnamed-chunk-52-1.png)&lt;!-- --&gt;
+
+Why is a scatterplot a better display than a binned plot for this case?
+---
+
+background-color: #272822
+
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+# &lt;center&gt;&lt;font style='color:#E495A5'&gt;O&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;t&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;r&lt;/font&gt;&lt;font style='color:#96B56C'&gt;a&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;s&lt;/font&gt; &lt;font style='color:#39BEB1'&gt;c&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;o&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;s&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;a&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;s&lt;/font&gt; &lt;font style='color:#E495A5'&gt;p&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;a&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;r&lt;/font&gt;&lt;font style='color:#96B56C'&gt;a&lt;/font&gt; &lt;font style='color:#65BC8C'&gt;e&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;x&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;p&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;l&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;o&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;r&lt;/font&gt;&lt;font style='color:#E495A5'&gt;a&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;r&lt;/font&gt;&lt;/center&gt; 
+
+
+---
+
+"Los patrones son una de las más útiles herramientas porque revelan covarianza. Si la variabilidad es un fenómeno que crea incertidumbre entonces covariabilidad es un fenómeno que la reduce. Si dos variables covarían, pueden usarse los valores de una para hacer mejores prediciones de la otra."
+
+
+```r
+ggplot(data = faithful) + 
+  geom_point(mapping = aes(x = eruptions, y = waiting))
+```
+
+![](eda_files/figure-html/unnamed-chunk-54-1.png)&lt;!-- --&gt;
+
+---
+
+
+```r
+library(modelr)
+
+mod &lt;- lm(log(price) ~ log(carat), data = diamonds)
+
+diamonds2 &lt;- diamonds %&gt;% 
+  add_residuals(mod) %&gt;% 
+  mutate(resid = exp(resid))
+
+ggplot(data = diamonds2) + 
+  geom_boxplot(mapping = aes(x = cut, y = resid))
+```
+
+![](eda_files/figure-html/unnamed-chunk-55-1.png)&lt;!-- --&gt;
+
+---
+
+##&lt;font style='color:#E495A5'&gt;D&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;o&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;s&lt;/font&gt; &lt;font style='color:#96B56C'&gt;r&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;e&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;c&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;o&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;m&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;e&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;n&lt;/font&gt;&lt;font style='color:#E495A5'&gt;d&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;a&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;c&lt;/font&gt;&lt;font style='color:#96B56C'&gt;i&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;o&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;n&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;e&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;s&lt;/font&gt; &lt;font style='color:#C29DDE'&gt;p&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;a&lt;/font&gt;&lt;font style='color:#E495A5'&gt;r&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;a&lt;/font&gt; &lt;font style='color:#BDAB66'&gt;f&lt;/font&gt;&lt;font style='color:#96B56C'&gt;i&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;j&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;a&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;r&lt;/font&gt; &lt;font style='color:#91ACE1'&gt;e&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;l&lt;/font&gt; &lt;font style='color:#DE94C8'&gt;c&lt;/font&gt;&lt;font style='color:#E495A5'&gt;a&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;p&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;í&lt;/font&gt;&lt;font style='color:#96B56C'&gt;t&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;u&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;l&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;o&lt;/font&gt;
+
+- esta entrada de blog: https://flowingdata.com/2018/10/17/ask-the-question-visualize-the-answer/
+
+- hacerse un datos de miércoles :)
+
+
+---
+
+background-color: #272822
+
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+# &lt;center&gt;&lt;font style='color:#E495A5'&gt;U&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;s&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;a&lt;/font&gt;&lt;font style='color:#96B56C'&gt;r&lt;/font&gt; &lt;font style='color:#65BC8C'&gt;R&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;S&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;t&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;u&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;d&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;i&lt;/font&gt;&lt;font style='color:#E495A5'&gt;o&lt;/font&gt; &lt;font style='color:#D89F7F'&gt;P&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;r&lt;/font&gt;&lt;font style='color:#96B56C'&gt;o&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;j&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;e&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;c&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;t&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;s&lt;/font&gt;&lt;/center&gt; 
+
+---
+
+##&lt;font style='color:#E495A5'&gt;B&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;u&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;e&lt;/font&gt;&lt;font style='color:#96B56C'&gt;n&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;a&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;s&lt;/font&gt; &lt;font style='color:#55B8D0'&gt;p&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;r&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;á&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;c&lt;/font&gt;&lt;font style='color:#E495A5'&gt;t&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;i&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;c&lt;/font&gt;&lt;font style='color:#96B56C'&gt;a&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;s&lt;/font&gt;
+
+
+&lt;img src="rstudio-workspace.png", width = "95%"&gt;
+
+---
+
+##&lt;font style='color:#E495A5'&gt;B&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;u&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;e&lt;/font&gt;&lt;font style='color:#96B56C'&gt;n&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;a&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;s&lt;/font&gt; &lt;font style='color:#55B8D0'&gt;p&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;r&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;á&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;c&lt;/font&gt;&lt;font style='color:#E495A5'&gt;t&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;i&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;c&lt;/font&gt;&lt;font style='color:#96B56C'&gt;a&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;s&lt;/font&gt;
+
+
+- No usar `setwd`: crear un project por cada proyecto de análisis de datos, puede ser útil el paquete `here`.
+
+- Poner los datos en esa carpeta (carpeta `data`)
+
+- Poner los scripts también ahi (carpeta `R`)
+
+- Salvar los outputs ahi (carpeta `outputs`  o `figures`)
+
+- Usar solo paths relativos
+
+- Guardar imágenes solo con código (no con el mouse)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
