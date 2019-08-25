@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Factores</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Violeta" />
+    <meta name="date" content="2019-08-25" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+background-color: #272822
+
+
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+
+# &lt;font style='color:#E495A5'&gt;F&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;a&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;c&lt;/font&gt;&lt;font style='color:#96B56C'&gt;t&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;o&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;r&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;e&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;s&lt;/font&gt; 
+### &lt;font style='color:#E495A5'&gt;(&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;V&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;i&lt;/font&gt;&lt;font style='color:#96B56C'&gt;o&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;l&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;e&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;t&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;a&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;)&lt;/font&gt; 
+### &lt;font style='color:#E495A5'&gt;2&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;0&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;1&lt;/font&gt;&lt;font style='color:#96B56C'&gt;9&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;-&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;0&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;8&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;-&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;2&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;5&lt;/font&gt;
+---
+
+##&lt;font style='color:#E495A5'&gt;F&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;a&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;c&lt;/font&gt;&lt;font style='color:#96B56C'&gt;t&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;o&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;r&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;e&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;s&lt;/font&gt;
+
+- Vector de tipo factor: sirve para guardar variables categóricas
+
+- Ej: respuestas a una pregunta cerrada de encuesta, meses del año, días de la semana, etc
+
+- El paquete `forcats` (for-cat(erogie)s) nos ayuda 
+
+.center[
+&lt;img src="forcats.png", width = 20%&gt;]
+
+- R base convierte variables string a factors automáticamente, tidyverse no (strings_to_factor = FALSE por default)
+
+---
+
+###&lt;font style='color:#E495A5'&gt;F&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;a&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;c&lt;/font&gt;&lt;font style='color:#96B56C'&gt;t&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;o&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;r&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;s&lt;/font&gt; &lt;font style='color:#91ACE1'&gt;b&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;o&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;o&lt;/font&gt;&lt;font style='color:#E495A5'&gt;t&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;c&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;a&lt;/font&gt;&lt;font style='color:#96B56C'&gt;m&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;p&lt;/font&gt;
+
+.center[
+![](https://media.giphy.com/media/8SNLWKcZbjvBm/giphy.gif)]
+
+- definir factor con sus niveles
+
+- modificar el orden de los niveles
+
+- modificar niveles
+
+---
+
+###&lt;font style='color:#E495A5'&gt;D&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;e&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;f&lt;/font&gt;&lt;font style='color:#96B56C'&gt;i&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;n&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;i&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;r&lt;/font&gt; &lt;font style='color:#91ACE1'&gt;f&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;a&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;c&lt;/font&gt;&lt;font style='color:#E495A5'&gt;t&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;o&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;r&lt;/font&gt;&lt;font style='color:#96B56C'&gt;e&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;s&lt;/font&gt;
+
+Esto debería ser un factor:
+
+
+```r
+x1 &lt;- c("Dec", "Apr", "Jan", "Mar")
+```
+
+Porque pasan cosas así:
+
+```r
+x2 &lt;- c("Dec", "Apr", "Jam", "Mar")
+sort(x1)
+```
+
+```
+## [1] "Apr" "Dec" "Jan" "Mar"
+```
+
+###&lt;font style='color:#E495A5'&gt;¿&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;C&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;ó&lt;/font&gt;&lt;font style='color:#96B56C'&gt;m&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;o&lt;/font&gt; &lt;font style='color:#39BEB1'&gt;l&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;o&lt;/font&gt; &lt;font style='color:#91ACE1'&gt;a&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;r&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;r&lt;/font&gt;&lt;font style='color:#E495A5'&gt;e&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;g&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;l&lt;/font&gt;&lt;font style='color:#96B56C'&gt;a&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;m&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;o&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;s&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;?&lt;/font&gt;
+
+
+```r
+month_levels &lt;- c(
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+)
+y1 &lt;- factor(x1, levels = month_levels)
+```
+
+---
+
+Ahora tenemos orden razonable:
+
+
+```r
+sort(y1)
+```
+
+```
+## [1] Jan Mar Apr Dec
+## Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
+```
+
+y los errores de tipeo son `NA` (sin warning)
+
+```r
+y2 &lt;- factor(x2, levels = month_levels)
+y2
+```
+
+```
+## [1] Dec  Apr  &lt;NA&gt; Mar 
+## Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
+```
+
+si no aclaramos los levels al definir el factor entonces el default es orden alfabético
+
+Podemos acceder a los niveles:
+
+```r
+levels(y2)
+```
+
+```
+##  [1] "Jan" "Feb" "Mar" "Apr" "May" "Jun" "Jul" "Aug" "Sep" "Oct" "Nov"
+## [12] "Dec"
+```
+
+---
+
+
+###&lt;font style='color:#E495A5'&gt;T&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;r&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;a&lt;/font&gt;&lt;font style='color:#96B56C'&gt;b&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;a&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;j&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;a&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;m&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;o&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;s&lt;/font&gt; &lt;font style='color:#E495A5'&gt;c&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;o&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;n&lt;/font&gt; &lt;font style='color:#96B56C'&gt;u&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;n&lt;/font&gt; &lt;font style='color:#39BEB1'&gt;d&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;a&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;t&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;a&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;s&lt;/font&gt;&lt;font style='color:#E495A5'&gt;e&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;t&lt;/font&gt; &lt;font style='color:#BDAB66'&gt;d&lt;/font&gt;&lt;font style='color:#96B56C'&gt;e&lt;/font&gt; &lt;font style='color:#65BC8C'&gt;e&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;n&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;c&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;u&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;e&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;s&lt;/font&gt;&lt;font style='color:#E495A5'&gt;t&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;a&lt;/font&gt;
+
+
+```r
+str(gss_cat)
+```
+
+```
+## Classes 'tbl_df', 'tbl' and 'data.frame':	21483 obs. of  9 variables:
+##  $ year   : int  2000 2000 2000 2000 2000 2000 2000 2000 2000 2000 ...
+##  $ marital: Factor w/ 6 levels "No answer","Never married",..: 2 4 5 2 4 6 2 4 6 6 ...
+##  $ age    : int  26 48 67 39 25 25 36 44 44 47 ...
+##  $ race   : Factor w/ 4 levels "Other","Black",..: 3 3 3 3 3 3 3 3 3 3 ...
+##  $ rincome: Factor w/ 16 levels "No answer","Don't know",..: 8 8 16 16 16 5 4 9 4 4 ...
+##  $ partyid: Factor w/ 10 levels "No answer","Don't know",..: 6 5 7 6 9 10 5 8 9 4 ...
+##  $ relig  : Factor w/ 16 levels "No answer","Don't know",..: 15 15 15 6 12 15 5 15 15 15 ...
+##  $ denom  : Factor w/ 30 levels "No answer","Don't know",..: 25 23 3 30 30 25 30 15 4 25 ...
+##  $ tvhours: int  12 NA 2 4 1 NA 3 NA 0 3 ...
+```
+
+Recordar `count`
+
+```r
+gss_cat %&gt;%
+  count(race)
+```
+
+```
+## # A tibble: 3 x 2
+##   race      n
+##   &lt;fct&gt; &lt;int&gt;
+## 1 Other  1959
+## 2 Black  3129
+## 3 White 16395
+```
+
+---
+
+
+###&lt;font style='color:#E495A5'&gt;M&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;o&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;d&lt;/font&gt;&lt;font style='color:#96B56C'&gt;i&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;f&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;i&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;c&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;a&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;r&lt;/font&gt; &lt;font style='color:#DE94C8'&gt;o&lt;/font&gt;&lt;font style='color:#E495A5'&gt;r&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;d&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;e&lt;/font&gt;&lt;font style='color:#96B56C'&gt;n&lt;/font&gt;
+
+
+```r
+relig_summary &lt;- gss_cat %&gt;%
+  group_by(relig) %&gt;%
+  summarise(
+    age = mean(age, na.rm = TRUE),
+    tvhours = mean(tvhours, na.rm = TRUE),
+    n = n()
+  )
+
+ggplot(relig_summary, aes(tvhours, relig)) + geom_point()
+```
+
+![](index_files/figure-html/unnamed-chunk-16-1.png)&lt;!-- --&gt;
+
+
+---
+
+
+```r
+ggplot(relig_summary, aes(tvhours, fct_reorder(relig, tvhours))) +
+  geom_point()
+```
+
+![](index_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
+
+---
+
+Pero no tiene sentido hacer este reorden en este caso:
+
+
+```r
+rincome_summary &lt;- gss_cat %&gt;%
+  group_by(rincome) %&gt;%
+  summarise(
+    age = mean(age, na.rm = TRUE),
+    tvhours = mean(tvhours, na.rm = TRUE),
+    n = n()
+  )
+
+ggplot(rincome_summary, aes(age, fct_reorder(rincome, age))) + geom_point()
+```
+
+![](index_files/figure-html/unnamed-chunk-18-1.png)&lt;!-- --&gt;
+
+
+---
+
+En estos casos podemos usar `fct_relevel` si queremos reordenar algunos levels al lugar que queramos
+
+
+```r
+p1 &lt;- ggplot(rincome_summary, aes(age, rincome)) +
+  geom_point()
+p2 &lt;- ggplot(rincome_summary, aes(age, fct_relevel(rincome, "Not applicable"))) +
+  geom_point()
+p1 + p2
+```
+
+![](index_files/figure-html/unnamed-chunk-19-1.png)&lt;!-- --&gt;
+
+---
+
+Ejemplo de relevel:
+
+
+```r
+levels(gss_cat$rincome)
+```
+
+```
+##  [1] "No answer"      "Don't know"     "Refused"        "$25000 or more"
+##  [5] "$20000 - 24999" "$15000 - 19999" "$10000 - 14999" "$8000 to 9999" 
+##  [9] "$7000 to 7999"  "$6000 to 6999"  "$5000 to 5999"  "$4000 to 4999" 
+## [13] "$3000 to 3999"  "$1000 to 2999"  "Lt $1000"       "Not applicable"
+```
+
+```r
+rincome_relev &lt;- fct_relevel(gss_cat$rincome, "Not applicable", "Don't know", after = 3L)
+levels(rincome_relev)
+```
+
+```
+##  [1] "No answer"      "Refused"        "$25000 or more" "Not applicable"
+##  [5] "Don't know"     "$20000 - 24999" "$15000 - 19999" "$10000 - 14999"
+##  [9] "$8000 to 9999"  "$7000 to 7999"  "$6000 to 6999"  "$5000 to 5999" 
+## [13] "$4000 to 4999"  "$3000 to 3999"  "$1000 to 2999"  "Lt $1000"
+```
+
+---
+
+Otro reorden de factors que es un **lindo detalle**
+ 
+
+```r
+by_age &lt;- gss_cat %&gt;%
+  filter(!is.na(age)) %&gt;%
+  count(age, marital) %&gt;%
+  group_by(age) %&gt;%
+  mutate(prop = n / sum(n))
+
+p1 &lt;- ggplot(by_age, aes(age, prop, colour = marital)) +
+  geom_line(na.rm = TRUE)
+p2 &lt;- ggplot(by_age, aes(age, prop, colour = fct_reorder2(marital, age, prop))) +
+  geom_line() +
+  labs(colour = "marital")
+p1 + p2
+```
+
+![](index_files/figure-html/unnamed-chunk-21-1.png)&lt;!-- --&gt;
+
+
+---
+
+Por último, para los barplots están `fct_infreq()` y `fct_rev()` que ordenan directo sin indicar variable
+
+
+```r
+gss_cat %&gt;%
+  mutate(marital = marital %&gt;% fct_infreq() %&gt;% fct_rev()) %&gt;%
+  ggplot(aes(marital)) +
+    geom_bar()
+```
+
+![](index_files/figure-html/unnamed-chunk-22-1.png)&lt;!-- --&gt;
+
+
+
+---
+
+###&lt;font style='color:#E495A5'&gt;M&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;o&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;d&lt;/font&gt;&lt;font style='color:#96B56C'&gt;i&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;f&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;i&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;c&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;a&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;r&lt;/font&gt; &lt;font style='color:#DE94C8'&gt;l&lt;/font&gt;&lt;font style='color:#E495A5'&gt;e&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;v&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;e&lt;/font&gt;&lt;font style='color:#96B56C'&gt;l&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;s&lt;/font&gt;
+
+Tenemos la función `fct_recode` para recodificar niveles. Ej:
+
+
+```r
+gss_cat %&gt;% count(partyid)
+```
+
+```
+## # A tibble: 10 x 2
+##    partyid                n
+##    &lt;fct&gt;              &lt;int&gt;
+##  1 No answer            154
+##  2 Don't know             1
+##  3 Other party          393
+##  4 Strong republican   2314
+##  5 Not str republican  3032
+##  6 Ind,near rep        1791
+##  7 Independent         4119
+##  8 Ind,near dem        2499
+##  9 Not str democrat    3690
+## 10 Strong democrat     3490
+```
+
+
+---
+
+
+```r
+gss_cat %&gt;%
+  mutate(partyid = fct_recode(partyid,
+    "Republican, strong"    = "Strong republican",
+    "Republican, weak"      = "Not str republican",
+    "Independent, near rep" = "Ind,near rep",
+    "Independent, near dem" = "Ind,near dem",
+    "Democrat, weak"        = "Not str democrat",
+    "Democrat, strong"      = "Strong democrat"
+  )) %&gt;%
+  count(partyid)
+```
+
+```
+## # A tibble: 10 x 2
+##    partyid                   n
+##    &lt;fct&gt;                 &lt;int&gt;
+##  1 No answer               154
+##  2 Don't know                1
+##  3 Other party             393
+##  4 Republican, strong     2314
+##  5 Republican, weak       3032
+##  6 Independent, near rep  1791
+##  7 Independent            4119
+##  8 Independent, near dem  2499
+##  9 Democrat, weak         3690
+## 10 Democrat, strong       3490
+```
+
+---
+
+que también sirve para combinar grupos:
+
+```r
+gss_cat %&gt;%
+  mutate(partyid = fct_recode(partyid,
+    "Republican, strong"    = "Strong republican",
+    "Republican, weak"      = "Not str republican",
+    "Independent, near rep" = "Ind,near rep",
+    "Independent, near dem" = "Ind,near dem",
+    "Democrat, weak"        = "Not str democrat",
+    "Democrat, strong"      = "Strong democrat",
+    "Other"                 = "No answer",
+    "Other"                 = "Don't know",
+    "Other"                 = "Other party"
+  )) %&gt;%
+  count(partyid)
+```
+
+```
+## # A tibble: 8 x 2
+##   partyid                   n
+##   &lt;fct&gt;                 &lt;int&gt;
+## 1 Other                   548
+## 2 Republican, strong     2314
+## 3 Republican, weak       3032
+## 4 Independent, near rep  1791
+## 5 Independent            4119
+## 6 Independent, near dem  2499
+## 7 Democrat, weak         3690
+## 8 Democrat, strong       3490
+```
+
+
+---
+
+Alternativa `fct_collapse`, hace lo mismo pero distinta sintaxis, útil si reagrupo mucho para evitar repetir
+
+
+```r
+gss_cat %&gt;%
+  mutate(partyid = fct_collapse(partyid,
+    other = c("No answer", "Don't know", "Other party"),
+    rep = c("Strong republican", "Not str republican"),
+    ind = c("Ind,near rep", "Independent", "Ind,near dem"),
+    dem = c("Not str democrat", "Strong democrat")
+  )) %&gt;%
+  count(partyid)
+```
+
+```
+## # A tibble: 4 x 2
+##   partyid     n
+##   &lt;fct&gt;   &lt;int&gt;
+## 1 other     548
+## 2 rep      5346
+## 3 ind      8409
+## 4 dem      7180
+```
+
+
+---
+
+Otra función para agrupar los grupos chiquitos bajo la categoría "Other":
+
+
+```r
+gss_cat %&gt;%
+  mutate(relig = fct_lump(relig, n = 10)) %&gt;%
+  count(relig, sort = TRUE) %&gt;%
+  print(n = Inf)
+```
+
+```
+## # A tibble: 10 x 2
+##    relig                       n
+##    &lt;fct&gt;                   &lt;int&gt;
+##  1 Protestant              10846
+##  2 Catholic                 5124
+##  3 None                     3523
+##  4 Christian                 689
+##  5 Other                     458
+##  6 Jewish                    388
+##  7 Buddhism                  147
+##  8 Inter-nondenominational   109
+##  9 Moslem/islam              104
+## 10 Orthodox-christian         95
+```
+
+---
+
+##&lt;font style='color:#E495A5'&gt;L&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;i&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;s&lt;/font&gt;&lt;font style='color:#96B56C'&gt;t&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;o&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;!&lt;/font&gt;
+
+.center[
+![](https://media.giphy.com/media/ule4vhcY1xEKQ/giphy.gif)]
+
+---
+
+###&lt;font style='color:#E495A5'&gt;E&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;J&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;E&lt;/font&gt;&lt;font style='color:#96B56C'&gt;R&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;C&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;I&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;C&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;I&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;O&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;S&lt;/font&gt;&lt;font style='color:#E495A5'&gt;:&lt;/font&gt;
+
+- Explore the distribution of rincome (reported income). What makes the default bar chart hard to understand? How could you improve the plot?
+
+- What is the most common relig in this survey?
+
+- Which relig does denom (denomination) apply to? How can you find out with a table? How can you find out with a visualisation?
+
+- For each factor in gss_cat identify whether the order of the levels is arbitrary or principled.
+
+- Why did moving “Not applicable” to the front of the levels move it to the bottom of the plot?
+
+- How could you collapse rincome into a small set of categories?
+
+---
+
+Explore the distribution of rincome (reported income). What makes the default bar chart hard to understand? How could you improve the plot?
+
+```r
+p1 &lt;- ggplot(gss_cat) +
+  geom_bar(aes(rincome))
+p2 &lt;- ggplot(gss_cat) +
+  geom_bar(aes(fct_relevel(rincome, "Not applicable"))) +
+  coord_flip()
+p1 + p2
+```
+
+![](index_files/figure-html/unnamed-chunk-31-1.png)&lt;!-- --&gt;
+
+---
+
+What is the most common relig in this survey?
+
+```r
+gss_cat %&gt;%
+  count(relig) %&gt;%
+  arrange(desc(n))
+```
+
+```
+## # A tibble: 15 x 2
+##    relig                       n
+##    &lt;fct&gt;                   &lt;int&gt;
+##  1 Protestant              10846
+##  2 Catholic                 5124
+##  3 None                     3523
+##  4 Christian                 689
+##  5 Jewish                    388
+##  6 Other                     224
+##  7 Buddhism                  147
+##  8 Inter-nondenominational   109
+##  9 Moslem/islam              104
+## 10 Orthodox-christian         95
+## 11 No answer                  93
+## 12 Hinduism                   71
+## 13 Other eastern              32
+## 14 Native american            23
+## 15 Don't know                 15
+```
+
+
+---
+
+Which relig does denom (denomination) apply to? How can you find out with a table? How can you find out with a visualisation?
+
+
+```r
+gss_cat %&gt;%
+  filter(denom != "Not applicable") %&gt;%
+  distinct(relig)
+```
+
+```r
+gss_cat %&gt;%
+  count(relig, denom) %&gt;%
+  ggplot() +
+  geom_tile(aes(x = relig, y = denom, fill = n))
+```
+
+![](index_files/figure-html/unnamed-chunk-34-1.png)&lt;!-- --&gt;
+
+
+---
+
+- For each factor in gss_cat identify whether the order of the levels is arbitrary or principled.
+
+Arbitrario: raza, partyid, relig, denom, marital
+
+No arbitrario: rincome
+
+- Why did moving “Not applicable” to the front of the levels move it to the bottom of the plot?
+
+Los levels se grafican de abajo para arriba en el gráfico
+
+- How could you collapse rincome into a small set of categories?
+
+Hay que usar `fact_collapse` y no `fct_lump` porque hay que respetar el orden de la variable
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
