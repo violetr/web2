@@ -7,19 +7,17 @@ title: Traducción de R4DS
 weight: 5
 ---
 
-Colaboré revisando traducciones en el proyecto colectivo de traducción al español del libro R4DS.
+Colaboré revisando traducciones en el proyecto colectivo de traducción al español del libro [R4DS](R4ds.had.co.nz/). 
 
 <!--more-->
 
 Descripción del proyecto:
 
->Este proyecto tiene por objetivo desarrollar una traducción colaborativa del libro R for Data Science para la comunidad hispanoparlante. Se puede acceder a la versión en español en proceso y sin editar acá.
+>Este proyecto tiene por objetivo desarrollar una traducción colaborativa del libro R for Data Science para la comunidad hispanoparlante. 
 
 <img src="/img/portfolio/r4ds-es.png" width=30%>
 
-Te interesa, ¿Cómo participar?
+Este libro es una muy buena introducción al mundo de la Ciencia de Datos usando como herramienta el lenguaje de programación R. El libro empieza con las bases del lenguaje R. A lo largo de sus páginas incorpora las nociones necesarias para el manejo de datos. Empezando con cómo leer una base de datos y limpiarlos con los paquetes `readr` y `dplyr`. Aprendiendo a visualizarlos con el paquete `ggplot`y finalmente mostrando lo simple que es presentar los análisis realizados con `rmarkdown`.
 
->Este es un proyecto abierto a la comunidad en el que todas las personas pueden participar siempre y cuando adscriban nuestro código de conducta. Si tienes interés en sumarte al equipo, revisa los documentos para conocer cómo estamos organizando el trabajo y luego contáctanos a través del issue que hemos abierto para ese propósito.
-
-Acá se encuentra la traducción en proceso: https://es.r4ds.hadley.nz/.
+Acá se encuentra la traducción al español finalizada: https://es.r4ds.hadley.nz/.
 
