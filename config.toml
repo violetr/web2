@@ -22,8 +22,8 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
   description = "My personal website"
   copyright = "&copy;2018 Violeta Roizman"
   sidebarAbout = [
-    "I'm a Ph.D. student in Machine Learning. My thesis is focused on unsupervised learning methods. I like both R and Python :)",
-    "I'll show here some of my personal DS/ML projects."
+    "I'm a Ph.D. student in Signal Processing/ML/Stats. My thesis is focused on unsupervised learning methods. I like both R and Python :)",
+    ""
   ]
   # Contact page
      # Since this template is static, the contact form uses www.formspree.io as a
