@@ -2,11 +2,13 @@
 title: "Is HIV under control?"
 subtitle: "UseR!2019 Datathon submission"
 author: "Violeta Roizman"
+description: "An analysis of HIV situation"
 image: img/portfolio/peoplep.jpg
-showonlyimage: true
+showonlyimage: false
 date: "4 de marzo de 2019"
 ---
 
+UseR!2019 Datathon submission
 
 ```{r setup, include=FALSE, warning=FALSE}
 knitr::opts_chunk$set(echo = FALSE, fig.align="center")
@@ -37,14 +39,15 @@ library(dbscan)
 
 library(htmlwidgets)
 library(htmltools)
+library(kableExtra)
 
-# palette
+
 my_palette <- rainbow_hcl(8)
 ```
 
 In this document I present my analysis of the "Health, Nutrition and Population Statistics" dataset hosted by the World Bank Group. It was compiled from an RMarkdown file `datathon2019.Rmd`. A Shiny App showing the discussed topic and other visualizations can be accessed here. It's a complementary material but it doesn't replace this report. All the code that I used to build both the document and the application is available in this repository: github.com/violetr/health. 
 
-<center><img src="/img/portfolio/aids_6.png", width = "20%"></center>
+<center><img src="/img/portfolio/aids_6.png" width = "20%"></center>
 
 I analyzed the prevalence of HIV, paying special attention to risk areas. The results show good news regarding HIV control. It was also interesting to monitor the related indicators like knowledge about the virus and the progress regarding safe practices.  
 
@@ -169,7 +172,8 @@ indicators_hnp_keep %>%
   filter(str_detect(indicator_name, "AIDS") | str_detect(indicator_name, "HIV") |
     str_detect(indicator_name, "Condom")) %>%
   select(indicator_name, series_code) %>% 
-  kable("html")
+  kable() %>%
+  kable_styling()
 ```
 
 <br>
@@ -670,9 +674,9 @@ Of course education, and in particular HIV knowledge is highly related with the 
 <br>
 
 <center>
-<img src="/img/aids_2.jpg", width = "30%">
-<img src="/img/aids_3.jpg", width = "30%">
-<img src="/img/aids_4.jpg", width = "30%">
+<img src="/img/aids_2.jpg" width = "30%">
+<img src="/img/aids_3.jpg" width = "30%">
+<img src="/img/aids_4.jpg" width = "30%">
 </center>
 
 <br>
@@ -720,7 +724,7 @@ g_kn_fe <- dataset_hnp_health %>%
     country_name %in% high_risk
   ) %>%
   ggplot(aes(year, SH.HIV.KNOW.FE.ZS, color = country_name, group = country_name)) +
-  geom_line(size = 0.8) +
+  geom_point(size = 1.3) +
   xlab("Year") +
   ylab("Percent of females") +
   ggtitle("HIV knowledge") +
@@ -743,7 +747,7 @@ g_kn_ma <- dataset_hnp_health %>%
     country_name %in% high_risk
   ) %>%
   ggplot(aes(year, SH.HIV.KNOW.MA.ZS, color = country_name, group = country_name)) +
-  geom_line(size = 0.8) +
+  geom_point(size = 1.3) +
   xlab("Year") +
   ylab("Percent of males") +
   ggtitle("") +
@@ -784,7 +788,7 @@ g_fe <- dataset_hnp_health %>%
     country_name %in% high_risk
   ) %>%
   ggplot(aes(year, SH.CON.AIDS.FE.ZS, color = country_name, group = country_name)) +
-  geom_line(size = 0.8) +
+  geom_point(size = 1.3) +
   xlab("Year") +
   ylab("Percent of females") +
   ggtitle("Condom use at last high-risk sex") +
@@ -802,7 +806,7 @@ g_ma <- dataset_hnp_health %>%
     country_name %in% high_risk
   ) %>%
   ggplot(aes(year, SH.CON.AIDS.MA.ZS, color = country_name, group = country_name)) +
-  geom_line(size = 0.8) +
+  geom_point(size = 1.3) +
   xlab("Year") +
   ylab("Percent of males") +
   ggtitle("") +

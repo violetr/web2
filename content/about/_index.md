@@ -10,6 +10,3 @@ Hi! I'm Violeta, currently a Ph.D. candidate studying clustering methods in a jo
 
 [1]: /img/about.jpg 
 [2]: /img/about.jpg
-
-
-Get in touch: violeroizman@gmail.com

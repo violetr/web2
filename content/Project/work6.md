@@ -11,8 +11,6 @@ Colaboré revisando traducciones en el proyecto colectivo de traducción al espa
 
 <!--more-->
 
-Descripción del proyecto:
-
 >Este proyecto tiene por objetivo desarrollar una traducción colaborativa del libro R for Data Science para la comunidad hispanoparlante. 
 
 <img src="/img/portfolio/r4ds-es.png" width=30%>
