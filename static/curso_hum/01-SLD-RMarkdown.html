@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Proyectos y RMarkdown</title>
+    <meta charset="utf-8" />
+    <meta name="date" content="2020-11-25" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+background-color: #272822
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+
+&lt;h1 style='color:white'&gt; &lt;center&gt; R para contextos humanitarios de emergencia&lt;/center&gt;&lt;/h1&gt; 
+## &lt;center&gt;&lt;font style='color:#E495A5'&gt;P&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;r&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;o&lt;/font&gt;&lt;font style='color:#96B56C'&gt;y&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;e&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;c&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;t&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;o&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;s&lt;/font&gt; &lt;font style='color:#DE94C8'&gt;y&lt;/font&gt; &lt;font style='color:#E495A5'&gt;R&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;M&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;a&lt;/font&gt;&lt;font style='color:#96B56C'&gt;r&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;k&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;d&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;o&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;w&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;n&lt;/font&gt;&lt;/center&gt; 
+### &lt;center&gt;&lt;font style='color:#E495A5'&gt;2&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;5&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;-&lt;/font&gt;&lt;font style='color:#96B56C'&gt;1&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;1&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;-&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;2&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;0&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;2&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;0&lt;/font&gt;&lt;/center&gt;
+
+---
+background-color: #272822
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+
+# &lt;center&gt;&lt;font style='color:#E495A5'&gt;P&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;r&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;o&lt;/font&gt;&lt;font style='color:#96B56C'&gt;y&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;e&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;c&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;t&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;o&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;s&lt;/font&gt;&lt;/center&gt;
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Directorio de trabajo
+
+R va a buscar en el "directorio de trabajo" por defecto cualquier archivo que le pidas leer (y va a guardarlo ahí también)
+
+Puedes averiguar cual es:
+
+
+```r
+getwd()
+```
+
+```
+## [1] "C:/Users/viole/Documents/curso_R_humanitarios"
+```
+
+Puedes cambiarlo también: 
+
+
+```r
+setwd("C\\Users\\violeta\\mi_carpeta_favorita")
+```
+
+Pero existe una herramienta para no tener que lidiar con esto:
+
+&lt;center&gt;⭐PROYECTOS⭐&lt;/center&gt;
+
+
+---
+
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Siempre vamos a trabajar en proyectos
+Qué es?
+- Carpeta que contiene TODOS los archivos relacionados a un proyecto
+  - .R (codigo en R)
+  - Imagenes (.png, .pdf, etc)
+  - Datos (.csv, .xls, etc)
+
+Por qué es ventajoso trabajar en ellos?
+- Es más ordenado
+
+- Ayuda a trabajar con *paths* relativos y no absolutos
+
+- Si quiero abrir un dato dentro de mi proyecto
+
+&gt; "mi_dato.csv" 
+
+en lugar de 
+
+&gt; "C\\Users\\violeta\\mi_carpeta_favorita\\mi_dato.csv"
+
+---
+
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Tu turno: Crea un nuevo proyecto en RStudio
+
+1. Haz click en el menú “Archivo” (`File`) y luego en “Nuevo Proyecto” (`New Project`)
+
+2. Haz click en “Nueva Carpeta” (`New Directory`)
+
+3. Haz click en “Nuevo Proyecto” (`New Project`)
+
+4. Escribe el nombre de la carpeta que alojará a tu proyecto, por ejemplo “mi_proyecto”
+
+5. Haz click en “Crear Proyecto” (`Create Project`)
+
+---
+
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Tu turno: Abre tu nuevo proyecto desde el explorador de archivos
+
+1. Cierra RStudio
+
+2. Desde el explorador de archivos, busca la carpeta donde creaste tu proyecto.
+
+3. Haz doble click en el archivo que tiene el nombre de tu proyecto (y que termina con .Rproj) que encontrarás en esa carpeta.
+
+---
+
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Estructura de un proyecto
+
+- Carpeta que contiene TODOS los archivos relacionados a un proyecto
+
+- Ordenado con sub-carpetas
+
+- Subcarpetas que deberían estar si o si (hay que agregarlas)
+  - datos (o data)
+  - img
+
+- En general hay una subcarpeta R para contener el código
+
+- mi_proyecto/
+  - datos/
+      - dataset1.csv
+      - dataset2.xls
+  - img/
+      - foto1.jpg
+      - diagrama1.png
+  - R/
+      - limpiar_datos.R
+
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Manejo de un proyecto
+
+Puedes crear nuevas carpetas para organizar tu proyecto en el explorador de carpetas o en la pestaña `Files` de la alacena de RStudio (abajo a la derecha)
+
+Para guardar un archivo de código, haz como normalmente en Windows 
+
+&gt; File-&gt;Save/Save as-&gt;Elegir normbre si corresponde + Guardar/Save
+
+**Tu turno:**
+
+1. Crea una carpeta llamada R dentro del proyecto creado
+
+1. Crea un archivo con un vector con los numeros del 1 al 30
+
+2. Guarda el vector en una variable llamada `mes`
+
+3. Guarda el codigo con el nombre "mes.R"
+
+---
+background-color: #272822
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+
+# &lt;center&gt;&lt;font style='color:#E495A5'&gt;R&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;M&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;a&lt;/font&gt;&lt;font style='color:#96B56C'&gt;r&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;k&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;d&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;o&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;w&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;n&lt;/font&gt;&lt;/center&gt;
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## RMarkdown: combinar todo junto
+
+![](img/allisonrmarkdown.png)
+&lt;p style="color: gray; font-size:15px"&gt; Ilustración adaptada de Allison Horst
+&lt;/p&gt;
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Una notebook RMarkdown
+
+![](img/rmarkdownintro.png)
+&lt;p style="color: gray; font-size:15px"&gt; Imagen adaptada del curso "Master the tidyverse" - Garrett Grolemund &lt;br&gt;
+github.com/rstudio-education/master-the-tidyverse-instructors
+&lt;/p&gt;
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Tu turno: Crea una notebook RMarkdown
+
+1. File &gt; New File &gt; RMarkdown...
+
+2. Elegir un nombre del archivo 
+
+3. Elegir formato deseado
+
+4. Guardar
+
+Se genera una plantilla con un  ejemplo
+
+La extensión del archivo es ".Rmd"
+
+Para generar el output hay que apretar el botón Knit
+
+![](img/knit.png)
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Estructura de un .Rmd
+
+Cualquier archivo de este tipo tiene 3 partes principales:
+
+- El **encabezado** o **yaml** que determina generalidades como formato de salida, etc.
+
+- El **texto** que puede estar a lo largo de todo el documento 
+
+- El **código en bloques** o **chuncks**
+
+&lt;center&gt;&lt;img src="img/elementosRM2.png" alt="Hex stickers" height="325"&gt;&lt;/center&gt;
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Markdown
+
+Cuando escribimos el texto de nuestro archivo, podemos agregar cierta sintaxis para que el texto generado no se vea solo como un block de notas
+
+- **negrita** usando dos asteriscos así: `**negrita**`  
+- *italizada* con un asterisco de cada lado: `*italics*`
+
+lista de elementos utilizando guiones medios
+
+``` r
+- la negrita se consigue con dos asteriscos
+- la italizada con un asterisco
+- y para resaltar código se usa el acento grave `
+```
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Markdown
+
+También:
+
+- Títulos con distinta jerarquía agregando `#` al comienzo. Esto además define secciones dentro del documento:
+
+```
+# Título
+## El primer subtítulo
+### Sub con menos jerarquia, etc.
+```
+
+- Link a una página externa: "[text to show]""(http://the-web-page.com)" 
+
+- Incluir una imagen: "!(http://url/for/file)"
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Posibles resultados finales de RMarkdown
+
+- Word
+- HTML
+- PDF (se necesita instalar `tinytex::install_tinytex()`, no probar ahora! tarda mucho tiempo)
+
+&lt;center&gt;
+&lt;img src="img/outputRMhtml.png" alt="Hex stickers" width="300"&gt;
+&lt;img src="img/outputRMword.png" alt="Hex stickers" width="300"&gt;
+&lt;/center&gt;
+
+&lt;center&gt;&lt;img src="img/outputpdf.png" alt="Hex stickers" width="300"&gt;&lt;/center&gt;
+
+---
+
+background-color: #272822
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+
+# &lt;center&gt;&lt;font style='color:#E495A5'&gt;A&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;h&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;o&lt;/font&gt;&lt;font style='color:#96B56C'&gt;r&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;a&lt;/font&gt; &lt;font style='color:#39BEB1'&gt;e&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;s&lt;/font&gt; &lt;font style='color:#91ACE1'&gt;t&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;u&lt;/font&gt; &lt;font style='color:#DE94C8'&gt;t&lt;/font&gt;&lt;font style='color:#E495A5'&gt;u&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;r&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;n&lt;/font&gt;&lt;font style='color:#96B56C'&gt;o&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;!&lt;/font&gt;&lt;/center&gt; 
+## &lt;center&gt;&lt;font style='color:#E495A5'&gt;A&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;b&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;r&lt;/font&gt;&lt;font style='color:#96B56C'&gt;e&lt;/font&gt; &lt;font style='color:#65BC8C'&gt;e&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;l&lt;/font&gt; &lt;font style='color:#55B8D0'&gt;a&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;r&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;c&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;h&lt;/font&gt;&lt;font style='color:#E495A5'&gt;i&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;v&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;o&lt;/font&gt; &lt;font style='color:#96B56C'&gt;0&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;1&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;-&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;E&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;J&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;-&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;R&lt;/font&gt;&lt;font style='color:#E495A5'&gt;M&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;a&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;r&lt;/font&gt;&lt;font style='color:#96B56C'&gt;k&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;d&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;o&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;w&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;n&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;.&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;R&lt;/font&gt;&lt;font style='color:#E495A5'&gt;m&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;d&lt;/font&gt;&lt;/center&gt; 
+### &lt;center&gt;&lt;font style='color:#E495A5'&gt;S&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;i&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;g&lt;/font&gt;&lt;font style='color:#96B56C'&gt;u&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;e&lt;/font&gt; &lt;font style='color:#39BEB1'&gt;l&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;a&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;s&lt;/font&gt; &lt;font style='color:#C29DDE'&gt;i&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;n&lt;/font&gt;&lt;font style='color:#E495A5'&gt;s&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;t&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;r&lt;/font&gt;&lt;font style='color:#96B56C'&gt;u&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;c&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;c&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;i&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;o&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;n&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;e&lt;/font&gt;&lt;font style='color:#E495A5'&gt;s&lt;/font&gt;&lt;/center&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "13:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

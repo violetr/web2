@@ -1,0 +1,18 @@
+.flex {
+    display: flex;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+div.my-header {
+    background-color: #F77A00;
+    background: linear-gradient(to left, #E495A5, #D89F7F, #BDAB66, #96B56C, #65BC8C, #39BEB1, #55B8D0, #91ACE1, #C29DDE, #DE94C8);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 30px;
+    width: 100%;
+    text-align: left;
+}

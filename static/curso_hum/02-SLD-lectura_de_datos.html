@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Lectura de datos</title>
+    <meta charset="utf-8" />
+    <meta name="date" content="2020-11-25" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+background-color: #272822
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+
+&lt;h1 style='color:white'&gt; &lt;center&gt; R para contextos humanitarios de emergencia&lt;/center&gt;&lt;/h1&gt; 
+## &lt;center&gt;&lt;font style='color:#E495A5'&gt;L&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;e&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;c&lt;/font&gt;&lt;font style='color:#96B56C'&gt;t&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;u&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;r&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;a&lt;/font&gt; &lt;font style='color:#91ACE1'&gt;d&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;e&lt;/font&gt; &lt;font style='color:#DE94C8'&gt;d&lt;/font&gt;&lt;font style='color:#E495A5'&gt;a&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;t&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;o&lt;/font&gt;&lt;font style='color:#96B56C'&gt;s&lt;/font&gt;&lt;/center&gt; 
+### &lt;center&gt;&lt;font style='color:#E495A5'&gt;2&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;5&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;-&lt;/font&gt;&lt;font style='color:#96B56C'&gt;1&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;1&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;-&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;2&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;0&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;2&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;0&lt;/font&gt;&lt;/center&gt;
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Lectura de datos
+
+En general, el primer paso de nuestro flujo de trabajo es importar los datos a R
+
+Una vez importados los datos, podremos:
+  - Modificarlos
+  - Graficarlos 
+  - Modelarlos
+  - Comunicar nuestros resultados
+
+Los tipos de archivos de almacenamiento de datos más comunes son:
+  - Excel
+  - CSV (Comma Separated Values)
+
+Tambien existen
+  - json
+  - XML, etc.
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Lectura de datos CSV
+
+File &gt; Import Dataset &gt; From Text...(readr)
+
+![](img/importar-asilo.png)
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Lectura de datos CSV - Opciones
+
+2. Seleccionamos el archivo deseado
+
+3. Si es CSV, debe decir Delimiter: Comma
+
+4. También prestar atención donde dice First Row as Names
+
+5. Si hay filas que hay que saltear (que no sean los nombres), podemos usar Skip
+
+6. RStudio adivina el tipo de la columna en base a sus primeros valores, podemos cambiar el tipo si está equivocado 
+
+6. Importante!: Cuando terminamos de elegir las opciones, copiamos el código que se encuentra en el rectángulo `Code Preview`
+
+7. Hacer click en importar
+
+Una vez que importamos datos vamos a tener disponible un dataset del tipo `tibble` en la mesada
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Lectura de datos
+
+
+La última línea de código que copiamos es 
+
+&gt; `View(nombre_dataset)`
+
+Ese comando sirve para visualizar las filas y columnas del dataset. También si corremos 
+
+&gt; `nombre_dataset`
+
+veremos en la consola (o justo debajo del bloque de código si es un RMarkdown) algunas pocas filas del dataset.
+
+El comando `str(nombre_dataset)` devuelve una descripción general del dataset. Algunos campos que nos devuelve el comando son:
+
+- Tipo de dato (tibble)
+- Tamaño ([filas x columnas])
+- Nombre y tipo de las columnas, etc.
+
+Posibles tipos de columnas: texto (`character`), números (`double`, `numeric`, `integer`), fechas (`Date`, `DateTime`), lógicos (`logical`), categóricas (`factor`), etc.
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Tu turno: Lectura de datos CSV
+
+1. importar el archivo "decisiones_asilo_peru.csv" (Fuente: UNHCR) con información sobre las decisiones tomadas en Perú frente a los pedidos de asilo recibidos provenientes de distintos países 
+
+2. Indicar que cantidad de filas y columnas tiene
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Lectura de datos de Excel
+
+File &gt; Import Dataset &gt; From Excel
+
+![](img/importar-haiti.png)
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Lectura de datos de Excel
+
+- El paquete utilizado es `readxl`
+
+**Importante!** 
+- Número de página donde se encuentra el dataset
+- Rango de celdas donde se encuentra
+
+---
+background-color: #272822
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+
+# &lt;center&gt;&lt;font style='color:#E495A5'&gt;D&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;e&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;s&lt;/font&gt;&lt;font style='color:#96B56C'&gt;a&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;f&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;í&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;o&lt;/font&gt; &lt;font style='color:#91ACE1'&gt;1&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;:&lt;/font&gt; &lt;font style='color:#DE94C8'&gt;L&lt;/font&gt;&lt;font style='color:#E495A5'&gt;e&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;c&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;t&lt;/font&gt;&lt;font style='color:#96B56C'&gt;u&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;r&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;a&lt;/font&gt; &lt;font style='color:#55B8D0'&gt;d&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;e&lt;/font&gt; &lt;font style='color:#C29DDE'&gt;d&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;a&lt;/font&gt;&lt;font style='color:#E495A5'&gt;t&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;o&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;s&lt;/font&gt; &lt;/center&gt; 
+
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## DESAFÍO 1: Lectura de datos 
+
+El objetivo de este desafío es que armes un proyecto y  leas una archivo de datos para aplicar lo que aprendas en el resto del curso.
+
+1. Crea un proyecto de RStudio llamado datos-haiti
+
+3. Crea un archivo de RMarkdown (por las dudas, ésta es la sección asociada). 
+
+2. Arma un chunk para leer los datos. Importa el archivo disponible en https://data.humdata.org/dataset/27baf423-2d13-49a4-bd72-cb65d8f924da/resource/9f71ab56-8a9a-4df2-be5d-f26d3600a285/download/dtm-haiti-site-assessment-round-33.xlsx con información sobre distintos campamentos en Haití (Fuente: OIM). 
+
+4. Además de poner un título informativo, describe los datos con tus palabras. ¿Cuál es la fuente? ¿Qué variables incluyen? ¿Cuántas observaciones tiene? ¿Qué tipo de datos tiene cada columna?
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Observaciones sobre el desafío:
+
+- Notar que se puede importar directo usando el url
+
+- Observa que la segunda fila no debería aparecer como una observación del dataset. En el futuro veremos cómo quitarla
+
+- Esta fila arruina la detección del tipo de todas las columnas numéricas
+
+- Arreglar el tipo de las columnas 
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Escritura de datos
+
+Les presento las cheatsheets o guías rápidas (en español) ⭐
+
+[https://rstudio.com/resources/cheatsheets/](https://rstudio.com/resources/cheatsheets/)
+
+Nos describen brevemente la mayoria de las posibilidades que nos brinda un paquete 🎁
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Escritura de datos
+
+Con `readr` puedo escribir archivos csv o de texto
+
+**Tu turno:** Con la ayuda de la guías rápida de `readr` guardar el dataset de haiti con un nombre distinto en la carpeta data
+
+Para escribir archivos excel puedes usar el paquete `xls`
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Escritura de datos
+
+En este modulo aprendimos a 
+
+- leer datos en R
+  - en formato csv
+  - en formato .xls o .xlsx
+  
+- escribir datos en R
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "13:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

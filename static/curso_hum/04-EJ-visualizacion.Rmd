@@ -1,0 +1,156 @@
+---
+title: "04-EJ-visualizacion"
+output: html_document
+---
+
+Trabajaremos en principio con los dos datasets conocidos hasta ahora: Haiti y decisiones
+
+```{r include=FALSE}
+library(readxl)
+url_haiti <- "https://data.humdata.org/dataset/27baf423-2d13-49a4-bd72-cb65d8f924da/resource/9f71ab56-8a9a-4df2-be5d-f26d3600a285/download/dtm-haiti-site-assessment-round-33.xlsx"
+destfile <- "dtm_haiti_site_assessment_round_33.xlsx"
+curl::curl_download(url_haiti, destfile)
+haiti <- read_excel(destfile, 
+    col_types = c("text", "text", "text", 
+        "numeric", "numeric", "numeric", 
+        "numeric", "numeric", "numeric", 
+        "text", "text", "text", "text", "text", 
+        "text", "text", "text", "text"))
+haiti <- slice(haiti, -1)
+haiti
+```
+
+```{r, message=FALSE}
+decisiones <- read_csv("data/decisiones_asilo_peru.csv")
+decisiones
+```
+
+
+## Tu turno 1: Mi primer gráfico
+
+
+Copia y corre el código para generar el gráfico que queremos
+
+
+```{r}
+
+```
+
+
+##  Tu turno 2: 
+
+1.Agrega varias propiedades estéticas a tu gráfico:
+  - color
+  - size
+  - alpha
+  - shape
+
+```{r}
+
+```
+
+
+2.que pasa si las variables son continuas o categóricas?
+
+
+# Tu turno 3
+
+Reproducir el histograma de la variable Households con la ayuda de la guía rápida de `ggplot2`
+
+Ayuda: no utilizar la variable `y`
+
+```{r}
+
+```
+
+
+## Tu turno 5
+
+Predice la salida del siguiente código
+
+Luego, córrelo
+
+```{r, eval = FALSE}
+ggplot(data = haiti) + 
+  geom_point(mapping = aes(x = Households, y = Individuals)) +
+  geom_smooth(mapping = aes(x = Households, y = Individuals))
+```
+
+## Tu turno 6
+
+Salva tu último gráfico en la carpeta data de tu proyecto
+
+Si por algún motivo no estás en un proyecto, vuelve al proyecto del curso y si no tienes proyecto del curso vuelve a abrirlo
+
+```{r}
+
+```
+
+
+## Tu turno 7:
+
+
+Modifica el gráfico anterior para que la línea sea roja y cambia su grosor
+
+```{r}
+
+```
+
+
+## Tu turno 8:
+
+Corre el siguiente codigo. 
+
+```{r}
+decisiones %>%
+  ggplot() +
+    geom_line(aes(Anio, total, 
+                  color = `Codigo Pais Origen`))
+```
+
+Los colores no pueden distinguiste bien.
+
+Grafica en un mismo plot la evolución del total de pedidos de asilo en Perú para los 5 países con mas pedidos
+
+```{r}
+
+```
+
+
+
+## Tu turno 9:
+
+1. Con la ayuda de la guía rapida intenta reproducir este gráfico que indica con una línea punteada el año del importante terremoto en Haití
+
+2. Quita la línea y modifícalo para que se vea en paneles 
+
+```{r}
+
+```
+
+## Tu turno 10
+
+Instala `patchwork` y reproduce el siguiente gráfico
+
+```{r}
+
+```
+
+
+## DESAFIO 2
+
+1. Importa el dataset `dtm3-peru` (cuidado con la primera fila, salteala)
+
+[https://data.humdata.org/dataset/dad01c41-adde-46ee-998d-a6baf9eeb8d1/resource/538975d3-f7bb-4f0d-9111-58f7e00ee4f1/download/dtm3_version_publica_1209-1.xlsx](https://data.humdata.org/dataset/dad01c41-adde-46ee-998d-a6baf9eeb8d1/resource/538975d3-f7bb-4f0d-9111-58f7e00ee4f1/download/dtm3_version_publica_1209-1.xlsx)
+
+2. Cuántas personas respondieron la encuesta?
+
+3. Haz un gráfico que represente la distribución del "Número de Familias que viven en la misma carpa o techo"
+
+4. Representa con la ayuda de la guía rápida un gráfico de barras apiladas del "Número de Familias que viven en la misma carpa o techo" que discrimine según distrito
+
+5. Representa con la ayuda de la guía rápida un gráfico de barras lado a lado del "Número de Familias que viven en la misma carpa o techo" que discrimine según distrito
+
+6. Representa el "Número de Familias que viven en la misma carpa o techo" en paneles según el distrito
+
+7. Que tipo de ganados tienen l@s encuestad@s? usar `?count` (ayuda) para averiguar cuántas personas tienen cada tipo de ganado 
