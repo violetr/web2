@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Intro</title>
+    <meta charset="utf-8" />
+    <meta name="date" content="2020-11-26" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+background-color: #272822
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+
+&lt;h1 style='color:white'&gt; &lt;center&gt; R para contextos humanitarios de emergencia&lt;/center&gt;&lt;/h1&gt; 
+## &lt;center&gt;&lt;font style='color:#E495A5'&gt;R&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;e&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;p&lt;/font&gt;&lt;font style='color:#96B56C'&gt;o&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;r&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;t&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;e&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;s&lt;/font&gt; &lt;font style='color:#C29DDE'&gt;p&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;a&lt;/font&gt;&lt;font style='color:#E495A5'&gt;r&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;a&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;m&lt;/font&gt;&lt;font style='color:#96B56C'&gt;é&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;t&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;r&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;i&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;c&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;o&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;s&lt;/font&gt; &lt;font style='color:#E495A5'&gt;y&lt;/font&gt; &lt;font style='color:#D89F7F'&gt;m&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;á&lt;/font&gt;&lt;font style='color:#96B56C'&gt;s&lt;/font&gt;&lt;/center&gt; 
+### &lt;center&gt;&lt;font style='color:#E495A5'&gt;2&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;6&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;-&lt;/font&gt;&lt;font style='color:#96B56C'&gt;1&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;1&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;-&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;2&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;0&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;2&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;0&lt;/font&gt;&lt;/center&gt;
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Personalizando reportes
+
+Ya sabemos lo basico sobre generar reportes.
+
+- RMarkdown y sus elementos
+  - bloques de codigo (chunks)
+  - texto
+  - encabezado (hasta ahora no lo tocamos)
+
+- Tipo de output
+
+- Knit para generar
+
+Pero ya vimos que las salidas por ahora no son muy lindas
+
+
+En este modulo vamos a ver como personalizarlos para que sean publicables y mas eficientes
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Agregar tabla de contenidos
+
+Por ejemplo, si quiero agregar una tabla de contenidos con los titulos y subtitulos puedo agregar en el encabezado el termino "toc: TRUE"
+
+
+```r
+---
+output: 
+  html_document:
+    toc: TRUE
+---
+```
+
+Es importante que respetemos la estructura tal como se indica! (los espacios y la alineacion de toc con respecto a html_document)
+
+
+```r
+---
+output: 
+  word_document:
+    toc: TRUE
+---
+```
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Automatizando reportes
+
+
+Es muy común tener que hacer un reporte cuyo resultado dependa de ciertos parámetros.
+
+Por ejemplo, podrías tener un reporte que analiza las decisiones a los pedidos de asilo de personas colombianas en Perú.
+
+
+```r
+library(tidyverse)
+
+decisiones &lt;- read_csv("data/decisiones_asilo_peru.csv")
+
+decisiones_filtrado &lt;- decisiones %&gt;% 
+  filter(`Codigo Pais Origen` == "COL")
+
+decisiones_filtrado %&gt;% 
+  ggplot(aes(Anio, Reconocidas)) +
+  geom_line(color = "red", size = 1.5)
+```
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Automatizando reportes
+
+
+Es muy común tener que hacer un reporte cuyo resultado dependa de ciertos parámetros.
+
+Por ejemplo, podrías tener un reporte que analiza las decisiones a los pedidos de asilo de personas colombianas en Perú.
+
+![](08-SLD-reportes_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
+
+
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Automatizando reportes
+
+Si ahora querés hacer el mismo reporte pero para Haiti, tienes que abrir el archivo y modificar la llamada a `filter` para quedarte sólo con ese país:
+
+
+```r
+library(tidyverse)
+
+decisiones &lt;- read_csv("data/decisiones_asilo_peru.csv")
+
+decisiones_filtrado &lt;- decisiones %&gt;% 
+  filter(`Codigo Pais Origen` == "HTI")
+
+decisiones_filtrado %&gt;% 
+  ggplot(aes(Anio, Reconocidas)) +
+  geom_line(color = "red", size = 1.5)
+```
+
+Si el reporte es largo y usa el nombre del país en múltiples lugares cambiar "COL" por "HTI" puede ser tedioso y propenso a error, ya que te obliga a modificar muchas partes del código. 
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Automatizando reportes
+
+Si ahora querés hacer el mismo reporte pero para Haiti, tienes que abrir el archivo y modificar la llamada a `filter` para quedarte sólo con ese país:
+
+![](08-SLD-reportes_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
+
+Si el reporte es largo y usa el nombre del país en múltiples lugares cambiar "COL" por "HTI" puede ser tedioso y propenso a error, ya que te obliga a modificar muchas partes del código. 
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Parametrizando reportes
+
+En estas situaciones podés crear un reporte parametrizado. La idea es que el reporte tiene una serie de parámetros que puede modificar la salida. Es como si el archivo de R Markdown fuera una gran función con sus argumentos!
+
+Para generar un reporte parametrizado hay que agregar un elemento llamado params al encabezado con la lista de parámetros y sus valores por default.
+
+
+```r
+params:
+  pais: COL
+```
+
+
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Parametrizando reportes
+
+
+```r
+library(tidyverse)
+
+decisiones &lt;- read_csv("data/decisiones_asilo_peru.csv")
+
+decisiones_filtrado &lt;- decisiones %&gt;% 
+  filter(`Codigo Pais Origen` == params$pais)
+
+decisiones_filtrado %&gt;% 
+  ggplot(aes(Anio, Reconocidas)) +
+  geom_line(color = "red", size = 1.5)
+```
+
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Automatizando reportes
+
+Posibilidades
+
+
+
+```r
+for (pais_actual in c("HTI", "VEN", "COL")) {
+  rmarkdown::render("reporte_final.Rmd", 
+                  output_file = paste0("reporte-", pais_actual,".docx"),params = list(pais = pais_actual))
+}
+```
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Control de chunks
+
+Hay una serie de opciones que controlan si el código se ejecuta y si el resultado del código va a quedar en el reporte o no:
+
+- `eval = FALSE` evita que se corra el código del chunk, de manera que tampoco va a mostrar resultados. Es útil para mostrar códigos de ejemplo si estás escribiendo, por ejemplo un documento para enseñar R.
+
+- `echo = FALSE` corre el código del chunk y muestra los resultados, pero oculta el código en el reporte. Esto es útil para escribir reportes para personas que no necesitan ver el código de R que generó el gráfico o tabla.
+
+- `include = FALSE` corre el código pero oculta tanto el código como los resultados. Es útil para usar en chunks de configuración general donde cargas las librerías.
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Control de chunks
+
+- Si estás escribiendo un informe en el que no querés que se muestre ningún código, agregarle echo = FALSE a cada chunk nuevo se vuelve tedioso. 
+
+- Solución: cambiar la opción de forma global de manera que aplique a todos los chunks. Esto se hace mediante la función knitr::opts_chunk$set()
+, que setea las opciones globales de los chunks que le siguen. (Ya esta agregado en el primer bloque del documento reporte_final.Rmd)
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Control de chunks
+
+- Vimos que a veces algunas funciones imprimen mensajes sobre lo que hacen. Por ejemplo, cuando read_csv lee un archivo describe el tipo de dato de cada columna
+
+- Esto es útil pero en general no quiere que quede en el reporte. Para que no muestre estos mensajes basta con poner la opción message = FALSE
+
+- Si queremos evitar una advertencia (warning) podemos indicar tamben warning = FALSE, separado por coma de los otros mensajes
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Tu turno
+
+En el archivo reporte_final.Rmd elige las opciones adedcuadas para cada chunk
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Mejores reportes 
+
+- Mejores graficos 
+- Mejores tablas
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Temas en `ggplot2`
+
+
+- [https://ggplot2.tidyverse.org/reference/ggtheme.html](https://ggplot2.tidyverse.org/reference/ggtheme.html)
+
+- [https://mran.microsoft.com/snapshot/2017-02-04/web/packages/ggthemes/vignettes/ggthemes.html](https://mran.microsoft.com/snapshot/2017-02-04/web/packages/ggthemes/vignettes/ggthemes.html)
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Temas en `ggplot2`
+
+
+
+```r
+decisiones_filtrado %&gt;% 
+  ggplot(aes(Anio, Reconocidas)) +
+  geom_line(color = "red", size = 1.5) +
+  theme_minimal()
+```
+
+![](08-SLD-reportes_files/figure-html/minimal-1.png)&lt;!-- --&gt;
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Temas en `ggplot2`
+
+
+
+```r
+# install.packages("ggthemes")
+library(ggthemes)
+decisiones_filtrado %&gt;% 
+  ggplot(aes(Anio, Reconocidas)) +
+  geom_line(color = "red", size = 1.5) +
+  theme_fivethirtyeight()
+```
+
+![](08-SLD-reportes_files/figure-html/ggthemes-1.png)&lt;!-- --&gt;
+
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Tablas simples con kable
+
+
+```r
+library(knitr)
+kable(decisiones)
+```
+
+
+
+| Anio|Codigo Pais Origen |Codigo Pais Asilo |Nombre Pais de Origen              |Nombre Pais Asilo |Tipo de procedimiento |Nombre del Procedimiento |Codigo de Tipo de Decision |Tipo de Datos de Decision |Datos de Decision | Promedio de Personas de decision por Caso| Reconocidas| Proteccion Complementaria| Cerradas de otra forma| Rechazadas|
+|----:|:------------------|:-----------------|:----------------------------------|:-----------------|:---------------------|:------------------------|:--------------------------|:-------------------------|:-----------------|-----------------------------------------:|-----------:|-------------------------:|----------------------:|----------:|
+| 2000|COL                |PER               |Colombia                           |Peru              |U                     |UNHCR                    |FI                         |P                         |Persons           |                                       0.0|           0|                         0|                      5|          0|
+| 2000|CUB                |PER               |Cuba                               |Peru              |U                     |UNHCR                    |FI                         |P                         |Persons           |                                       0.0|           0|                         0|                      0|         10|
+| 2001|RUS                |PER               |Russian Federation                 |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           5|                         0|                      0|          0|
+| 2002|COL                |PER               |Colombia                           |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           5|                         0|                      0|          5|
+| 2002|CUB                |PER               |Cuba                               |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           5|                         0|                      0|          0|
+| 2003|ARG                |PER               |Argentina                          |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           0|                         0|                      5|          0|
+| 2003|COL                |PER               |Colombia                           |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|          19|                         0|                     53|          0|
+| 2003|CUB                |PER               |Cuba                               |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           0|                         0|                      5|          0|
+| 2003|PSE                |PER               |State of Palestine                 |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           5|                         0|                      0|          0|
+| 2003|IRQ                |PER               |Iraq                               |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           5|                         0|                      0|          0|
+| 2004|COL                |PER               |Colombia                           |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|          49|                         0|                      0|          5|
+| 2004|CUB                |PER               |Cuba                               |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|          17|                         0|                      5|          0|
+| 2004|PSE                |PER               |State of Palestine                 |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           5|                         0|                      0|          0|
+| 2004|IRQ                |PER               |Iraq                               |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           0|                         0|                      5|          0|
+| 2005|COL                |PER               |Colombia                           |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|          51|                         0|                      5|         20|
+| 2005|CUB                |PER               |Cuba                               |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|          27|                         0|                      0|          0|
+| 2005|IRQ                |PER               |Iraq                               |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           0|                         0|                      5|          0|
+| 2005|SOM                |PER               |Somalia                            |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           0|                         0|                      5|          0|
+| 2006|COL                |PER               |Colombia                           |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|          40|                         0|                     22|         12|
+| 2006|CUB                |PER               |Cuba                               |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|          35|                         0|                      0|          5|
+| 2006|IRQ                |PER               |Iraq                               |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           0|                         0|                      5|          0|
+| 2006|ISR                |PER               |Israel                             |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           0|                         0|                      5|          0|
+| 2006|SLE                |PER               |Sierra Leone                       |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           0|                         0|                      5|          0|
+| 2006|SOM                |PER               |Somalia                            |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           0|                         0|                      5|          0|
+| 2007|BOL                |PER               |Bolivia (Plurinational State of)   |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           5|                         0|                      0|          0|
+| 2007|COL                |PER               |Colombia                           |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|          48|                         0|                     15|         19|
+| 2007|CUB                |PER               |Cuba                               |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|          19|                         0|                      5|         50|
+| 2007|ERI                |PER               |Eritrea                            |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           0|                         0|                      5|          0|
+| 2007|PSE                |PER               |State of Palestine                 |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|          10|                         0|                      0|          0|
+| 2007|HTI                |PER               |Haiti                              |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           0|                         0|                      5|          0|
+| 2007|IRQ                |PER               |Iraq                               |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|          15|                         0|                      5|          0|
+| 2007|SOM                |PER               |Somalia                            |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           0|                         0|                      5|          0|
+| 2007|SRB                |PER               |Serbia                             |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           0|                         0|                      5|          0|
+| 2007|VEN                |PER               |Venezuela (Bolivarian Republic of) |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           5|                         0|                      0|          0|
+| 2008|COL                |PER               |Colombia                           |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|          40|                         0|                      0|         11|
+| 2008|CUB                |PER               |Cuba                               |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|          42|                         0|                      0|         40|
+| 2008|HTI                |PER               |Haiti                              |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|           5|                         0|                     13|          0|
+| 2008|VEN                |PER               |Venezuela (Bolivarian Republic of) |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|           5|                         0|                      0|          0|
+| 2009|BOL                |PER               |Bolivia (Plurinational State of)   |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|           5|                         0|                      5|          0|
+| 2009|COL                |PER               |Colombia                           |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|          43|                         0|                    225|         19|
+| 2009|CUB                |PER               |Cuba                               |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|          18|                         0|                     24|         13|
+| 2009|PSE                |PER               |State of Palestine                 |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|           0|                         0|                      5|          0|
+| 2009|HTI                |PER               |Haiti                              |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|           5|                         0|                      0|          0|
+| 2009|NPL                |PER               |Nepal                              |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|           0|                         0|                      5|          0|
+| 2009|SRB                |PER               |Serbia                             |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|           5|                         0|                      0|          0|
+| 2009|VEN                |PER               |Venezuela (Bolivarian Republic of) |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|           5|                         0|                      5|          0|
+| 2010|COL                |PER               |Colombia                           |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|          33|                         0|                    214|          0|
+| 2010|CUB                |PER               |Cuba                               |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|           0|                         0|                    100|         20|
+| 2010|DOM                |PER               |Dominican Republic                 |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|           0|                         0|                      0|          5|
+| 2010|ECU                |PER               |Ecuador                            |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|           0|                         0|                      0|          5|
+| 2010|HTI                |PER               |Haiti                              |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|           0|                         5|                      0|          0|
+| 2011|ARG                |PER               |Argentina                          |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|           0|                         0|                     10|          0|
+| 2011|BOL                |PER               |Bolivia (Plurinational State of)   |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|           5|                         0|                      0|          0|
+| 2011|COL                |PER               |Colombia                           |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|           5|                         0|                     23|          0|
+| 2011|CUB                |PER               |Cuba                               |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|           5|                         0|                     11|         34|
+| 2011|HTI                |PER               |Haiti                              |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|           5|                         0|                    102|          0|
+| 2011|NER                |PER               |Niger                              |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|           0|                         0|                      5|          0|
+| 2011|NGA                |PER               |Nigeria                            |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|           0|                         0|                     10|          0|
+| 2011|ZAF                |PER               |South Africa                       |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|           0|                         0|                      5|          0|
+| 2011|SLE                |PER               |Sierra Leone                       |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|           0|                         0|                      5|          0|
+| 2011|VEN                |PER               |Venezuela (Bolivarian Republic of) |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|           5|                         0|                      5|          0|
+| 2012|BGD                |PER               |Bangladesh                         |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|          12|                         0|                      0|          0|
+| 2012|COL                |PER               |Colombia                           |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|         120|                         0|                     81|          0|
+| 2012|CUB                |PER               |Cuba                               |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|           5|                         0|                     12|        121|
+| 2012|DOM                |PER               |Dominican Republic                 |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|           5|                         0|                      0|          0|
+| 2012|HTI                |PER               |Haiti                              |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|           0|                         0|                     10|          0|
+| 2012|NGA                |PER               |Nigeria                            |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|           5|                         0|                      0|          0|
+| 2012|VEN                |PER               |Venezuela (Bolivarian Republic of) |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|           5|                         0|                      0|          5|
+| 2013|BGD                |PER               |Bangladesh                         |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|           0|                         0|                      0|          5|
+| 2013|COL                |PER               |Colombia                           |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|          36|                         0|                     83|         31|
+| 2013|CUB                |PER               |Cuba                               |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|          13|                         0|                     10|         47|
+| 2013|DOM                |PER               |Dominican Republic                 |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|           0|                         0|                      0|         10|
+| 2013|HTI                |PER               |Haiti                              |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|           5|                         0|                    125|          0|
+| 2013|IND                |PER               |India                              |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|           0|                         0|                      0|          5|
+| 2013|NPL                |PER               |Nepal                              |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|           0|                         0|                      5|          0|
+| 2013|NGA                |PER               |Nigeria                            |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|           5|                         0|                      0|          0|
+| 2013|SEN                |PER               |Senegal                            |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|           0|                         0|                      5|          0|
+| 2013|SYR                |PER               |Syrian Arab Republic               |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|           5|                         0|                      0|          0|
+| 2013|UKR                |PER               |Ukraine                            |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.0|           5|                         0|                      0|          0|
+| 2014|ARG                |PER               |Argentina                          |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.5|           0|                         0|                      0|         10|
+| 2014|BGD                |PER               |Bangladesh                         |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.5|          14|                         0|                      0|          0|
+| 2014|COL                |PER               |Colombia                           |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.5|          71|                         0|                     93|        104|
+| 2014|CUB                |PER               |Cuba                               |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.5|          22|                         0|                      5|         43|
+| 2014|DOM                |PER               |Dominican Republic                 |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.5|           5|                         0|                     18|         15|
+| 2014|ECU                |PER               |Ecuador                            |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.5|           0|                         0|                      0|         13|
+| 2014|PSE                |PER               |State of Palestine                 |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.5|           5|                         0|                      0|          0|
+| 2014|HTI                |PER               |Haiti                              |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.5|           5|                         0|                      0|          0|
+| 2014|IND                |PER               |India                              |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.5|           0|                         0|                      0|         11|
+| 2014|IRQ                |PER               |Iraq                               |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.5|          10|                         0|                      0|          0|
+| 2014|LKA                |PER               |Sri Lanka                          |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.5|           0|                         0|                     10|          0|
+| 2014|NGA                |PER               |Nigeria                            |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.5|           5|                         0|                      0|          0|
+| 2014|SLV                |PER               |El Salvador                        |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.5|           0|                         0|                      5|          0|
+| 2014|SYR                |PER               |Syrian Arab Republic               |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.5|          17|                         0|                      0|          0|
+| 2014|VEN                |PER               |Venezuela (Bolivarian Republic of) |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       3.5|           5|                         0|                      0|         14|
+| 2015|BGD                |PER               |Bangladesh                         |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       4.0|           5|                         0|                      0|         14|
+| 2015|COL                |PER               |Colombia                           |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       4.0|          59|                         0|                      0|         89|
+| 2015|CUB                |PER               |Cuba                               |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       4.0|          24|                         0|                      0|         70|
+| 2015|DOM                |PER               |Dominican Republic                 |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       4.0|           5|                         0|                      0|         25|
+| 2015|ECU                |PER               |Ecuador                            |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       4.0|           0|                         0|                      0|          5|
+| 2015|PSE                |PER               |State of Palestine                 |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       4.0|           5|                         0|                      0|          0|
+| 2015|HTI                |PER               |Haiti                              |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       4.0|           5|                         0|                      0|          0|
+| 2015|IND                |PER               |India                              |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       4.0|           0|                         0|                      0|          5|
+| 2015|NGA                |PER               |Nigeria                            |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       4.0|           5|                         0|                      0|          5|
+| 2015|SEN                |PER               |Senegal                            |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       4.0|           0|                         0|                      0|          5|
+| 2015|SYR                |PER               |Syrian Arab Republic               |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       4.0|          10|                         0|                      0|          0|
+| 2015|UKN                |PER               |NA                                 |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       4.0|           5|                         0|                      0|          0|
+| 2015|UKR                |PER               |Ukraine                            |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       4.0|          11|                         0|                      0|          0|
+| 2015|VEN                |PER               |Venezuela (Bolivarian Republic of) |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       4.0|          71|                         0|                      0|         51|
+| 2016|BGD                |PER               |Bangladesh                         |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           0|                         0|                      0|          5|
+| 2016|BOL                |PER               |Bolivia (Plurinational State of)   |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           5|                         0|                      0|          0|
+| 2016|CMR                |PER               |Cameroon                           |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           0|                         0|                      0|          5|
+| 2016|COD                |PER               |Democratic Republic of the Congo   |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           5|                         0|                      0|          0|
+| 2016|COL                |PER               |Colombia                           |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|          32|                         0|                     13|         32|
+| 2016|CUB                |PER               |Cuba                               |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|          17|                         0|                      5|         32|
+| 2016|DOM                |PER               |Dominican Republic                 |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           5|                         0|                      0|         12|
+| 2016|PSE                |PER               |State of Palestine                 |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           5|                         0|                      0|          0|
+| 2016|GHA                |PER               |Ghana                              |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           0|                         0|                      0|          5|
+| 2016|HTI                |PER               |Haiti                              |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|          20|                         0|                      0|          0|
+| 2016|IND                |PER               |India                              |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           5|                         0|                      0|          0|
+| 2016|NGA                |PER               |Nigeria                            |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           0|                         0|                      0|          5|
+| 2016|PHL                |PER               |Philippines                        |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           0|                         0|                      0|          5|
+| 2016|SYR                |PER               |Syrian Arab Republic               |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           5|                         0|                      0|          0|
+| 2016|UKR                |PER               |Ukraine                            |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           5|                         0|                      0|          0|
+| 2016|VEN                |PER               |Venezuela (Bolivarian Republic of) |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|          64|                         0|                     28|         69|
+| 2017|BGD                |PER               |Bangladesh                         |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           5|                         0|                      0|          0|
+| 2017|CMR                |PER               |Cameroon                           |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           5|                         0|                      0|          0|
+| 2017|COL                |PER               |Colombia                           |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|          13|                         0|                     26|         15|
+| 2017|CUB                |PER               |Cuba                               |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|          36|                         0|                     48|         78|
+| 2017|DOM                |PER               |Dominican Republic                 |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           0|                         0|                     10|          0|
+| 2017|ECU                |PER               |Ecuador                            |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           0|                         0|                      5|          0|
+| 2017|PSE                |PER               |State of Palestine                 |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           0|                         0|                      5|          0|
+| 2017|HTI                |PER               |Haiti                              |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           0|                         0|                      0|         11|
+| 2017|IND                |PER               |India                              |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           0|                         0|                      0|          5|
+| 2017|NPL                |PER               |Nepal                              |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           0|                         0|                      0|          5|
+| 2017|SEN                |PER               |Senegal                            |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           0|                         0|                      5|          0|
+| 2017|SYR                |PER               |Syrian Arab Republic               |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           5|                         0|                      0|          0|
+| 2017|VEN                |PER               |Venezuela (Bolivarian Republic of) |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|         102|                         0|                    155|        412|
+| 2018|BGD                |PER               |Bangladesh                         |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           0|                         0|                     14|          0|
+| 2018|BOL                |PER               |Bolivia (Plurinational State of)   |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           5|                         0|                      0|          0|
+| 2018|BRA                |PER               |Brazil                             |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           5|                         0|                      0|          0|
+| 2018|CMR                |PER               |Cameroon                           |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|          10|                         0|                      0|          0|
+| 2018|COL                |PER               |Colombia                           |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|          10|                         0|                     67|          5|
+| 2018|CUB                |PER               |Cuba                               |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|          70|                         0|                     24|         96|
+| 2018|DOM                |PER               |Dominican Republic                 |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           5|                         0|                      0|          0|
+| 2018|GHA                |PER               |Ghana                              |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           0|                         0|                      5|          0|
+| 2018|HTI                |PER               |Haiti                              |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|          20|                         0|                      5|          0|
+| 2018|PHL                |PER               |Philippines                        |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           5|                         0|                      0|          0|
+| 2018|ROU                |PER               |Romania                            |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           0|                         0|                      0|          5|
+| 2018|SLV                |PER               |El Salvador                        |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           0|                         0|                      0|          5|
+| 2018|SEN                |PER               |Senegal                            |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           0|                         0|                      5|          0|
+| 2018|SYR                |PER               |Syrian Arab Republic               |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           5|                         0|                      0|          0|
+| 2018|TUR                |PER               |Turkey                             |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|          39|                         0|                      0|          0|
+| 2018|UKR                |PER               |Ukraine                            |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           0|                         0|                      0|          5|
+| 2018|VEN                |PER               |Venezuela (Bolivarian Republic of) |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|         390|                         0|                   1430|        191|
+| 2019|CMR                |PER               |Cameroon                           |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           5|                         0|                      0|          5|
+| 2019|COL                |PER               |Colombia                           |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|          10|                         0|                      5|          0|
+| 2019|CUB                |PER               |Cuba                               |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|          79|                         0|                     18|         59|
+| 2019|DOM                |PER               |Dominican Republic                 |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           5|                         0|                      0|          0|
+| 2019|HTI                |PER               |Haiti                              |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|          11|                         0|                      0|          5|
+| 2019|NIC                |PER               |Nicaragua                          |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           5|                         0|                      0|          0|
+| 2019|PHL                |PER               |Philippines                        |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           0|                         0|                      5|          5|
+| 2019|TUR                |PER               |Turkey                             |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           5|                         0|                      0|          0|
+| 2019|UKN                |PER               |NA                                 |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|           0|                         0|                      0|          5|
+| 2019|VEN                |PER               |Venezuela (Bolivarian Republic of) |Peru              |G                     |Government               |FI                         |P                         |Persons           |                                       0.0|         578|                         0|                   2641|        171|
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Supertablas con `kableExtra`
+
+El paquete `kableExtra`, como su nombre lo indica, nació para extender el poder de la función kable.
+
+Descargalo y prueba sus funcionalidades
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "13:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
