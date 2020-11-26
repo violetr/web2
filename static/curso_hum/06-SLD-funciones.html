@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Nuestras propias funciones</title>
+    <meta charset="utf-8" />
+    <meta name="date" content="2020-11-26" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+background-color: #272822
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+
+&lt;h1 style='color:white'&gt; &lt;center&gt; R para contextos humanitarios de emergencia&lt;/center&gt;&lt;/h1&gt; 
+## &lt;center&gt;&lt;font style='color:#E495A5'&gt;N&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;u&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;e&lt;/font&gt;&lt;font style='color:#96B56C'&gt;s&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;t&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;r&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;a&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;s&lt;/font&gt; &lt;font style='color:#C29DDE'&gt;p&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;r&lt;/font&gt;&lt;font style='color:#E495A5'&gt;o&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;p&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;i&lt;/font&gt;&lt;font style='color:#96B56C'&gt;a&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;s&lt;/font&gt; &lt;font style='color:#39BEB1'&gt;f&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;u&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;n&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;c&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;i&lt;/font&gt;&lt;font style='color:#E495A5'&gt;o&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;n&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;e&lt;/font&gt;&lt;font style='color:#96B56C'&gt;s&lt;/font&gt;&lt;/center&gt; 
+### &lt;center&gt;&lt;font style='color:#E495A5'&gt;2&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;6&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;-&lt;/font&gt;&lt;font style='color:#96B56C'&gt;1&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;1&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;-&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;2&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;0&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;2&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;0&lt;/font&gt;&lt;/center&gt;
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Mini introducción a funciones
+
+- Si te encuentras una y otra vez copiando la misma linea de código para realizar una operación entonces es hora de escribir una función que haga esa tarea por ti.
+
+- Hasta ahora estuvimos utilizando funciones que vienen con R (lo que llamamos R base) y funciones de paquetes que están disponibles para extender las funcionalidades de R. 
+
+- función: conjunto de comandos o líneas de código definida para usarla en el futuro, con un nombre (uno que represente la acción u operación para la cual la estamos creando), elementos de entrada y el resultado final.
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Definición de funciones
+
+Supongamos que una medica desea efectuar una evaluación del índice de masa corporal en los adultos de un campamento. En base a esto se planearan acciones.
+
+`\(IMC = peso (kg) / altura^2 (metros)\)`
+
+
+
+```r
+IMC &lt;- function(peso, altura) {
+  valor_IMC &lt;- peso / altura^2
+  return(valor_IMC)
+}
+```
+
+Al correr estas lineas de código se generará un nuevo elemento en nuestro entorno (mesada). La función está lista para ser usada. Pero antes de probarla revisemos la receta para definir una función.
+
+**function** indica que es una función y las **llaves delimitan** el cuerpo de la función. La función puede recibir uno o más elementos de entrada: los argumentos. En este caso recibe 2.
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Usando la función
+
+Ahora probemos calcular mi índice de masa corporal utilizando la función.
+
+
+
+```r
+IMC(60, 1.65)
+```
+
+```
+## [1] 22.03857
+```
+
+Los elementos de entrada en este caso son 2 números (60 y 1.65) y nos devolvió un número. Probemos con dos vectores
+
+
+```r
+peso_adultos &lt;- c(50, 60, 45, 70, 100)
+altura_adultos &lt;- c(1.65, 1.66, 1.6, 1.61, 1.7)
+IMC(peso_adultos, altura_adultos)
+```
+
+```
+## [1] 18.36547 21.77384 17.57812 27.00513 34.60208
+```
+- Es importante respetar el orden! 
+- Los vectores deben tener la misma longitud!
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Reflexiones sobre funciones
+
+- Definir funciones nos abre todo un mundo de posibilidades 🌍
+
+- Cuando tengamos varias funciones definidas para trabajar en un mismo proyecto podemos hacer nuestro propio paquete! 🎁
+
+- Y si pensamos que le puede servir a otras personas podemos publicarlo para que sea accesible! Incluso ell@s pueden ayudarme a arreglar y extender mi paquete incorporando nuevas funcionalidades.
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "13:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Interaccion con Kobo y Power BI</title>
+    <meta charset="utf-8" />
+    <meta name="date" content="2020-11-26" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+background-color: #272822
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+
+&lt;h1 style='color:white'&gt; &lt;center&gt; R para contextos humanitarios de emergencia&lt;/center&gt;&lt;/h1&gt; 
+## &lt;center&gt;&lt;font style='color:#E495A5'&gt;I&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;n&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;t&lt;/font&gt;&lt;font style='color:#96B56C'&gt;e&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;r&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;a&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;c&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;c&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;i&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;ó&lt;/font&gt;&lt;font style='color:#E495A5'&gt;n&lt;/font&gt; &lt;font style='color:#D89F7F'&gt;c&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;o&lt;/font&gt;&lt;font style='color:#96B56C'&gt;n&lt;/font&gt; &lt;font style='color:#65BC8C'&gt;K&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;o&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;b&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;o&lt;/font&gt; &lt;font style='color:#C29DDE'&gt;y&lt;/font&gt; &lt;font style='color:#DE94C8'&gt;P&lt;/font&gt;&lt;font style='color:#E495A5'&gt;o&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;w&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;e&lt;/font&gt;&lt;font style='color:#96B56C'&gt;r&lt;/font&gt; &lt;font style='color:#65BC8C'&gt;B&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;I&lt;/font&gt;&lt;/center&gt; 
+### &lt;center&gt;&lt;font style='color:#E495A5'&gt;2&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;5&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;-&lt;/font&gt;&lt;font style='color:#96B56C'&gt;1&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;1&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;-&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;2&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;0&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;2&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;0&lt;/font&gt;&lt;/center&gt;
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Kobo
+
+Supongamos que tenemos que realizar muchas veces por semana un reporte de datos proveniente de un relevamiento recogido en Kobo Toolbox.
+
+Tenemos muchas formas de hacerlo pero lo mas comodo sera con un único código que podamos ejecutar y que nos genere el reporte automáticamente. 
+
+Podemos hacer esto con R a través de la API (Application Programming Interface) de Kobo Toolbox.
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Kobo
+
+Tenemos que generar en R una URL que le indique a Kobo lo que necesitamos
+
+
+```r
+install.packages(c("httr", "jsonlite"))
+library(httr)
+library(jsonlite)
+```
+
+
+
+```r
+# ID del formulario
+form_id = "559546"
+
+# "kc.humanitarianresponse.info" o "kc.kobotoolbox.org"
+
+# Generar datos 
+URL &lt;- paste0("https://kc.kobotoolbox.org/api/v1/data/", form_id, ".csv")
+res &lt;- GET(URL, authenticate("tallerrkobo", "TallerRKobo123"), progress())
+
+respuestas &lt;- read_csv(res$content)
+
+nrow(respuestas)
+```
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Kobo
+
+Existen otras funcionalidades de Kobo
+
+- Desarrollar formularios en R y actualizarlos desde R
+- El formato en este caso es XML
+
+
+```r
+library(devtools)
+source_url("https://raw.githubusercontent.com/ppsapkota/kobohr_apitoolbox/master/R/r_func_ps_kobo_utils.R")
+
+#"kf.kobotoolbox.org" o "kobo.humanitarianresponse.info"
+kpi_url &lt;- "https://kf.kobotoolbox.org/imports/"
+kobo_form_xlsx &lt;- "abc.xlsx" # debe existir!
+d_content&lt;-kobohr_kpi_upload_xlsform(kpi_url,kobo_form_xlsx,pontuusuario,pontucontrasenia)
+import_url&lt;-d_content$url
+```
+
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Power BI
+
+Hay varios tipos de interacción posible entre R y Power BI. Vamos a ver 2 interacciones posibles:
+
+- Carga de datos a través de R
+
+- Generación de gráficos con scripts de R
+
+También puede usarse R para hacer queries de consulta y para importar ciertos datos desde el Market
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Power BI - Importar datos
+
+1)
+&lt;center&gt;&lt;img src="img/PowerBI1.png" alt="Hex stickers" height="450"&gt;&lt;/center&gt;
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Power BI - Importar datos
+
+2)
+&lt;center&gt;&lt;img src="img/PowerBI2.png" alt="Hex stickers" height="450"&gt;&lt;/center&gt;
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Power BI - Importar datos
+
+3)
+&lt;center&gt;&lt;img src="img/PowerBI3.png" alt="Hex stickers" height="450"&gt;&lt;/center&gt;
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Power BI - Importar datos
+
+4)
+&lt;center&gt;&lt;img src="img/PowerBI4.png" alt="Hex stickers" height="450"&gt;&lt;/center&gt;
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Power BI - Graficos de R en Power BI
+
+Generar un grafico de R en Power BI
+
+&lt;center&gt;&lt;img src="img/PowerBI5.png" alt="Hex stickers" height="450"&gt;&lt;/center&gt;
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Power BI - Graficos de R en Power BI
+
+Puedo agregar sliders para poder interactuar y filtrar con el grafico
+
+Los gráficos generados en R se actualizaran automáticamente
+
+&lt;center&gt;&lt;img src="img/PowerBI6.png" alt="Hex stickers" height="450"&gt;&lt;/center&gt;
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Resumen
+
+Para tener un abanico mayor de opciones, conecta a R con otras herramientas!
+
+&lt;center&gt;&lt;img src="img/starwars-teamwork.png" alt="Hex stickers" height="450"&gt;&lt;/center&gt;
+
+&lt;p style="color: gray; font-size:15px"&gt; Ilustración de Allison Horst
+&lt;/p&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "13:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

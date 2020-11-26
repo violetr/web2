@@ -8,6 +8,7 @@ En esta sección trabajaremos con el paquete dplyr para modificar datos. Usaremo
 Los cargamos en este bloque de código
 
 ```{r}
+library(tidyverse)
 decisiones <- read_csv("data/decisiones_asilo_peru.csv")
 ```
 
@@ -40,6 +41,15 @@ Te dieron una tabla con datos de temperatura mínima y máxima para distintas es
 
 3. Generar una nueva columna con la cantidad de pedidos rechazados o con proteccion complementaria
 
+```{r}
+
+decisiones <- mutate(decisiones, 
+                     indicador_mas_rechazos = Rechazadas > Reconocidas)
+View(decisiones)
+```
+
+
+
 ## Tu turno 4: verbos `dplyr`
 
 1. Obtener una tabla con la cantidad de pedidos de asilo rechazados por Perú durante cada año
@@ -49,3 +59,4 @@ Te dieron una tabla con datos de temperatura mínima y máxima para distintas es
 3. Que cantidad de pedidos fueron rechazados en total durante el período estudiado?
 
 4. Crea una nueva variable
+

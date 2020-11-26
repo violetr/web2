@@ -1,0 +1,47 @@
+---
+title: "04-EJ-visualizacion"
+output: html_document
+---
+
+
+
+<p>Trabajaremos en principio con los dos datasets conocidos hasta ahora: Haiti y decisiones</p>
+<div id="tu-turno-1-mi-primer-gráfico" class="section level2">
+<h2>Tu turno 1: Mi primer gráfico</h2>
+<p>Copia y corre el código para generar el gráfico que queremos</p>
+</div>
+<div id="tu-turno-2" class="section level2">
+<h2>Tu turno 2</h2>
+<p>Reproducir este histograma de la variable Households con la ayuda de la guía rápida de <code>ggplot2</code>. Usa <code>geom_histogram</code></p>
+<p>Ayuda: no utilizar la variable <code>y</code></p>
+</div>
+<div id="tu-turno-3" class="section level1">
+<h1>Tu turno 3</h1>
+<p>Reproducir este gráfico de barras que grafica la cantidad de campamentos en cada comuna. Utiliza la ayuda de la guía rápida de <code>ggplot2</code>. Usa <code>geom_bar</code></p>
+<p>Ayuda: no utilizar la variable <code>y</code></p>
+</div>
+<div id="tu-turno-4" class="section level1">
+<h1>Tu turno 4</h1>
+<p>Predice la salida del siguiente código</p>
+<p>Luego, córrelo</p>
+<pre class="r"><code>ggplot(data = haiti) + 
+  geom_point(mapping = aes(x = Households, y = Individuals)) +
+  geom_smooth(mapping = aes(x = Households, y = Individuals))</code></pre>
+<div id="tu-turno-5" class="section level2">
+<h2>Tu turno 5</h2>
+<p>Salva tu último gráfico en la carpeta img de tu proyecto</p>
+<p>Si por algún motivo no estás en un proyecto, vuelve al proyecto del curso</p>
+</div>
+<div id="desafio-2-para-practicar-despues" class="section level2">
+<h2>DESAFIO 2 para practicar despues</h2>
+<ol style="list-style-type: decimal">
+<li>Importa el dataset <code>dtm3-peru</code> (cuidado con la primera fila de la tabla, salteala)</li>
+</ol>
+<p><a href="https://data.humdata.org/dataset/dad01c41-adde-46ee-998d-a6baf9eeb8d1/resource/538975d3-f7bb-4f0d-9111-58f7e00ee4f1/download/dtm3_version_publica_1209-1.xlsx">https://data.humdata.org/dataset/dad01c41-adde-46ee-998d-a6baf9eeb8d1/resource/538975d3-f7bb-4f0d-9111-58f7e00ee4f1/download/dtm3_version_publica_1209-1.xlsx</a></p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Cuántas personas respondieron la encuesta?</p></li>
+<li><p>Haz un gráfico que represente la distribución del “Número de Familias que viven en la misma carpa o techo”</p></li>
+<li><p>Representa con la ayuda de la guía rápida un gráfico de barras lado a lado del “Número de Familias que viven en la misma carpa o techo” que discrimine según distrito</p></li>
+</ol>
+</div>
+</div>

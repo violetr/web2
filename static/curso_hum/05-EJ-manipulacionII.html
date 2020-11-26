@@ -1,0 +1,92 @@
+---
+title: "05-EJ-manipulacionII"
+output: html_document
+---
+
+
+
+<div id="manipulacion-ii" class="section level1">
+<h1>Manipulacion II</h1>
+<p>En esta libreta practicamos las funciones de <code>tidyr</code>.</p>
+<div id="primero-cargamos-los-datos" class="section level2">
+<h2>Primero cargamos los datos</h2>
+<p>Los chequea que te encuentres en el proyecto correcto y que tus datasets esten ubicados en la carpeta data contenida en este proyecto</p>
+<pre class="r"><code>decisiones &lt;- read_csv(&quot;data/decisiones_asilo_peru.csv&quot;)</code></pre>
+<pre><code>## 
+## -- Column specification --------------------------------------------------------
+## cols(
+##   Anio = col_double(),
+##   `Codigo Pais Origen` = col_character(),
+##   `Codigo Pais Asilo` = col_character(),
+##   `Nombre Pais de Origen` = col_character(),
+##   `Nombre Pais Asilo` = col_character(),
+##   `Tipo de procedimiento` = col_character(),
+##   `Nombre del Procedimiento` = col_character(),
+##   `Codigo de Tipo de Decision` = col_character(),
+##   `Tipo de Datos de Decision` = col_character(),
+##   `Datos de Decision` = col_character(),
+##   `Promedio de Personas de decision por Caso` = col_double(),
+##   Reconocidas = col_double(),
+##   `Proteccion Complementaria` = col_double(),
+##   `Cerradas de otra forma` = col_double(),
+##   Rechazadas = col_double()
+## )</code></pre>
+<pre class="r"><code>decisiones</code></pre>
+<pre><code>## # A tibble: 164 x 15
+##     Anio `Codigo Pais Or~ `Codigo Pais As~ `Nombre Pais de~ `Nombre Pais As~
+##    &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;           
+##  1  2000 COL              PER              Colombia         Peru            
+##  2  2000 CUB              PER              Cuba             Peru            
+##  3  2001 RUS              PER              Russian Federat~ Peru            
+##  4  2002 COL              PER              Colombia         Peru            
+##  5  2002 CUB              PER              Cuba             Peru            
+##  6  2003 ARG              PER              Argentina        Peru            
+##  7  2003 COL              PER              Colombia         Peru            
+##  8  2003 CUB              PER              Cuba             Peru            
+##  9  2003 PSE              PER              State of Palest~ Peru            
+## 10  2003 IRQ              PER              Iraq             Peru            
+## # ... with 154 more rows, and 10 more variables: `Tipo de procedimiento` &lt;chr&gt;,
+## #   `Nombre del Procedimiento` &lt;chr&gt;, `Codigo de Tipo de Decision` &lt;chr&gt;, `Tipo
+## #   de Datos de Decision` &lt;chr&gt;, `Datos de Decision` &lt;chr&gt;, `Promedio de
+## #   Personas de decision por Caso` &lt;dbl&gt;, Reconocidas &lt;dbl&gt;, `Proteccion
+## #   Complementaria` &lt;dbl&gt;, `Cerradas de otra forma` &lt;dbl&gt;, Rechazadas &lt;dbl&gt;</code></pre>
+<pre class="r"><code>paises_largo &lt;- read_csv(&quot;data/paises_largo.csv&quot;)</code></pre>
+<pre><code>## 
+## -- Column specification --------------------------------------------------------
+## cols(
+##   pais = col_character(),
+##   continente = col_character(),
+##   anio = col_double(),
+##   variable = col_character(),
+##   valor = col_double()
+## )</code></pre>
+<pre class="r"><code>decisiones</code></pre>
+<pre><code>## # A tibble: 164 x 15
+##     Anio `Codigo Pais Or~ `Codigo Pais As~ `Nombre Pais de~ `Nombre Pais As~
+##    &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;           
+##  1  2000 COL              PER              Colombia         Peru            
+##  2  2000 CUB              PER              Cuba             Peru            
+##  3  2001 RUS              PER              Russian Federat~ Peru            
+##  4  2002 COL              PER              Colombia         Peru            
+##  5  2002 CUB              PER              Cuba             Peru            
+##  6  2003 ARG              PER              Argentina        Peru            
+##  7  2003 COL              PER              Colombia         Peru            
+##  8  2003 CUB              PER              Cuba             Peru            
+##  9  2003 PSE              PER              State of Palest~ Peru            
+## 10  2003 IRQ              PER              Iraq             Peru            
+## # ... with 154 more rows, and 10 more variables: `Tipo de procedimiento` &lt;chr&gt;,
+## #   `Nombre del Procedimiento` &lt;chr&gt;, `Codigo de Tipo de Decision` &lt;chr&gt;, `Tipo
+## #   de Datos de Decision` &lt;chr&gt;, `Datos de Decision` &lt;chr&gt;, `Promedio de
+## #   Personas de decision por Caso` &lt;dbl&gt;, Reconocidas &lt;dbl&gt;, `Proteccion
+## #   Complementaria` &lt;dbl&gt;, `Cerradas de otra forma` &lt;dbl&gt;, Rechazadas &lt;dbl&gt;</code></pre>
+</div>
+<div id="tu-turno-1-pivot_wider" class="section level2">
+<h2>Tu turno 1: <code>pivot_wider</code></h2>
+<p>Covertir paises_largo al formato ordenado (variables como columnas)</p>
+<pre class="r"><code># paises_largo_tidy &lt;- </code></pre>
+</div>
+<div id="tu-turno-2-para-practicar-después" class="section level2">
+<h2>Tu turno 2: para practicar después</h2>
+<p>Nos interesa anexar la informacion de la esperanza de vida de los países de origen a la tabla de decisiones: Unir la tabla de países obtenida en Tu turno 1 (paises_largo_tidy) con la tabla de decisiones de asilo (decisiones). Utiliza como llave a las columnas con el nombre del país y el año.</p>
+</div>
+</div>

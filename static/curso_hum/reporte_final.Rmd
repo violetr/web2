@@ -1,0 +1,44 @@
+---
+title: "Reporte Final"
+output:
+  word_document:
+    toc: TRUE
+  html_document:
+    toc: TRUE
+params:
+  pais: COL
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Importo datos
+
+En esta seccion explicamos nuestros datos
+
+```{r}
+library(tidyverse)
+decisiones <- read_csv("data/decisiones_asilo_peru.csv")
+```
+
+## Filtro
+
+En esta seccion explicamos el proceso de manipulacion
+
+```{r}
+decisiones_filtrado <- decisiones %>% 
+  filter(`Codigo Pais Origen` == params$pais)
+```
+
+## Grafico
+
+Por ultimo aqui hacemos nuestro grafico
+
+```{r}
+decisiones_filtrado %>% 
+  ggplot(aes(Anio, Reconocidas)) +
+  geom_line(color = "red", size = 1.5) +
+  labs(title = "Pedidos de asilo reconocidos por Peru")
+```
+

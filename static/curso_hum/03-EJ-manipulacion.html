@@ -1,0 +1,77 @@
+---
+title: "03-EJ-manipulacion"
+output: html_document
+---
+
+
+
+<p>En esta sección trabajaremos con el paquete dplyr para modificar datos. Usaremos los el dataset decisiones Perú.</p>
+<p>Los cargamos en este bloque de código</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## -- Attaching packages --------------------------------------- tidyverse 1.3.0 --</code></pre>
+<pre><code>## v ggplot2 3.3.2     v purrr   0.3.4
+## v tibble  3.0.4     v dplyr   1.0.2
+## v tidyr   1.1.2     v stringr 1.4.0
+## v readr   1.4.0     v forcats 0.5.0</code></pre>
+<pre><code>## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>decisiones &lt;- read_csv(&quot;data/decisiones_asilo_peru.csv&quot;)</code></pre>
+<pre><code>## 
+## -- Column specification --------------------------------------------------------
+## cols(
+##   Anio = col_double(),
+##   `Codigo Pais Origen` = col_character(),
+##   `Codigo Pais Asilo` = col_character(),
+##   `Nombre Pais de Origen` = col_character(),
+##   `Nombre Pais Asilo` = col_character(),
+##   `Tipo de procedimiento` = col_character(),
+##   `Nombre del Procedimiento` = col_character(),
+##   `Codigo de Tipo de Decision` = col_character(),
+##   `Tipo de Datos de Decision` = col_character(),
+##   `Datos de Decision` = col_character(),
+##   `Promedio de Personas de decision por Caso` = col_double(),
+##   Reconocidas = col_double(),
+##   `Proteccion Complementaria` = col_double(),
+##   `Cerradas de otra forma` = col_double(),
+##   Rechazadas = col_double()
+## )</code></pre>
+<div id="tu-turno-1" class="section level2">
+<h2>Tu turno 1</h2>
+<p>Te dieron una tabla con datos de temperatura mínima y máxima para distintas estaciones meteorológicas de todo el país durante los 365 días de un año. Las columnas son: id_estacion, temperatura_maxima, temperatura_minima y provincia. En base a esos datos, te piden que computes la temperatura media anual de cada estación únicamente de las estaciones de Cusco.</p>
+<p>¿En qué orden ejecutarías estos pasos para obtener el resultado deseado?</p>
+<ul>
+<li>usar <code>summarise()</code> para calcular la estadística mean(temperatura_media) para cada id_estacion</li>
+<li>usar <code>group_by()</code> para agrupar por la columna id_estacion</li>
+<li>usar <code>mutate()</code> para agregar una columna llamada temperatura_media que sea
+<code>(temperatura_minima + temperatura_maxima)/2</code></li>
+<li>usar <code>filter()</code> para seleccionar solo las filas donde la columnas provincia es igual a “Cusco”</li>
+</ul>
+</div>
+<div id="tu-turno-2-verbos-select-y-filter" class="section level2">
+<h2>Tu turno 2: verbos <code>select</code> y <code>filter</code></h2>
+<ol style="list-style-type: decimal">
+<li><p>Seleccionar solo las variables Anio, <code>Codigo Pais Origen</code></p></li>
+<li><p>Filtrar las entradas de los países Turquía y Argentina</p></li>
+</ol>
+</div>
+<div id="tu-turno-3-verbo-mutate" class="section level2">
+<h2>Tu turno 3: verbo <code>mutate</code></h2>
+<ol style="list-style-type: decimal">
+<li><p>Generar una nueva columna que indique para cada fila si fueron rechazados mas pedidos que los aceptados</p></li>
+<li><p>Generar una nueva columna que indique para cada fila si el tipo de procedimiento es UNHCR</p></li>
+<li><p>Generar una nueva columna con la cantidad de pedidos rechazados o con proteccion complementaria</p></li>
+</ol>
+<pre class="r"><code>decisiones &lt;- mutate(decisiones, 
+                     indicador_mas_rechazos = Rechazadas &gt; Reconocidas)
+View(decisiones)</code></pre>
+</div>
+<div id="tu-turno-4-verbos-dplyr" class="section level2">
+<h2>Tu turno 4: verbos <code>dplyr</code></h2>
+<ol style="list-style-type: decimal">
+<li><p>Obtener una tabla con la cantidad de pedidos de asilo rechazados por Perú durante cada año</p></li>
+<li><p>Ordena esta tabla de mayor a menor según la cantidad de pedidos aceptados</p></li>
+<li><p>Que cantidad de pedidos fueron rechazados en total durante el período estudiado?</p></li>
+<li><p>Crea una nueva variable</p></li>
+</ol>
+</div>

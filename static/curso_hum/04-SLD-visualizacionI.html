@@ -3,7 +3,7 @@
   <head>
     <title>Visualización</title>
     <meta charset="utf-8" />
-    <meta name="date" content="2020-11-25" />
+    <meta name="date" content="2020-11-26" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
     <link rel="stylesheet" href="custom.css" type="text/css" />
@@ -272,27 +272,6 @@ La leyenda se agrega automáticamente
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
 
-##  Tu turno 2: 
-
-1.Agrega varias propiedades estéticas a tu gráfico:
-  - color
-  - size
-  - alpha
-  - shape
-
-
-2.Qué pasa si las variables son continuas o categóricas
-
----
-&lt;div class="my-header"&gt;&lt;/div&gt;
-
-## Posibles mapeos
-
-&lt;center&gt;&lt;img src="img/variables-aes.png"  height="530"&gt;&lt;/center&gt;
-
----
-&lt;div class="my-header"&gt;&lt;/div&gt;
-
 ## Cómo hacer este gráfico?
 
 ![](04-SLD-visualizacionI_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
@@ -403,9 +382,9 @@ Mismos datos, mismo mapeo de aesthetics pero distinto geom
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
 
-# Tu turno 3
+# Tu turno 2
 
-Reproducir este histograma de la variable Households con la ayuda de la guía rápida de `ggplot2`
+Reproducir este histograma de la variable Households con la ayuda de la guía rápida de `ggplot2`. Usa `geom_histogram`
 
 Ayuda: no utilizar la variable `y`
 
@@ -419,9 +398,11 @@ Ayuda: no utilizar la variable `y`
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
 
-# Gráficos de barras
+# Tu turno 3
 
-Reproducir este gráfico de barras que grafica la cantidad de campamentos en cada comuna. Utiliza la ayuda de la guía rápida de `ggplot2`.
+Reproducir este gráfico de barras que grafica la cantidad de campamentos en cada comuna. Utiliza la ayuda de la guía rápida de `ggplot2`. Usa `geom_bar`
+
+Ayuda: no utilizar la variable `y`
 
 ![](04-SLD-visualizacionI_files/figure-html/unnamed-chunk-23-1.png)&lt;!-- --&gt;
 
@@ -470,7 +451,7 @@ ggplot(data = haiti) +
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
 
-# Tu turno 5
+# Tu turno 4
 
 Predice la salida del siguiente código
 
@@ -552,15 +533,10 @@ Que sucede aquí?
 
 
 ```r
-ggplot(data = haiti, mapping = aes(x = Households, 
-                                   y = Individuals,
+ggplot(data = haiti, mapping = aes(x = Households, y = Individuals,
                                    color = `Water Provision`)) + 
   geom_point() +
   geom_smooth()
-```
-
-```
-## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
 ```
@@ -615,14 +591,10 @@ El tamaño default en general no es muy bueno. Podemos indicar las dimensiones
 ggsave("data/my-plot.pdf", width = 6, height = 6)
 ```
 
----
-&lt;div class="my-header"&gt;&lt;/div&gt;
+Tu turno 5: Salva tu último gráfico en la carpeta img de tu proyecto
 
-## Tu turno 6
+Si por algún motivo no estás en un proyecto, vuelve al proyecto del curso
 
-Salva tu último gráfico en la carpeta data de tu proyecto
-
-Si por algún motivo no estás en un proyecto, vuelve al proyecto del curso y si no tienes proyecto del curso crea uno nuevo
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
@@ -671,15 +643,6 @@ Podemos graficar una variable a lo largo del tiempo para detectar tendencias, ev
 &lt;center&gt;&lt;img src="img/series_tiempo.png"  height="460"&gt;&lt;/center&gt;
 
 ---
-&lt;div class="my-header"&gt;&lt;/div&gt;
-
-## Series de tiempo
-
-Podemos graficar una variable a lo largo del tiempo para detectar tendencias, eventos y sus consecuencias
-
-&lt;center&gt;&lt;img src="img/modas_nombres.png"  height="460"&gt;&lt;/center&gt;
-
----
 ## Series de tiempo
 
 Podemos graficar una variable a lo largo del tiempo para detectar tendencias, eventos y sus consecuencias
@@ -709,7 +672,7 @@ decisiones %&gt;%
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
 
-## Tu turno 7:
+## Para practicar luego:
 
 
 Modifica el gráfico anterior para que la línea sea roja y cambia su grosor
@@ -719,21 +682,11 @@ Modifica el gráfico anterior para que la línea sea roja y cambia su grosor
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
 
-## Tu turno 8:
-
-![](04-SLD-visualizacionI_files/figure-html/unnamed-chunk-39-1.png)&lt;!-- --&gt;
-
-Grafica en un mismo plot la evolución del total de pedidos de asilo en Perú para los 5 países con mas pedidos
-
-
----
-&lt;div class="my-header"&gt;&lt;/div&gt;
-
 ## Gráficos por paneles
 
 A veces es más claro si tenemos varios paneles, uno para cada valor de una variable categórica/discreta
 
-![](04-SLD-visualizacionI_files/figure-html/unnamed-chunk-40-1.png)&lt;!-- --&gt;
+![](04-SLD-visualizacionI_files/figure-html/unnamed-chunk-39-1.png)&lt;!-- --&gt;
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
@@ -781,13 +734,13 @@ ggplot() +
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
 
-## Tu turno 9:
+## Para practicar despues:
 
 1. Con la ayuda de la guía rapida intenta reproducir este gráfico que indica con una línea punteada el año del importante terremoto en Haití
 
 2. Quita la línea y modifícalo para que se vea en paneles 
 
-![](04-SLD-visualizacionI_files/figure-html/unnamed-chunk-43-1.png)&lt;!-- --&gt;
+![](04-SLD-visualizacionI_files/figure-html/unnamed-chunk-42-1.png)&lt;!-- --&gt;
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
@@ -836,7 +789,7 @@ library(patchwork)
 g1 + g2
 ```
 
-![](04-SLD-visualizacionI_files/figure-html/unnamed-chunk-47-1.png)&lt;!-- --&gt;
+![](04-SLD-visualizacionI_files/figure-html/unnamed-chunk-46-1.png)&lt;!-- --&gt;
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
@@ -851,21 +804,12 @@ library(patchwork)
    g2
 ```
 
-![](04-SLD-visualizacionI_files/figure-html/unnamed-chunk-48-1.png)&lt;!-- --&gt;
+![](04-SLD-visualizacionI_files/figure-html/unnamed-chunk-47-1.png)&lt;!-- --&gt;
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
 
-## Tu turno 10
-
-Instala `patchwork` y reproduce el siguiente gráfico
-
-![](04-SLD-visualizacionI_files/figure-html/unnamed-chunk-49-1.png)&lt;!-- --&gt;
-
----
-&lt;div class="my-header"&gt;&lt;/div&gt;
-
-## DESAFIO 2
+## DESAFIO 2 para practicar después
 
 1. Importa el dataset `dtm3-peru` (cuidado con la primera fila, salteala)
 
@@ -875,19 +819,8 @@ Instala `patchwork` y reproduce el siguiente gráfico
 
 3. Haz un gráfico que represente la distribución del "Número de Familias que viven en la misma carpa o techo"
 
-4. Representa con la ayuda de la guía rápida un gráfico de barras apiladas del "Número de Familias que viven en la misma carpa o techo" que discrimine según distrito
-
 5. Representa con la ayuda de la guía rápida un gráfico de barras lado a lado del "Número de Familias que viven en la misma carpa o techo" que discrimine según distrito
 
----
-&lt;div class="my-header"&gt;&lt;/div&gt;
-
-
-6. Representa el "Número de Familias que viven en la misma carpa o techo" en paneles según el distrito
-
-7. Que tipo de ganados tienen l@s encuestad@s? usar `?count` (ayuda) para averiguar cuántas personas tienen cada tipo de ganado 
-
-8. Explora las preguntas que te interesen
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
@@ -917,13 +850,12 @@ Hay muuuchas cosas para hacer con `ggplot2`
 
 - [Data Visualization - A practical introduction](https://socviz.co/)
 
-Vamos a ver un poco más sobre como arreglar gráficos para publicar: 
+Un poco más sobre como arreglar gráficos para publicar: 
 
-- Títulos y leyendas
+- Títulos y otros textos
 - Etiquetas
 - Temas
 - Colores
-- Anotaciones
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
