@@ -22,7 +22,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
   description = "My personal website"
   copyright = "&copy;2018 Violeta Roizman"
   sidebarAbout = [
-    "I'm a Ph.D. student in Signal Processing/ML/Stats. My thesis is focused on unsupervised learning methods. I like both R and Python :)",
+    "I'm Violeta, a freelancer Data Scientist. I have a mathematical background and hold a PhD in Mathematics and Informatics. I like both R and Python :)",
     ""
   ]
   # Contact page
@@ -37,7 +37,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
      # - send a dummy email yourself to confirm your account
      # - click the confirm link in the email from www.formspree.io
      # - you're done. Happy mailing!
-  email = "violeroizman@gmail.com"
+  email = "violeta.roizman@gmail.com"
   
 
   # Nav links in the side bar
@@ -61,7 +61,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
   [params.social]
 #  facebook      = "full page or profile url in facebook"
 #  googleplus    = "full profile url in googleplus"
-  email         = "violeroizman@gmail.com"
+  email         = "violeta.roizman@gmail.com"
   twitter       = "https://twitter.com/violetrzn"
   linkedin      = "https://www.linkedin.com/in/violeta-roizman-a97202116/"
 #  stackoverflow = "full profile url in stackoverflow"
