@@ -8,7 +8,7 @@ showonlyimage: false
 date: "4 de marzo de 2019"
 ---
 
-UseR!2019 Datathon submission
+UseR!2019 Datathon submission - 3rd place
 
 ```{r setup, include=FALSE, warning=FALSE}
 knitr::opts_chunk$set(echo = FALSE, fig.align="center")
@@ -45,7 +45,7 @@ library(kableExtra)
 my_palette <- rainbow_hcl(8)
 ```
 
-In this document I present my analysis of the "Health, Nutrition and Population Statistics" dataset hosted by the World Bank Group. It was compiled from an RMarkdown file `datathon2019.Rmd`. A Shiny App showing the discussed topic and other visualizations can be accessed here. It's a complementary material but it doesn't replace this report. All the code that I used to build both the document and the application is available in this repository: github.com/violetr/health. 
+In this document I present my analysis of the "Health, Nutrition and Population Statistics" dataset hosted by the World Bank Group. It was compiled from an RMarkdown file `datathon2019.Rmd`. A Shiny App showing the discussed topic and other visualizations can be accessed [here](https://violetr.shinyapps.io/hiv_hnp/). It's a complementary material but it doesn't replace this report. All the code that I used to build both the document and the application is available in this repository: github.com/violetr/health. 
 
 <center><img src="/img/portfolio/aids_6.png" width = "20%"></center>
 
@@ -72,13 +72,13 @@ First of all I had to import the data, I did this with the `readr` package. I ch
 countries_hnp <- read_csv(here::here("data_health", "HNP_StatsCountry.csv"))
 
 dataset_hnp <- read_csv(here::here("data_health", "HNP_StatsData.csv")) %>%
-  select(-X63)
+  select(-c(63, 64, 65, 66))
 
 indicators_hnp <- read_csv(here::here("data_health", "HNP_StatsSeries.csv"))
 ```
-
+ 
 I manipulated the data with `dplyr` and `tidyr` to select the columns of interest for the analysis and to reshape the data into a tidy format. I show the main part of the manipulation whose most important part is the gather-spread that returns a database where indicators are the columns:
-
+ 
 ```{r , eval=FALSE, echo=FALSE, warning=FALSE, include=FALSE, message= FALSE}
 # select relevant variables and rename variables
 
@@ -139,10 +139,10 @@ dataset_hnp_health <- dataset_hnp %>%
 # Save the tidy datasets
 write_feather(dataset_hnp, here::here("data_health", "dataset_hnp_exp"))
 write_feather(dataset_hnp_health, here::here("data_health", "dataset_hnp_health_exp"))
-write_feather(dataset_hnp_education,here::here("data_health", "dataset_hnp_education_exp"))
+#write_feather(dataset_hnp_education,here::here("data_health", "dataset_hnp_education_exp"))
 write_feather(indicators_hnp_keep, here::here("data_health", "indicators_hnp_exp"))
 write_feather(countries_hnp_keep, here::here("data_health", "countries_hnp_exp"))
-write_feather(dataset_hnp_others, here::here("data_health", "dataset_hnp_others_exp"))
+#write_feather(dataset_hnp_others, here::here("data_health", "dataset_hnp_others_exp"))
 ```
 
 For some analyses I used the `naniar` package to visualize the presence of missing data because of the big amount of missing data for some indicators, countries and periods of time. I also used `missMDA` to impute missing values with the PCA method in some parts.
@@ -153,8 +153,8 @@ For some analyses I used the `naniar` package to visualize the presence of missi
 
 dataset_hnp <- read_feather(here::here("data_health", "dataset_hnp_exp"))
 dataset_hnp_health <- read_feather(here::here("data_health", "dataset_hnp_health_exp"))
-dataset_hnp_education <- read_feather(here::here("data_health", "dataset_hnp_education_exp"))
-dataset_hnp_others <- read_feather(here::here("data_health", "dataset_hnp_others_exp"))
+#dataset_hnp_education <- read_feather(here::here("data_health", "dataset_hnp_education_exp"))
+#dataset_hnp_others <- read_feather(here::here("data_health", "dataset_hnp_others_exp"))
 indicators_hnp_keep <- read_feather(here::here("data_health", "indicators_hnp_exp"))
 countries_hnp_keep <- read_feather(here::here("data_health", "countries_hnp_exp"))
 
@@ -292,12 +292,12 @@ aids_countries <- dataset_hnp_health %>%
   select(-year)
 
 # load world map
-# countries_geo <- geojsonio::geojson_read(here::here("app_hnp","www", "countries.geojson"), what = "sp")
+#countries_geo <- geojsonio::geojson_read(here::here("app_hnp","www", "countries.geojson"), what = "sp")
 
 # simplify it because too heavy to shiny
-# countries_simple <- rmapshaper::ms_simplify(countries_geo, keep = 0.05, keep_shapes = TRUE)
+#countries_simple <- rmapshaper::ms_simplify(countries_geo, keep = 0.05, keep_shapes = TRUE)
 
-# saveRDS(countries_simple, file = "app_hnp/data/countries_simple.rds")
+#saveRDS(countries_simple, file = here::here("data_health", "countries_simple.rds"))
 # I load the simplified version to be faster
 countries_geo <- readRDS(here::here("data_health",  "countries_simple.rds"))
 
@@ -397,7 +397,7 @@ data_to_embed <- function(indicators_hnp_keep, dataset_hnp_health, an_year, cust
   dataset_comparable_health <- dataset_hnp_health %>%
     filter(year == an_year) %>%
     select(country_name, country_code, region, one_of(comparable_health_indicators)) %>%
-    select_if(function(x) (sum(is.na(x)) <= (0.4 * length(x))) || is.character(x))
+    select_if(function(x) (sum(is.na(x)) <= (0.47 * length(x))) || is.character(x))
   
   # I impute missing data
   res.comp <- imputePCA(as.data.frame(dataset_comparable_health[, 4:ncol(dataset_comparable_health)]))
@@ -427,7 +427,7 @@ comparable_health_indicators <- indicators_hnp_keep %>%
 dataset_comparable_health <- dataset_hnp_health %>%
   filter(year == an_year) %>%
   select(country_name, country_code, region, one_of(comparable_health_indicators)) %>%
-  select_if(function(x) (sum(is.na(x)) <= (0.4 * length(x))) || is.character(x))
+  select_if(function(x) (sum(is.na(x)) <= (0.46 * length(x))) || is.character(x))
 # only keep features that have a "resonable" amount of missing data
 
 # I impute missing data
@@ -754,6 +754,7 @@ g_kn_ma <- dataset_hnp_health %>%
   scale_x_continuous(breaks = c(1997, 2002, 2007, 2013, 2017), limits = c(1997, 2017)) +
   ylim(10, 65)
 ```
+
 ```{r , message=FALSE, warning=FALSE}
 # patchwork package:
 g_kn_fe + g_kn_ma 
