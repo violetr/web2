@@ -14,7 +14,7 @@ I created a [Quiz](https://quiz.directory/quiz/u90G4z8M) about Data Visualizatio
 
 And, all plots are COVID-19 related. For the media, I drew sketches of graphs that appeared on TV and newspapers. 
 
-<img src="/img/portfolio/telegramQ11.png" align="center" width=30%/>  
+<img src="/img/portfolio/telegramQ11.png" align="center" width=45%/>  
 
 I got a Silver prize and received 100 euros :)! Try it out if you have a Telegram account!
 
