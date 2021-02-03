@@ -4,6 +4,8 @@ theme = "hugo-creative-portfolio-theme"
 languageCode = "en-us"
 enableEmoji = true
 enablemath = true
+enableRobotsTXT = true
+canonifyURLs = true
 icon = "img/icon.png"
 
 # Enable comments by entering your Disqus shortname
