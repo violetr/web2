@@ -1,4 +1,4 @@
-baseurl = "/"
+baseurl = "https://violetr.netlify.app/"
 title = "Violeta Roizman"
 theme = "hugo-creative-portfolio-theme"
 languageCode = "en-us"
