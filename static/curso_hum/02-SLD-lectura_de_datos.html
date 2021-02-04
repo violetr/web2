@@ -3,7 +3,8 @@
   <head>
     <title>Lectura de datos</title>
     <meta charset="utf-8" />
-    <meta name="date" content="2020-11-25" />
+    <meta name="date" content="2021-02-04" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
     <link rel="stylesheet" href="custom.css" type="text/css" />
@@ -26,7 +27,7 @@ background-color: #272822
 
 &lt;h1 style='color:white'&gt; &lt;center&gt; R para contextos humanitarios de emergencia&lt;/center&gt;&lt;/h1&gt; 
 ## &lt;center&gt;&lt;font style='color:#E495A5'&gt;L&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;e&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;c&lt;/font&gt;&lt;font style='color:#96B56C'&gt;t&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;u&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;r&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;a&lt;/font&gt; &lt;font style='color:#91ACE1'&gt;d&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;e&lt;/font&gt; &lt;font style='color:#DE94C8'&gt;d&lt;/font&gt;&lt;font style='color:#E495A5'&gt;a&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;t&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;o&lt;/font&gt;&lt;font style='color:#96B56C'&gt;s&lt;/font&gt;&lt;/center&gt; 
-### &lt;center&gt;&lt;font style='color:#E495A5'&gt;2&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;5&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;-&lt;/font&gt;&lt;font style='color:#96B56C'&gt;1&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;1&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;-&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;2&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;0&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;2&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;0&lt;/font&gt;&lt;/center&gt;
+### &lt;center&gt;&lt;font style='color:#E495A5'&gt;V&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;i&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;o&lt;/font&gt;&lt;font style='color:#96B56C'&gt;l&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;e&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;t&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;a&lt;/font&gt; &lt;font style='color:#91ACE1'&gt;R&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;o&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;i&lt;/font&gt;&lt;font style='color:#E495A5'&gt;z&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;m&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;a&lt;/font&gt;&lt;font style='color:#96B56C'&gt;n&lt;/font&gt;&lt;/center&gt;
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
@@ -52,29 +53,51 @@ Tambien existen
 &lt;div class="my-header"&gt;&lt;/div&gt;
 ## Lectura de datos CSV
 
-File &gt; Import Dataset &gt; From Text...(readr)
+Import Dataset &gt; From Text...(readr)
 
-![](img/importar-asilo.png)
+&lt;center&gt;&lt;img src="img/importar-asilo.png" height="450"&gt;&lt;/center&gt;
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
-## Lectura de datos CSV - Opciones
+## Lectura de datos CSV: Opciones
 
-2. Seleccionamos el archivo deseado
+2. **Seleccionamos el archivo** deseado
 
-3. Si es CSV, debe decir Delimiter: Comma
+3. Si es CSV, en general debe decir **Delimiter: Comma**
 
-4. También prestar atención donde dice First Row as Names
+4. También prestar atención donde dice **First Row as Names**
 
-5. Si hay filas que hay que saltear (que no sean los nombres), podemos usar Skip
+5. Si hay filas que hay que saltear (que no sean los nombres), podemos usar **Skip**
 
-6. RStudio adivina el tipo de la columna en base a sus primeros valores, podemos cambiar el tipo si está equivocado 
+6. RStudio adivina el **tipo de la columna** en base a sus primeros valores, podemos cambiar el tipo si está equivocado 
 
-6. Importante!: Cuando terminamos de elegir las opciones, copiamos el código que se encuentra en el rectángulo `Code Preview`
+6. **Importante!**: Cuando terminamos de elegir las opciones, **copiamos el código** que se encuentra en el rectángulo `Code Preview`
 
 7. Hacer click en importar
 
 Una vez que importamos datos vamos a tener disponible un dataset del tipo `tibble` en la mesada
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Lectura de datos: Para qué copiamos el código?
+
+Es **MUY IMPORTANTE** copiar los comandos y pegarlo en nuestro flujo de trabajo
+
+Para cuando tengamos que cambiar algo en los datos, el proceso tiene que ser automático y sin clicks.
+
+
+```r
+library(readr)
+
+mi_dataset &lt;- read_csv("nombre_dataset.csv")
+```
+
+`readr` es un **paquete** 🎁 (incluido en el `tidyverse`) para importar y también leer datos
+
+`read_csv` es una **función** de `readr` que nos sirve para **importar datos**  en **formato csv**
+
+Por eso, primero tenemos que **cargar el paquete** `readr` para tener acceso a `read_csv`!!!
+
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
@@ -103,23 +126,24 @@ Posibles tipos de columnas: texto (`character`), números (`double`, `numeric`, 
 &lt;div class="my-header"&gt;&lt;/div&gt;
 ## Tu turno: Lectura de datos CSV
 
-1. importar el archivo "decisiones_asilo_peru.csv" (Fuente: UNHCR) con información sobre las decisiones tomadas en Perú frente a los pedidos de asilo recibidos provenientes de distintos países 
+1. Importar el archivo "decisiones_asilo_colombia.csv" (Fuente: UNHCR) con información sobre las decisiones tomadas por Colombia frente a los pedidos de asilo recibidos provenientes de distintos países 
 
-2. Indicar que cantidad de filas y columnas tiene
-
----
-&lt;div class="my-header"&gt;&lt;/div&gt;
-## Lectura de datos de Excel
-
-File &gt; Import Dataset &gt; From Excel
-
-![](img/importar-haiti.png)
+2. Indicar qué cantidad de filas y columnas tiene
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
 ## Lectura de datos de Excel
 
-- El paquete utilizado es `readxl`
+Import Dataset &gt; From Excel
+
+&lt;center&gt;&lt;img src="img/importar-haiti.png" height="450"&gt;&lt;/center&gt;
+
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Lectura de datos de Excel
+
+- Ahora el paquete utilizado es `readxl` (específico para leer archivos Excel)
 
 **Importante!** 
 - Número de página donde se encuentra el dataset
@@ -143,27 +167,15 @@ background-color: #272822
 &lt;div class="my-header"&gt;&lt;/div&gt;
 ## DESAFÍO 1: Lectura de datos 
 
-El objetivo de este desafío es que armes un proyecto y  leas una archivo de datos para aplicar lo que aprendas en el resto del curso.
+El objetivo de este desafío es que leas una archivo de datos.
 
-1. Crea un proyecto de RStudio llamado datos-haiti
+1. Asegúrate de estar en el proyecto `taller_R` que has creado anteriormente.
 
-3. Crea un archivo de RMarkdown (por las dudas, ésta es la sección asociada). 
+3. Crea un archivo de RMarkdown. 
 
-2. Arma un chunk para leer los datos. Importa el archivo disponible en https://data.humdata.org/dataset/27baf423-2d13-49a4-bd72-cb65d8f924da/resource/9f71ab56-8a9a-4df2-be5d-f26d3600a285/download/dtm-haiti-site-assessment-round-33.xlsx con información sobre distintos campamentos en Haití (Fuente: OIM). 
+2. Arma un chunk para leer los datos. Importa los datasets de las hojas `A_HOGAR` y `CODE_BOOK`  del archivo `MASTER_Base_Datos_4ta_Ronda_R_Capacitacion.xlsx` que contiene los datos de la Evaluacion conjunta de necesidades ante COVID-19 (Fuente: GIFMM Colombia, Fecha: Noviembre 2020). 
 
-4. Además de poner un título informativo, describe los datos con tus palabras. ¿Cuál es la fuente? ¿Qué variables incluyen? ¿Cuántas observaciones tiene? ¿Qué tipo de datos tiene cada columna?
-
----
-&lt;div class="my-header"&gt;&lt;/div&gt;
-## Observaciones sobre el desafío:
-
-- Notar que se puede importar directo usando el url
-
-- Observa que la segunda fila no debería aparecer como una observación del dataset. En el futuro veremos cómo quitarla
-
-- Esta fila arruina la detección del tipo de todas las columnas numéricas
-
-- Arreglar el tipo de las columnas 
+4. Además de poner un título informativo al archivo RMarkdown, describe los datos con tus palabras. ¿Cuál es la fuente? ¿Qué variables incluyen? ¿Cuántas observaciones tiene? ¿Qué tipo de datos tiene cada columna?
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
@@ -173,7 +185,9 @@ Les presento las cheatsheets o guías rápidas (en español) ⭐
 
 [https://rstudio.com/resources/cheatsheets/](https://rstudio.com/resources/cheatsheets/)
 
-Nos describen brevemente la mayoria de las posibilidades que nos brinda un paquete 🎁
+&lt;center&gt;&lt;img src="img/readr-guiarapida.png" height="340"&gt;&lt;/center&gt;
+
+Nos describen brevemente la mayoria de las posibilidades (funciones, argumentos, estructuras) que nos brinda un paquete 🎁
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
@@ -181,7 +195,7 @@ Nos describen brevemente la mayoria de las posibilidades que nos brinda un paque
 
 Con `readr` puedo escribir archivos csv o de texto
 
-**Tu turno:** Con la ayuda de la guías rápida de `readr` guardar el dataset de haiti con un nombre distinto en la carpeta data
+**Tu turno:** Con la ayuda de la guías rápida de `readr` guardar la encuesta del archivo `MASTER_Base_Datos_4ta_Ronda_R_Capacitacion.xls` en un archivo csv
 
 Para escribir archivos excel puedes usar el paquete `xls`
 
@@ -192,10 +206,25 @@ Para escribir archivos excel puedes usar el paquete `xls`
 En este modulo aprendimos a 
 
 - leer datos en R
-  - en formato csv
+  - en formato .csv
   - en formato .xls o .xlsx
   
-- escribir datos en R
+- escribir datos en R 
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+
+## Licencia y material usado
+
+Licencia: [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES).
+
+Este material está inspirado y utiliza explicaciones de:
+
+- [R para Clima](https://eliocamp.github.io/r-clima/) de Paola Corrales y Elio Campitelli
+
+- [De excel a R](https://paocorrales.github.io/deExcelaR/index.html) de Paola Corrales y Elio Campitelli
+
+- [Master the Tidyverse](https://github.com/rstudio-education/master-the-tidyverse-instructors) de Garrett Grolemund
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

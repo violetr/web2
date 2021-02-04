@@ -3,43 +3,19 @@ title: "04-EJ-visualizacion"
 output: html_document
 ---
 
-Trabajaremos en principio con los dos datasets conocidos hasta ahora: Haiti y decisiones
-
-```{r include=FALSE, message=FALSE}
-library(tidyverse)
-library(readxl)
-url_haiti <- "https://data.humdata.org/dataset/27baf423-2d13-49a4-bd72-cb65d8f924da/resource/9f71ab56-8a9a-4df2-be5d-f26d3600a285/download/dtm-haiti-site-assessment-round-33.xlsx"
-destfile <- "dtm_haiti_site_assessment_round_33.xlsx"
-curl::curl_download(url_haiti, destfile)
-haiti <- read_excel(destfile, 
-    col_types = c("text", "text", "text", 
-        "numeric", "numeric", "numeric", 
-        "numeric", "numeric", "numeric", 
-        "text", "text", "text", "text", "text", 
-        "text", "text", "text", "text"))
-haiti <- slice(haiti, -1)
-haiti
-```
+Trabajaremos en principio con dos datasets conocidos hasta ahora: decisiones y 4ta ronda respuesta COVID
 
 ```{r, include = FALSE, message=FALSE}
-decisiones <- read_csv("data/decisiones_asilo_peru.csv")
-decisiones
+library(readxl)
+library(tidyverse)
+decisiones <- read_csv("data/decisiones_asilo_colombia.csv")
+data_4ta_ronda <- read_excel("data/MASTER_Base_Datos_4ta_Ronda_R_Capacitacion.xlsx", 
+    sheet = "A_HOGAR")
 ```
 
+## Tu turno 1
 
-## Tu turno 1: Mi primer gráfico
-
-
-Copia y corre el código para generar el gráfico que queremos
-
-
-```{r}
-
-```
-
-## Tu turno 2
-
-Reproducir este histograma de la variable Households con la ayuda de la guía rápida de `ggplot2`. Usa `geom_histogram`
+Reproducir este histograma de la distribución de la cantidad de personas que viven en el hogar del entrevistado (variable `b10_tamanio_hogar`, dataset `data_4ta_ronda`) con la ayuda de la guía rápida de `ggplot2`. Usa `geom_histogram`.
 
 Ayuda: no utilizar la variable `y`
 
@@ -48,9 +24,9 @@ Ayuda: no utilizar la variable `y`
 ```
 
 
-# Tu turno 3
+# Tu turno 2
 
-Reproducir este gráfico de barras que grafica la cantidad de campamentos en cada comuna. Utiliza la ayuda de la guía rápida de `ggplot2`. Usa `geom_bar`
+Reproducir este gráfico de barras que grafica la cantidad de encuestados por cada departamento. Utiliza la ayuda de la guía rápida de `ggplot2`. Usa `geom_bar`.
 
 Ayuda: no utilizar la variable `y`
 
@@ -59,33 +35,30 @@ Ayuda: no utilizar la variable `y`
 ```
 
 
-# Tu turno 4
-
-Predice la salida del siguiente código
-
-Luego, córrelo
-
-```{r, eval = FALSE}
-ggplot(data = haiti) + 
-  geom_point(mapping = aes(x = Households, y = Individuals)) +
-  geom_smooth(mapping = aes(x = Households, y = Individuals))
-```
-
-## Tu turno 5
+## Tu turno 4
 
 Salva tu último gráfico en la carpeta img de tu proyecto
 
 Si por algún motivo no estás en un proyecto, vuelve al proyecto del curso
 
+```{r}
 
-## DESAFIO 2 para practicar despues
+```
 
-1. Importa el dataset `dtm3-peru` (cuidado con la primera fila de la tabla, salteala)
 
-[https://data.humdata.org/dataset/dad01c41-adde-46ee-998d-a6baf9eeb8d1/resource/538975d3-f7bb-4f0d-9111-58f7e00ee4f1/download/dtm3_version_publica_1209-1.xlsx](https://data.humdata.org/dataset/dad01c41-adde-46ee-998d-a6baf9eeb8d1/resource/538975d3-f7bb-4f0d-9111-58f7e00ee4f1/download/dtm3_version_publica_1209-1.xlsx)
+## DESAFIO 2 
 
-2. Cuántas personas respondieron la encuesta?
+1. Trabajemos un poco más con la encuesta del dataset `data_4ta_ronda` 
 
-3. Haz un gráfico que represente la distribución del "Número de Familias que viven en la misma carpa o techo"
+2. ¿Cuántas personas respondieron la encuesta?
 
-5. Representa con la ayuda de la guía rápida un gráfico de barras lado a lado del "Número de Familias que viven en la misma carpa o techo" que discrimine según distrito
+3. Representa un gráfico de barras que represente el nivel educativo de los encuestados
+
+3. Representa un gráfico de la cantidad de personas con trabajo en el hogar en función de la cantidad de personas del hogar
+
+3. Representa un gráfico por paneles de la distribución de la cantidad de personas que viven en un hogar que discrimine según departamento
+
+```{r}
+
+```
+

@@ -68,4 +68,4 @@ Descomenta (borra el `#` del principio del bloque) la línea de código del sigu
 #ggplot(data = diamonds) + geom_point(aes(x = carat, y = price))
 ```
 
-Obtenemos un error. Por que crees que se produce?
+Obtenemos un error. Por qué crees que se produce?

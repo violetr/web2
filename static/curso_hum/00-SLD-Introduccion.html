@@ -3,10 +3,11 @@
   <head>
     <title>Intro</title>
     <meta charset="utf-8" />
-    <meta name="date" content="2020-11-25" />
+    <meta name="date" content="2021-02-04" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
-    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"xfd9b5bfd91f4816917ede5de34dcd5a","expires":1}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x46a65b184f74054af3de7f917a52264","expires":1}</script>
     <script src="libs/himalaya/himalaya.js"></script>
     <script src="libs/js-cookie/js.cookie.js"></script>
     <link href="libs/editable/editable.css" rel="stylesheet" />
@@ -31,9 +32,10 @@ background-color: #272822
 
 &lt;h1 style='color:white'&gt; &lt;center&gt; R para contextos humanitarios de emergencia&lt;/center&gt;&lt;/h1&gt; 
 ## &lt;center&gt;&lt;font style='color:#E495A5'&gt;I&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;n&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;t&lt;/font&gt;&lt;font style='color:#96B56C'&gt;r&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;o&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;d&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;u&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;c&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;c&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;i&lt;/font&gt;&lt;font style='color:#E495A5'&gt;ó&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;n&lt;/font&gt;&lt;/center&gt; 
-### &lt;center&gt;&lt;font style='color:#E495A5'&gt;2&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;5&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;-&lt;/font&gt;&lt;font style='color:#96B56C'&gt;1&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;1&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;-&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;2&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;0&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;2&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;0&lt;/font&gt;&lt;/center&gt;
+### &lt;center&gt;&lt;font style='color:#E495A5'&gt;V&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;i&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;o&lt;/font&gt;&lt;font style='color:#96B56C'&gt;l&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;e&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;t&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;a&lt;/font&gt; &lt;font style='color:#91ACE1'&gt;R&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;o&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;i&lt;/font&gt;&lt;font style='color:#E495A5'&gt;z&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;m&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;a&lt;/font&gt;&lt;font style='color:#96B56C'&gt;n&lt;/font&gt;&lt;/center&gt;
 
 ---
+&lt;div class="my-header"&gt;&lt;/div&gt;
 
 ##&lt;font style='color:#E495A5'&gt;H&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;o&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;l&lt;/font&gt;&lt;font style='color:#96B56C'&gt;a&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;!&lt;/font&gt;
 
@@ -44,12 +46,12 @@ background-color: #272822
 - Me gusta **visualizar datos, visitar museos, tomar té, etc, etc.**
 
 &lt;center&gt;
-&lt;img src="img/grafico.jpg" alt="Hex stickers" width="250"&gt;
-&lt;img src="img/te.jpg" alt="Hex stickers" width="280"&gt;
+&lt;img src="img/grafico.jpg" alt="Visualización de datos" width="250"&gt;
+&lt;img src="img/te.jpg" alt="Té" width="280"&gt;
 &lt;/center&gt;
 
 &lt;center&gt;
-&lt;img src="img/museo.jpg" alt="Hex stickers" width="200"&gt;
+&lt;img src="img/museo.jpg" alt="Museo Pompidou" width="200"&gt;
 &lt;/center&gt;
 
 ---
@@ -74,7 +76,8 @@ background-color: #272822
 ## Requisitos
 
 - Asumimos que ya tienen instalado R y RStudio
-- En caso contrario: seguir los pasos en este video  
+- En caso contrario: seguir los pasos de [este video](https://www.youtube.com/watch?v=GkItqGfCkog&amp;feature=youtu.be)  
+- También necesitamos PowerBI para el segundo día
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
@@ -88,81 +91,72 @@ background-color: #272822
   overflow:hidden;padding:10px 5px;word-break:normal;}
 .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
   font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-jass{background-color:#656565;border-color:#9b9b9b;color:#FFF;font-weight:bold;text-align:center;vertical-align:top}
-.tg .tg-3gal{background-color:#656565;border-color:#9b9b9b;color:#FFF;text-align:center;vertical-align:top}
-.tg .tg-meum{background-color:#656565;border-color:#9b9b9b;font-weight:bold;text-align:center;vertical-align:top}
-.tg .tg-fz0b{background-color:#FFF;border-color:#9b9b9b;color:#343434;text-align:center;vertical-align:top}
-.tg .tg-gzjo{background-color:#FFF;border-color:#9b9b9b;text-align:left;vertical-align:top}
-.tg .tg-o92t{background-color:#656565;border-color:#9b9b9b;text-align:left;vertical-align:top}
+.tg .tg-jg9m{background-color:#656565;color:#FFF;font-weight:bold;text-align:center;vertical-align:top}
+.tg .tg-etrd{background-color:#656565;color:#FFF;text-align:center;vertical-align:top}
+.tg .tg-rwx4{background-color:#656565;font-weight:bold;text-align:center;vertical-align:top}
+.tg .tg-tyn3{background-color:#FFF;color:#343434;text-align:center;vertical-align:top}
 &lt;/style&gt;
 &lt;table class="tg"&gt;
 &lt;thead&gt;
   &lt;tr&gt;
-    &lt;th class="tg-meum"&gt;&lt;/th&gt;
-    &lt;th class="tg-jass"&gt;Día 1 (25/11)&lt;/th&gt;
-    &lt;th class="tg-jass"&gt;Día 2 (26/11)&lt;/th&gt;
-    &lt;th class="tg-jass"&gt;Día 3 (27/11)&lt;/th&gt;
+    &lt;th class="tg-rwx4"&gt;&lt;/th&gt;
+    &lt;th class="tg-jg9m"&gt;Día 1 (04/02)&lt;/th&gt;
+    &lt;th class="tg-jg9m"&gt;Día 2 (05/02)&lt;/th&gt;
   &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
   &lt;tr&gt;
-    &lt;td class="tg-3gal"&gt;09:00-10:00&lt;/td&gt;
-    &lt;td class="tg-fz0b"&gt;Intro a R y Rstudio&lt;/td&gt;
-    &lt;td class="tg-fz0b"&gt;Manipular datos II&lt;/td&gt;
-    &lt;td class="tg-gzjo" rowspan="6"&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;span style="color:#343434"&gt;- Paquete koboloader &lt;/span&gt;&lt;br&gt;&lt;span style="color:#343434"&gt;- QualMiner: Análisis de texto &lt;/span&gt;&lt;br&gt;&lt;span style="color:#343434"&gt;- Tratamiento y pocesamiento de datos - 5W&lt;/span&gt;&lt;/td&gt;
+    &lt;td class="tg-etrd"&gt;09:00-10:00&lt;/td&gt;
+    &lt;td class="tg-tyn3"&gt;Intro al curso&lt;/td&gt;
+    &lt;td class="tg-tyn3"&gt;Visualizacion de datos&lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-    &lt;td class="tg-3gal"&gt;10:00-10:05&lt;/td&gt;
-    &lt;td class="tg-3gal"&gt;Pausa&lt;/td&gt;
-    &lt;td class="tg-3gal"&gt;Pausa&lt;/td&gt;
+    &lt;td class="tg-etrd"&gt;10:00-10:05&lt;/td&gt;
+    &lt;td class="tg-etrd"&gt;Pausa&lt;/td&gt;
+    &lt;td class="tg-etrd"&gt;Pausa&lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-    &lt;td class="tg-3gal"&gt;10:05-10:55&lt;/td&gt;
-    &lt;td class="tg-fz0b"&gt;Proyectos y RMarkdown&lt;/td&gt;
-    &lt;td class="tg-fz0b"&gt;Más manipulación de datos&lt;/td&gt;
+    &lt;td class="tg-etrd"&gt;10:05-10:55&lt;/td&gt;
+    &lt;td class="tg-tyn3"&gt;Intro a R y RStudio&lt;/td&gt;
+    &lt;td class="tg-tyn3"&gt;Visualizacion + Manipulacion&lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-    &lt;td class="tg-3gal"&gt;10:55-11:10&lt;/td&gt;
-    &lt;td class="tg-3gal"&gt;Pausa&lt;/td&gt;
-    &lt;td class="tg-3gal"&gt;Pausa&lt;/td&gt;
+    &lt;td class="tg-etrd"&gt;10:55-11:10&lt;/td&gt;
+    &lt;td class="tg-etrd"&gt;Pausa&lt;/td&gt;
+    &lt;td class="tg-etrd"&gt;Pausa&lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-    &lt;td class="tg-3gal"&gt;11:10-11:40&lt;/td&gt;
-    &lt;td class="tg-fz0b"&gt;Importar datos&lt;/td&gt;
-    &lt;td class="tg-fz0b"&gt;Funciones&lt;/td&gt;
+    &lt;td class="tg-etrd"&gt;11:10-11:40&lt;/td&gt;
+    &lt;td class="tg-tyn3"&gt;RStudio y proyectos&lt;/td&gt;
+    &lt;td class="tg-tyn3"&gt;Mas manipulacion y funciones&lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-    &lt;td class="tg-3gal"&gt;11:40-11:45&lt;/td&gt;
-    &lt;td class="tg-3gal"&gt;Pausa&lt;/td&gt;
-    &lt;td class="tg-3gal"&gt;Pausa&lt;/td&gt;
+    &lt;td class="tg-etrd"&gt;11:40-11:45&lt;/td&gt;
+    &lt;td class="tg-etrd"&gt;Pausa&lt;/td&gt;
+    &lt;td class="tg-etrd"&gt;Pausa&lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-    &lt;td class="tg-3gal"&gt;11:45-13:00&lt;/td&gt;
-    &lt;td class="tg-fz0b"&gt;Manipular datos I&lt;/td&gt;
-    &lt;td class="tg-fz0b"&gt;Interactuar con Kobo y Power BI&lt;/td&gt;
-    &lt;td class="tg-o92t"&gt;&lt;/td&gt;
+    &lt;td class="tg-etrd"&gt;11:45-13:00&lt;/td&gt;
+    &lt;td class="tg-tyn3"&gt; RMarkdown&lt;/td&gt;
+    &lt;td class="tg-tyn3"&gt;Interactuar con Kobo y Power BI&lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-    &lt;td class="tg-3gal"&gt;13:00-14:00&lt;/td&gt;
-    &lt;td class="tg-3gal"&gt;Almuerzo&lt;/td&gt;
-    &lt;td class="tg-3gal"&gt;Almuerzo&lt;/td&gt;
-    &lt;td class="tg-o92t"&gt;&lt;/td&gt;
+    &lt;td class="tg-etrd"&gt;13:00-14:00&lt;/td&gt;
+    &lt;td class="tg-etrd"&gt;Almuerzo&lt;/td&gt;
+    &lt;td class="tg-etrd"&gt;Almuerzo&lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-    &lt;td class="tg-3gal"&gt;14:00-15:00&lt;/td&gt;
-    &lt;td class="tg-fz0b"&gt;Visualizar datos&lt;/td&gt;
-    &lt;td class="tg-fz0b"&gt;Gráficos, reportes y tablas&lt;/td&gt;
-    &lt;td class="tg-o92t"&gt;&lt;/td&gt;
+    &lt;td class="tg-etrd"&gt;14:00-15:00&lt;/td&gt;
+    &lt;td class="tg-tyn3"&gt;Lectura de datos&lt;/td&gt;
+    &lt;td class="tg-tyn3"&gt;Gráficos, reportes y tablas&lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-    &lt;td class="tg-3gal"&gt;15:00-16:00&lt;/td&gt;
-    &lt;td class="tg-fz0b"&gt;Visualizar datos&lt;/td&gt;
-    &lt;td class="tg-fz0b"&gt;Gráficos, reportes y tablas&lt;/td&gt;
-    &lt;td class="tg-o92t"&gt;&lt;/td&gt;
+    &lt;td class="tg-etrd"&gt;15:00-16:00&lt;/td&gt;
+    &lt;td class="tg-tyn3"&gt;Manipulacion de datos&lt;/td&gt;
+    &lt;td class="tg-tyn3"&gt;Gráficos, reportes y tablas&lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
@@ -170,13 +164,24 @@ background-color: #272822
 
 ## Desafíos de hoy
 
+- Entender qué es R y qué es RStudio
+
+- Aprender a organizar nuestros proyectos (de R)
 
 - Leer correctamente una base de datos
 
 - Generar nuevas columnas a partir de información de otras columnas y generar resúmenes a partir de los datos
 
-- Generar gráficos a partir de la base de datos usada
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
 
+## Tu turno: introducción
+
+1. Ve al documento compartido: https://tinyurl.com/1iwm93ea
+
+2. Preséntate en tres oraciones cortas al lado de tu nombre. Por ejemplo: área de formación, actividades que te guste hacer, herramienta de trabajo favorita, grupo musical favorito, etc. (2 min)
+
+3. Cuéntanos sobre la persona de arriba en la lista y si tienes algo en común con esas características.
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
@@ -231,16 +236,17 @@ background-color: #272822
 
 - Realizar la mayoría de esas tareas
 - Automatizar procesos
-- Interactuar facilmente con muchas herramientas
+- Interactuar fácilmente con muchas herramientas
 
 Y además... es abierto y gratuito
 
 ---
+&lt;div class="my-header"&gt;&lt;/div&gt;
 
-## &lt;font style='color:#E495A5'&gt;D&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;e&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;s&lt;/font&gt;&lt;font style='color:#96B56C'&gt;v&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;e&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;n&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;t&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;a&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;j&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;a&lt;/font&gt;
+## &lt;font style='color:#E495A5'&gt;D&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;e&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;s&lt;/font&gt;&lt;font style='color:#96B56C'&gt;v&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;e&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;n&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;t&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;a&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;j&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;a&lt;/font&gt;&lt;font style='color:#E495A5'&gt;:&lt;/font&gt; &lt;font style='color:#D89F7F'&gt;l&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;a&lt;/font&gt; &lt;font style='color:#96B56C'&gt;t&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;í&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;p&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;i&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;c&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;a&lt;/font&gt; &lt;font style='color:#DE94C8'&gt;r&lt;/font&gt;&lt;font style='color:#E495A5'&gt;e&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;l&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;a&lt;/font&gt;&lt;font style='color:#96B56C'&gt;c&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;i&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;ó&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;n&lt;/font&gt; &lt;font style='color:#91ACE1'&gt;d&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;e&lt;/font&gt; &lt;font style='color:#DE94C8'&gt;u&lt;/font&gt;&lt;font style='color:#E495A5'&gt;n&lt;/font&gt; &lt;font style='color:#D89F7F'&gt;u&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;s&lt;/font&gt;&lt;font style='color:#96B56C'&gt;u&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;a&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;r&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;i&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;o&lt;/font&gt; &lt;font style='color:#C29DDE'&gt;c&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;o&lt;/font&gt;&lt;font style='color:#E495A5'&gt;n&lt;/font&gt; &lt;font style='color:#D89F7F'&gt;R&lt;/font&gt;
 
-&lt;center&gt;&lt;img src="img/anteseratipo.png" alt="Hex stickers" height="510"&gt;&lt;/center&gt;
-
+&lt;center&gt;&lt;img src="img/anteseratipo.png" alt="Caricatura sobre la relación del usuario con R. Al principio la relación es tormentosa y luego se hacen amigos." height="490"&gt;&lt;/center&gt;
+&lt;p style="color: gray; font-size:15px"&gt; Ilustración de Allison Horst&lt;/p&gt;
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
@@ -253,6 +259,8 @@ Y además... es abierto y gratuito
 - Generar reportes automáticos
 
 - Crear sitios web. p. ej.: https://violetr.netlify.app/
+
+- Hacer mapas
 
 - Desarrollar aplicaciones interactivas: 
   - https://shiny.rstudio.com/gallery/india-blood-banks.html
@@ -269,10 +277,13 @@ Y además... es abierto y gratuito
   - Creado en una reunión de la UNHCR
   - Blog y grupo de Skype
 
+- [Charla](https://resources.rstudio.com/resources/rstudioglobal-2021/humanitarian-data-science-with-r/) de [Ahmadou Dicko](https://www.ahmadoudicko.com/) sobre R en contextos humanitarios en `rstudio::global` (subtítulos en Español). 
 
-- Documentación y Reproducibilidad de los procesos
-- Hay funciones específicamente hechas para manejar este tipo de datos y conectarse con herramientas populares como Kobo
-- Existes manuales de buenas prácticas sobre como crear reportes. Por ejemplo, [How to quickly produce statistical reports?
+- **Documentación** y **Reproducibilidad de los procesos**
+
+- Hay funciones específicamente hechas para manejar este tipo de datos y conectarse con herramientas populares como [Kobo](https://www.kobotoolbox.org/) o [HDX](https://data.humdata.org/).
+
+- Existen manuales de buenas prácticas sobre como crear reportes. Por ejemplo, [How to quickly produce statistical reports?
 The UNHCR “R-Cookbook”](https://edouard-legoupil.github.io/unhcr_paged/)
 
 
@@ -294,6 +305,8 @@ Licencia: [Creative Commons Attribution-ShareAlike 4.0 International License](ht
 Este material está inspirado en:
 
 - [R para Clima](https://eliocamp.github.io/r-clima/) de Paola Corrales y Elio Campitelli
+
+- [De excel a R](https://paocorrales.github.io/deExcelaR/index.html) de Paola Corrales y Elio Campitelli
 
 - [Master the Tidyverse](https://github.com/rstudio-education/master-the-tidyverse-instructors) de Garrett Grolemund
 
@@ -336,9 +349,7 @@ background-color: #272822
 
 &lt;div class="my-header"&gt;&lt;/div&gt;
 
-## RStudio
-
-### Como se ve la primera vez
+## RStudio: Como se ve la primera vez
 
 A la izquierda, en la consola, podemos escribir código en R 
 
@@ -353,9 +364,7 @@ Este se ejecutará al apretar `Enter`
 
 &lt;div class="my-header"&gt;&lt;/div&gt;
 
-## RStudio
-
-### Como se ve habitualmente
+## RStudio: Como se ve habitualmente
 
 Vamos a hacer cosas interesantes, y vamos a querer guardarlas
 
@@ -443,7 +452,7 @@ Sabemos que ese resultado está en la celda A2
 Ese resultado está en la variable `raiz_dos` que aparece en el environment (la mesada)
 
 **Pero... La analogía no es 100% util:**
-[https://PollEv.com/multiple_choice_polls/P2xOvcUGbMWv91CLwX6o1/respond](https://PollEv.com/multiple_choice_polls/P2xOvcUGbMWv91CLwX6o1/respond)
+[PollEv.com/violetaroizm482](PollEv.com/violetaroizm482)
 
 ```r
 x &lt;- 2
@@ -589,8 +598,8 @@ Tenemos acceso a más funciones que las básicas a partir de **paquetes**  🎁
 
 - Podemos hacer nuestro propio paquete para nuestro flujo de trabajo
 
-&lt;center&gt;&lt;img src="img/aushex.png" alt="Hex stickers" height="320"&gt;&lt;/center&gt;
-
+&lt;center&gt;&lt;img src="img/aushex.png" alt="Contorno de Australia formado por stickers en forma de héxagono. Imagen correspondiente a la conferencia UseR!" height="320"&gt;&lt;/center&gt;
+&lt;p style="color: gray; font-size:15px"&gt; Ilustración de la conferencia UseR! 2018&lt;/p&gt;
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
@@ -602,7 +611,7 @@ Flujo de trabajo:
 
 Existe un **conjunto de paquetes** para realizar estas tareas
 
-&lt;center&gt;&lt;img src="img/hex-tidyverse.png" alt="Hex stickers" height="150"&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="img/hex-tidyverse.png" alt="Hex sticker del entorno tidyverse" height="150"&gt;&lt;/center&gt;
 
 &lt;p style="color: gray; font-size:13px"&gt; Imágenes de "R para Ciencia de Datos" y Rstudio&lt;/p&gt;
 
@@ -613,8 +622,8 @@ Existe un **conjunto de paquetes** para realizar estas tareas
 - tidy = ordenado
 - ...verse = universo
 
-&lt;center&gt;&lt;img src="img/tidyhexall.png" alt="Hex stickers" height="360s"&gt;&lt;/center&gt;
-
+&lt;center&gt;&lt;img src="img/tidyhexall.png" alt="Algunos de los paquetes de tidyverse" height="360s"&gt;&lt;/center&gt;
+&lt;p style="color: gray; font-size:15px"&gt; Ilustración de paquetes - RStudio&lt;/p&gt;
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
@@ -690,8 +699,26 @@ Es mejor buscar en inglés (hay más material)
 
 Algunas buenas fuentes:
 
-- stackoverflow (Preguntas y respuestas)
-- rstudio community (Foro)
+- [stackoverflow](https://stackoverflow.com/) (Preguntas y respuestas)
+- [RStudio community](https://community.rstudio.com/) (Foro)
+
+[También twitter es útil!](https://twitter.com/search?q=%23rstats&amp;src=typeahead_click)
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+
+## Licencia y materiales
+
+Licencia: [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES).
+
+Este material está inspirado y utiliza explicaciones de:
+
+- [R para Clima](https://eliocamp.github.io/r-clima/) de Paola Corrales y Elio Campitelli
+
+- [De excel a R](https://paocorrales.github.io/deExcelaR/index.html) de Paola Corrales y Elio Campitelli
+
+- [Master the Tidyverse](https://github.com/rstudio-education/master-the-tidyverse-instructors) de Garrett Grolemund
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

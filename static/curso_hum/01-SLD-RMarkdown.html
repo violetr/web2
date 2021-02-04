@@ -3,7 +3,8 @@
   <head>
     <title>Proyectos y RMarkdown</title>
     <meta charset="utf-8" />
-    <meta name="date" content="2020-11-25" />
+    <meta name="date" content="2021-02-03" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
     <link rel="stylesheet" href="custom.css" type="text/css" />
@@ -26,7 +27,7 @@ background-color: #272822
 
 &lt;h1 style='color:white'&gt; &lt;center&gt; R para contextos humanitarios de emergencia&lt;/center&gt;&lt;/h1&gt; 
 ## &lt;center&gt;&lt;font style='color:#E495A5'&gt;P&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;r&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;o&lt;/font&gt;&lt;font style='color:#96B56C'&gt;y&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;e&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;c&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;t&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;o&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;s&lt;/font&gt; &lt;font style='color:#DE94C8'&gt;y&lt;/font&gt; &lt;font style='color:#E495A5'&gt;R&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;M&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;a&lt;/font&gt;&lt;font style='color:#96B56C'&gt;r&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;k&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;d&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;o&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;w&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;n&lt;/font&gt;&lt;/center&gt; 
-### &lt;center&gt;&lt;font style='color:#E495A5'&gt;2&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;5&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;-&lt;/font&gt;&lt;font style='color:#96B56C'&gt;1&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;1&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;-&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;2&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;0&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;2&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;0&lt;/font&gt;&lt;/center&gt;
+### &lt;center&gt;&lt;font style='color:#E495A5'&gt;V&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;i&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;o&lt;/font&gt;&lt;font style='color:#96B56C'&gt;l&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;e&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;t&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;a&lt;/font&gt; &lt;font style='color:#91ACE1'&gt;R&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;o&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;i&lt;/font&gt;&lt;font style='color:#E495A5'&gt;z&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;m&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;a&lt;/font&gt;&lt;font style='color:#96B56C'&gt;n&lt;/font&gt;&lt;/center&gt;
 
 ---
 background-color: #272822
@@ -55,7 +56,7 @@ getwd()
 ```
 
 ```
-## [1] "C:/Users/viole/Documents/curso_R_humanitarios"
+## [1] "C:/Users/viole/Documents/taller_un_colombia"
 ```
 
 Puedes cambiarlo también: 
@@ -104,7 +105,7 @@ en lugar de
 
 3. Haz click en “Nuevo Proyecto” (`New Project`)
 
-4. Escribe el nombre de la carpeta que alojará a tu proyecto, por ejemplo “mi_proyecto”
+4. Escribe el nombre de la carpeta que alojará a tu proyecto, por ejemplo “taller_R”
 
 5. Haz click en “Crear Proyecto” (`Create Project`)
 
@@ -118,6 +119,15 @@ en lugar de
 2. Desde el explorador de archivos, busca la carpeta donde creaste tu proyecto.
 
 3. Haz doble click en el archivo que tiene el nombre de tu proyecto (y que termina con .Rproj) que encontrarás en esa carpeta.
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Atención!!!
+
+Si no estamos en ningún proyecto, o no estamos en el proyecto correcto, **las cosas pueden funcionar mal**. Para **chequear** que estamos en el proyecto correcto:
+
+
+&lt;img src="img/proyecto-check.png" alt="Ejemplo de salida de RMarkdown en formato html." width="700"&gt;
 
 ---
 
@@ -206,13 +216,11 @@ github.com/rstudio-education/master-the-tidyverse-instructors
 
 4. Guardar
 
-Se genera una plantilla con un  ejemplo
-
-La extensión del archivo es ".Rmd"
+Se genera una plantilla con un ejemplo, extensión del archivo es ".Rmd"
 
 Para generar el output hay que apretar el botón Knit
 
-![](img/knit.png)
+&lt;center&gt;&lt;img src="img/knit.png" height="250"&gt;&lt;/center&gt;
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
@@ -220,13 +228,13 @@ Para generar el output hay que apretar el botón Knit
 
 Cualquier archivo de este tipo tiene 3 partes principales:
 
-- El **encabezado** o **yaml** que determina generalidades como formato de salida, etc.
+- El **encabezado** o **yaml** que determina características como formato de salida, etc.
 
 - El **texto** que puede estar a lo largo de todo el documento 
 
 - El **código en bloques** o **chuncks**
 
-&lt;center&gt;&lt;img src="img/elementosRM2.png" alt="Hex stickers" height="325"&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="img/elementosRM2.png" alt="Distintas componentes de un archivo RMarkdown. Encabezado, texto y bloques de código." height="325"&gt;&lt;/center&gt;
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
@@ -272,11 +280,11 @@ También:
 - PDF (se necesita instalar `tinytex::install_tinytex()`, no probar ahora! tarda mucho tiempo)
 
 &lt;center&gt;
-&lt;img src="img/outputRMhtml.png" alt="Hex stickers" width="300"&gt;
-&lt;img src="img/outputRMword.png" alt="Hex stickers" width="300"&gt;
+&lt;img src="img/outputRMhtml.png" alt="Ejemplo de salida de RMarkdown en formato html." width="300"&gt;
+&lt;img src="img/outputRMword.png" alt="Ejemplo de salida de RMarkdown en formato Word." width="300"&gt;
 &lt;/center&gt;
 
-&lt;center&gt;&lt;img src="img/outputpdf.png" alt="Hex stickers" width="300"&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="img/outputpdf.png" alt="Ejemplo de salida de RMarkdown en formato pdf." width="300"&gt;&lt;/center&gt;
 
 ---
 
@@ -293,6 +301,22 @@ background-color: #272822
 # &lt;center&gt;&lt;font style='color:#E495A5'&gt;A&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;h&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;o&lt;/font&gt;&lt;font style='color:#96B56C'&gt;r&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;a&lt;/font&gt; &lt;font style='color:#39BEB1'&gt;e&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;s&lt;/font&gt; &lt;font style='color:#91ACE1'&gt;t&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;u&lt;/font&gt; &lt;font style='color:#DE94C8'&gt;t&lt;/font&gt;&lt;font style='color:#E495A5'&gt;u&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;r&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;n&lt;/font&gt;&lt;font style='color:#96B56C'&gt;o&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;!&lt;/font&gt;&lt;/center&gt; 
 ## &lt;center&gt;&lt;font style='color:#E495A5'&gt;A&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;b&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;r&lt;/font&gt;&lt;font style='color:#96B56C'&gt;e&lt;/font&gt; &lt;font style='color:#65BC8C'&gt;e&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;l&lt;/font&gt; &lt;font style='color:#55B8D0'&gt;a&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;r&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;c&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;h&lt;/font&gt;&lt;font style='color:#E495A5'&gt;i&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;v&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;o&lt;/font&gt; &lt;font style='color:#96B56C'&gt;0&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;1&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;-&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;E&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;J&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;-&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;R&lt;/font&gt;&lt;font style='color:#E495A5'&gt;M&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;a&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;r&lt;/font&gt;&lt;font style='color:#96B56C'&gt;k&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;d&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;o&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;w&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;n&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;.&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;R&lt;/font&gt;&lt;font style='color:#E495A5'&gt;m&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;d&lt;/font&gt;&lt;/center&gt; 
 ### &lt;center&gt;&lt;font style='color:#E495A5'&gt;S&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;i&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;g&lt;/font&gt;&lt;font style='color:#96B56C'&gt;u&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;e&lt;/font&gt; &lt;font style='color:#39BEB1'&gt;l&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;a&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;s&lt;/font&gt; &lt;font style='color:#C29DDE'&gt;i&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;n&lt;/font&gt;&lt;font style='color:#E495A5'&gt;s&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;t&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;r&lt;/font&gt;&lt;font style='color:#96B56C'&gt;u&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;c&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;c&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;i&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;o&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;n&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;e&lt;/font&gt;&lt;font style='color:#E495A5'&gt;s&lt;/font&gt;&lt;/center&gt;
+
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+
+## Licencia y material usado
+
+Licencia: [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES).
+
+Este material está inspirado y utiliza explicaciones de:
+
+- [R para Clima](https://eliocamp.github.io/r-clima/) de Paola Corrales y Elio Campitelli
+
+- [De excel a R](https://paocorrales.github.io/deExcelaR/index.html) de Paola Corrales y Elio Campitelli
+
+- [Master the Tidyverse](https://github.com/rstudio-education/master-the-tidyverse-instructors) de Garrett Grolemund
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

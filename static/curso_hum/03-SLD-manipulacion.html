@@ -3,7 +3,8 @@
   <head>
     <title>Manipulacion I</title>
     <meta charset="utf-8" />
-    <meta name="date" content="2020-11-25" />
+    <meta name="date" content="2021-02-04" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
     <link rel="stylesheet" href="custom.css" type="text/css" />
@@ -26,7 +27,7 @@ background-color: #272822
 
 &lt;h1 style='color:white'&gt; &lt;center&gt; R para contextos humanitarios de emergencia&lt;/center&gt;&lt;/h1&gt; 
 ## &lt;center&gt;&lt;font style='color:#E495A5'&gt;M&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;a&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;n&lt;/font&gt;&lt;font style='color:#96B56C'&gt;i&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;p&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;u&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;l&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;a&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;c&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;i&lt;/font&gt;&lt;font style='color:#E495A5'&gt;ó&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;n&lt;/font&gt; &lt;font style='color:#BDAB66'&gt;d&lt;/font&gt;&lt;font style='color:#96B56C'&gt;e&lt;/font&gt; &lt;font style='color:#65BC8C'&gt;d&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;a&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;t&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;o&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;s&lt;/font&gt; &lt;font style='color:#DE94C8'&gt;I&lt;/font&gt;&lt;/center&gt; 
-### &lt;center&gt;&lt;font style='color:#E495A5'&gt;2&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;5&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;-&lt;/font&gt;&lt;font style='color:#96B56C'&gt;1&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;1&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;-&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;2&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;0&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;2&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;0&lt;/font&gt;&lt;/center&gt;
+### &lt;center&gt;&lt;font style='color:#E495A5'&gt;V&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;i&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;o&lt;/font&gt;&lt;font style='color:#96B56C'&gt;l&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;e&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;t&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;a&lt;/font&gt; &lt;font style='color:#91ACE1'&gt;R&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;o&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;i&lt;/font&gt;&lt;font style='color:#E495A5'&gt;z&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;m&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;a&lt;/font&gt;&lt;font style='color:#96B56C'&gt;n&lt;/font&gt;&lt;/center&gt;
 ---
 
 background-color: #272822
@@ -48,7 +49,7 @@ background-color: #272822
 
 El paquete `dplyr` provee una enorme cantidad de funciones útiles para manipular datos
 
-&lt;center&gt; &lt;img src="img/hex-dplyr.png" alt="Hex stickers" height="100"&gt;&lt;/center&gt;
+&lt;center&gt; &lt;img src="img/hex-dplyr.png" alt="Hex sticker del paquete dplyr." height="100"&gt;&lt;/center&gt;
 
 
 Las funciones más comunes:
@@ -94,45 +95,48 @@ Sección de tabla dinámica
 &lt;div class="my-header"&gt;&lt;/div&gt;
 ## Tu turno 1
 
-Te dieron una tabla con datos de temperatura mínima y máxima para distintas estaciones meteorológicas de todo el país durante los 365 días de un año. Las columnas son: id_estacion, temperatura_maxima, temperatura_minima y provincia. En base a esos datos, te piden que computes la temperatura media anual de cada estación únicamente de las estaciones de Cusco.
+Te dieron una tabla con datos de decisiones a pedidos de asilo tomadas por los distintos países del mundo. Las columnas son: `anio`, `pais_origen`, `pais_asilo`, `pedidos_aceptados` y `pedidos_rechazados`. En base a esos datos, te piden que computes la cantidad total de pedidos de asilo recibidas por Colombia en cada año.
 
 ¿En qué orden ejecutarías estos pasos para obtener el resultado deseado?
 
-- usar `summarise()` para calcular la estadística mean(temperatura_media) para cada id_estacion
-- usar `group_by()` para agrupar por la columna id_estacion
-- usar `mutate()` para agregar una columna llamada temperatura_media que sea 
-`(temperatura_minima + temperatura_maxima)/2`
-- usar `filter()` para seleccionar solo las filas donde la columnas provincia es igual a "Cusco"
+- usar `summarise()` para calcular el total sum(`total_pedidos`) por cada grupo
+
+- usar `group_by()` para agrupar por la columna `anio`
+
+- usar `mutate()` para generar una columna llamada `total_pedidos` que sea 
+`aceptados + rechazados`
+
+- usar `filter()` para seleccionar solo las filas donde la columna `pais_origen` es igual a "Colombia"
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
 ## Los datos
 
-Retomamos el dataset sobre decisiones de Perú frente a los pedidos de asilo 
+Retomamos el dataset sobre decisiones de Colombia frente a los pedidos de asilo 
 
-(es una traducción y simplificación del dataset de UNHCR sobre decisiones de Perú: [https://data.humdata.org/dataset/unhcr-population-data-for-per](https://data.humdata.org/dataset/unhcr-population-data-for-per))
+(es una traducción y simplificación del dataset de UNHCR sobre decisiones de Colombia: [https://data.humdata.org/dataset/unhcr-population-data-for-col](https://data.humdata.org/dataset/unhcr-population-data-for-col))
 
 
 ```r
-decisiones &lt;- read_csv("data/decisiones_asilo_peru.csv")
+decisiones &lt;- read_csv("data/decisiones_asilo_colombia.csv")
 decisiones
 ```
 
 ```
-## # A tibble: 164 x 15
+## # A tibble: 133 x 15
 ##     Anio `Codigo Pais Or~ `Codigo Pais As~ `Nombre Pais de~ `Nombre Pais As~
 ##    &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;           
-##  1  2000 COL              PER              Colombia         Peru            
-##  2  2000 CUB              PER              Cuba             Peru            
-##  3  2001 RUS              PER              Russian Federat~ Peru            
-##  4  2002 COL              PER              Colombia         Peru            
-##  5  2002 CUB              PER              Cuba             Peru            
-##  6  2003 ARG              PER              Argentina        Peru            
-##  7  2003 COL              PER              Colombia         Peru            
-##  8  2003 CUB              PER              Cuba             Peru            
-##  9  2003 PSE              PER              State of Palest~ Peru            
-## 10  2003 IRQ              PER              Iraq             Peru            
-## # ... with 154 more rows, and 10 more variables: `Tipo de procedimiento` &lt;chr&gt;,
+##  1  2002 CUB              COL              Cuba             Colombia        
+##  2  2002 IRQ              COL              Iraq             Colombia        
+##  3  2003 IRN              COL              Iran (Islamic R~ Colombia        
+##  4  2003 IRN              COL              Iran (Islamic R~ Colombia        
+##  5  2003 VEN              COL              Venezuela (Boli~ Colombia        
+##  6  2004 CUB              COL              Cuba             Colombia        
+##  7  2004 PER              COL              Peru             Colombia        
+##  8  2004 UZB              COL              Uzbekistan       Colombia        
+##  9  2005 CUB              COL              Cuba             Colombia        
+## 10  2005 CUB              COL              Cuba             Colombia        
+## # ... with 123 more rows, and 10 more variables: `Tipo de procedimiento` &lt;chr&gt;,
 ## #   `Nombre del Procedimiento` &lt;chr&gt;, `Codigo de Tipo de Decision` &lt;chr&gt;, `Tipo
 ## #   de Datos de Decision` &lt;chr&gt;, `Datos de Decision` &lt;chr&gt;, `Promedio de
 ## #   Personas de decision por Caso` &lt;dbl&gt;, Reconocidas &lt;dbl&gt;, `Proteccion
@@ -166,20 +170,20 @@ decisiones
 ```
 
 ```
-## # A tibble: 164 x 6
+## # A tibble: 133 x 6
 ##     Anio `Codigo Pais Or~ Reconocidas Rechazadas `Proteccion Com~
 ##    &lt;dbl&gt; &lt;chr&gt;                  &lt;dbl&gt;      &lt;dbl&gt;            &lt;dbl&gt;
-##  1  2000 COL                        0          0                0
-##  2  2000 CUB                        0         10                0
-##  3  2001 RUS                        5          0                0
-##  4  2002 COL                        5          5                0
-##  5  2002 CUB                        5          0                0
-##  6  2003 ARG                        0          0                0
-##  7  2003 COL                       19          0                0
-##  8  2003 CUB                        0          0                0
-##  9  2003 PSE                        5          0                0
-## 10  2003 IRQ                        5          0                0
-## # ... with 154 more rows, and 1 more variable: `Cerradas de otra forma` &lt;dbl&gt;
+##  1  2002 CUB                        0          5                0
+##  2  2002 IRQ                        0          0                0
+##  3  2003 IRN                        0          5                0
+##  4  2003 IRN                        5          0                0
+##  5  2003 VEN                        5          0                0
+##  6  2004 CUB                       10          0                0
+##  7  2004 PER                        0          5                0
+##  8  2004 UZB                        5          0                0
+##  9  2005 CUB                        0          5                0
+## 10  2005 CUB                       22         10                0
+## # ... with 123 more rows, and 1 more variable: `Cerradas de otra forma` &lt;dbl&gt;
 ```
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
@@ -200,21 +204,20 @@ decisiones_venezuela
 ```
 
 ```
-## # A tibble: 11 x 6
+## # A tibble: 22 x 6
 ##     Anio `Codigo Pais Or~ Reconocidas Rechazadas `Proteccion Com~
 ##    &lt;dbl&gt; &lt;chr&gt;                  &lt;dbl&gt;      &lt;dbl&gt;            &lt;dbl&gt;
-##  1  2007 VEN                        5          0                0
-##  2  2008 VEN                        5          0                0
-##  3  2009 VEN                        5          0                0
-##  4  2011 VEN                        5          0                0
-##  5  2012 VEN                        5          5                0
-##  6  2014 VEN                        5         14                0
-##  7  2015 VEN                       71         51                0
-##  8  2016 VEN                       64         69                0
-##  9  2017 VEN                      102        412                0
-## 10  2018 VEN                      390        191                0
-## 11  2019 VEN                      578        171                0
-## # ... with 1 more variable: `Cerradas de otra forma` &lt;dbl&gt;
+##  1  2003 VEN                        5          0                0
+##  2  2005 VEN                        0          5                0
+##  3  2005 VEN                        5         10                0
+##  4  2005 VEN                        5          0                0
+##  5  2006 VEN                        0          0                0
+##  6  2007 VEN                       11          0                0
+##  7  2008 VEN                        5          0                0
+##  8  2009 VEN                        0          5                0
+##  9  2009 VEN                        0         13                0
+## 10  2011 VEN                        0          5                0
+## # ... with 12 more rows, and 1 more variable: `Cerradas de otra forma` &lt;dbl&gt;
 ```
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
@@ -233,7 +236,7 @@ Si quiero cualquier decisión menos las de los años 2010 y 2015:
 
 
 ```r
-decisiones_2010_2015 &lt;- filter(decisiones, Anio %in% c(2010, 2015))
+decisiones_2010_2015 &lt;- filter(decisiones, !(Anio %in% c(2010, 2015)))
 ```
 
 Si quiero solo las entradas de donde se rechazaron más que las que se aceptaron: 
@@ -245,18 +248,38 @@ decisiones_mas_rechazos &lt;- filter(decisiones, Rechazadas &gt; Reconocidas)
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
+## funcion `filter()`: posibles operadores en las condiciones
+
+| expresión | significado |
+|:----:|:-----------------:|
+|   &amp;  |         y         |
+|  &amp;#124;   |         o         |
+|   !  |      negación     |
+| %in% |     pertenece?    |
+|  ==  |     es igual?     |
+|  \&gt;  |     es mayor?     |
+|  \&gt;= | es mayor o igual? |
+|  &lt;   |      menor    |
+
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
 ## Tu turno 2: verbos `select` y `filter`
 
-1. Seleccionar solo las variables Anio, `Codigo Pais Origen `
+1. Seleccionar solo las variables Anio y `Codigo Pais Origen `
 
-2. Filtrar las entradas de los países Turquía y Argentina
+2. Filtrar las filas para quedarse solo con los pedidos de los países Turquía y Cuba
+
+
+**TIP:** No sobreescribir el dataset. 
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
 ## Creando nuevas variables: función `mutate()`
 
-&lt;center&gt;&lt;img src="img/dplyr_mutate_es.png" alt="Hex stickers" height="450"&gt;&lt;/center&gt;
-
+&lt;center&gt;&lt;img src="img/dplyr_mutate_es.png" alt="Caricatura de Allison Horst que representa a la función mutate, perteneciente al paquete dplyr." height="450"&gt;&lt;/center&gt;
+&lt;p style="color: gray; font-size:15px"&gt; Ilustración traducida de Allison Horst.
+&lt;/p&gt;
 
 
 ---
@@ -281,11 +304,16 @@ decisiones &lt;- mutate(decisiones,
 &lt;div class="my-header"&gt;&lt;/div&gt;
 ## Tu turno 3: verbo `mutate`
 
-1. Generar una nueva columna que indique para cada fila si fueron rechazados mas pedidos que los aceptados
+
+3. Generar una nueva columna con la cantidad de pedidos rechazados o con proteccion complementaria
 
 2. Generar una nueva columna que indique para cada fila si el tipo de procedimiento es UNHCR
 
-3. Generar una nueva columna con la cantidad de pedidos rechazados o con proteccion complementaria
+1. Generar una nueva columna que indique para cada fila si fueron rechazados mas pedidos que los aceptados
+
+
+
+
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
@@ -303,20 +331,20 @@ arrange(decisiones, desc(Reconocidas))
 ```
 
 ```
-## # A tibble: 164 x 7
+## # A tibble: 133 x 7
 ##     Anio `Codigo Pais Or~ Reconocidas Rechazadas `Proteccion Com~
 ##    &lt;dbl&gt; &lt;chr&gt;                  &lt;dbl&gt;      &lt;dbl&gt;            &lt;dbl&gt;
-##  1  2019 VEN                      578        171                0
-##  2  2018 VEN                      390        191                0
-##  3  2012 COL                      120          0                0
-##  4  2017 VEN                      102        412                0
-##  5  2019 CUB                       79         59                0
-##  6  2014 COL                       71        104                0
-##  7  2015 VEN                       71         51                0
-##  8  2018 CUB                       70         96                0
-##  9  2016 VEN                       64         69                0
-## 10  2015 COL                       59         89                0
-## # ... with 154 more rows, and 2 more variables: `Cerradas de otra forma` &lt;dbl&gt;,
+##  1  2019 VEN                      332          0                0
+##  2  2018 VEN                       32          5                0
+##  3  2005 CUB                       22         10                0
+##  4  2017 VEN                       19          5                0
+##  5  2007 CUB                       11         75                0
+##  6  2007 VEN                       11          0                0
+##  7  2009 ETH                       11         39                0
+##  8  2004 CUB                       10          0                0
+##  9  2005 ECU                       10          0                0
+## 10  2009 SOM                       10         83                0
+## # ... with 123 more rows, and 2 more variables: `Cerradas de otra forma` &lt;dbl&gt;,
 ## #   total &lt;dbl&gt;
 ```
 
@@ -326,7 +354,7 @@ arrange(decisiones, desc(Reconocidas))
 
 Queremos: 
 
-&gt; Una tabla de las decisiones tomadas por Perú frente a pedidos de asilo, ordenada por la cantidad de total de pedidos por país cada año.
+&gt; Una tabla de las decisiones tomadas por Colombia frente a pedidos de asilo, ordenada por la cantidad de total de pedidos por país cada año.
 
 Podemos obtenerla así:
 
@@ -349,14 +377,14 @@ Pero estamos repitiendo demasiadas veces la variable venezuela, existe una herra
 
 ## Combinando funciones
 
-&lt;img src="img/diagrama_pipe.png"  width="900"&gt;
+&lt;img src="img/diagrama_pipe-colombia.png"  width="900"&gt;
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
 ## Combinando funciones con pipe
 
 &lt;center&gt;
-&lt;img src="img/estoesunpipe.png" alt="Hex stickers" width="250"&gt;
+&lt;img src="img/estoesunpipe.png" alt="Imagen de un pipe." width="250"&gt;
 &lt;/center&gt;
 
 Si reemplazamos los tubos por esto `%&gt;%` obtenemos el resultado deseado
@@ -370,50 +398,50 @@ decisiones %&gt;%
 ```
 
 ```
-## # A tibble: 11 x 7
+## # A tibble: 22 x 7
 ##     Anio `Codigo Pais Or~ Reconocidas Rechazadas `Proteccion Com~
 ##    &lt;dbl&gt; &lt;chr&gt;                  &lt;dbl&gt;      &lt;dbl&gt;            &lt;dbl&gt;
-##  1  2019 VEN                      578        171                0
-##  2  2018 VEN                      390        191                0
-##  3  2017 VEN                      102        412                0
-##  4  2016 VEN                       64         69                0
-##  5  2015 VEN                       71         51                0
-##  6  2014 VEN                        5         14                0
-##  7  2009 VEN                        5          0                0
-##  8  2011 VEN                        5          0                0
-##  9  2012 VEN                        5          5                0
-## 10  2007 VEN                        5          0                0
-## 11  2008 VEN                        5          0                0
-## # ... with 2 more variables: `Cerradas de otra forma` &lt;dbl&gt;, total &lt;dbl&gt;
+##  1  2019 VEN                      332          0                0
+##  2  2017 VEN                       19          5                0
+##  3  2018 VEN                       32          5                0
+##  4  2015 VEN                        5         16                0
+##  5  2016 VEN                        5          0                0
+##  6  2014 VEN                       10         10                0
+##  7  2015 VEN                        5         12                0
+##  8  2005 VEN                        5         10                0
+##  9  2013 VEN                        0         14                0
+## 10  2009 VEN                        0         13                0
+## # ... with 12 more rows, and 2 more variables: `Cerradas de otra forma` &lt;dbl&gt;,
+## #   total &lt;dbl&gt;
 ```
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
 
-**Encuesta:** [https://PollEv.com/multiple_choice_polls/pb0m4Fh9kGkLRYKSmIsCq/respond](https://PollEv.com/multiple_choice_polls/pb0m4Fh9kGkLRYKSmIsCq/respond)
+**Encuesta:** [PollEv.com/violetaroizm482](PollEv.com/violetaroizm482)
 
 Cómo modificarias `decisiones` para que contenga las decisiones correspondientes a 
-pedidos de colombian@s ordenadas por cantidad de rechazos?
+pedidos de cuban@s ordenadas por cantidad de rechazos?
 
 a)
 
 ```r
 decisiones &lt;- decisiones %&gt;%
-  filter(decisiones, `Codigo Pais Origen` == "COL") %&gt;%
+  filter(decisiones, `Codigo Pais Origen` == "CUB") %&gt;%
   arrange(decisiones, desc(Rechazadas))
 ```
 b)
 
 ```r
 decisiones &lt;- decisiones %&gt;%
-  filter(`Codigo Pais Origen` == "COL") %&gt;%
+  filter(`Codigo Pais Origen` == "CUB") %&gt;%
   arrange(desc(Rechazadas))
 ```
 c)
 
 ```r
 decisiones %&gt;%
-  filter(`Codigo Pais Origen` == "COL") %&gt;%
+  filter(`Codigo Pais Origen` == "CUB") %&gt;%
   arrange(desc(Rechazadas))
 ```
 
@@ -464,24 +492,20 @@ decisiones %&gt;%
 ```
 
 ```
-## `summarise()` ungrouping output (override with `.groups` argument)
-```
-
-```
-## # A tibble: 36 x 2
+## # A tibble: 31 x 2
 ##    `Codigo Pais Origen` total_aceptado
-##    &lt;chr&gt;                         &lt;dbl&gt;
-##  1 ARG                               0
-##  2 BGD                              36
-##  3 BOL                              25
-##  4 BRA                               5
-##  5 CMR                              20
-##  6 COD                               5
-##  7 COL                             684
-##  8 CUB                             434
-##  9 DOM                              30
-## 10 ECU                               0
-## # ... with 26 more rows
+##  * &lt;chr&gt;                         &lt;dbl&gt;
+##  1 AFG                               5
+##  2 BGD                               0
+##  3 BOL                               5
+##  4 BTN                               0
+##  5 CIV                               0
+##  6 COD                               0
+##  7 CUB                              58
+##  8 ECU                              20
+##  9 ERI                               5
+## 10 ETH                              16
+## # ... with 21 more rows
 ```
 
 ---
@@ -502,24 +526,20 @@ decisiones %&gt;%
 ```
 
 ```
-## `summarise()` ungrouping output (override with `.groups` argument)
-```
-
-```
-## # A tibble: 36 x 2
+## # A tibble: 31 x 2
 ##    `Codigo Pais Origen` total_aceptado
 ##    &lt;chr&gt;                         &lt;dbl&gt;
-##  1 VEN                            1235
-##  2 COL                             684
-##  3 CUB                             434
-##  4 HTI                              81
-##  5 SYR                              47
-##  6 TUR                              44
-##  7 BGD                              36
-##  8 PSE                              35
-##  9 DOM                              30
-## 10 IRQ                              30
-## # ... with 26 more rows
+##  1 VEN                             439
+##  2 CUB                              58
+##  3 ECU                              20
+##  4 ETH                              16
+##  5 SLV                              10
+##  6 SOM                              10
+##  7 AFG                               5
+##  8 BOL                               5
+##  9 ERI                               5
+## 10 HND                               5
+## # ... with 21 more rows
 ```
 
 ---
@@ -539,21 +559,49 @@ decisiones %&gt;%
 ## # A tibble: 1 x 1
 ##   total_aceptados
 ##             &lt;dbl&gt;
-## 1            2782
+## 1             608
 ```
 
+---
+
+&lt;div style="margin:auto; display:flex; flex-direction:column; height:650px; max-width:700px"&gt;
+    &lt;iframe border="0" src="https://crosswordlabs.com/embed/dplyr-funciones?clue_height=32" style="flex:1; width:100%; padding:5px 0px 0 5px; border:3px solid black; "&gt;&lt;/iframe&gt;
+    &lt;a target="_blank" style="align-self:center; font-size:12px; color:black; padding-top:10px; text-decoration:none;text-align:center" href="https://crosswordlabs.com"&gt;Crossword Puzzle Maker&lt;/a&gt;
+&lt;/div&gt;
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
 ## Tu turno 4: verbos `dplyr`
 
-1. Obtener una tabla con la cantidad de pedidos de asilo rechazados por Perú durante cada año
+1. Obtener una tabla con la cantidad de pedidos de asilo rechazados por Colombia durante cada año
 
 2. Ordena esta tabla de mayor a menor según la cantidad de pedidos aceptados
 
 3. Que cantidad de pedidos fueron rechazados en total durante el período estudiado?
 
-4. Crea una nueva variable
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Tu turno 5: verbos `dplyr` con un dataset conocido
+
+
+&lt;center&gt;
+&lt;img src="img/producto_4W.png" alt="Informe correspondiente a septiembre 2020 para los datos 4W Colombia." height="450"&gt;
+&lt;/center&gt;
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Tu turno 5: verbos `dplyr`
+
+
+&lt;center&gt;
+&lt;img src="img/producto_4W.png" alt="Informe correspondiente a septiembre 2020 para los datos 4W Colombia." width="250"&gt;
+&lt;/center&gt;
+
+1. Ve al documento compartido: https://tinyurl.com/1iwm93ea
+
+2. Resuelve el ejercicio que utiliza los data 4W Colombia
+
+**TIP:** si quieres probar puedes ejecutar el código en el último chunk de la notebook
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
@@ -567,6 +615,19 @@ decisiones %&gt;%
 - Hacemos tablas resumen con `summarise()`  
 - Creamos nuevas variables con `mutate()`  
 - Hacemos operaciones por grupos con `group_by()`
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+
+## Licencia y material usado
+
+Licencia: [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES).
+
+Este material está inspirado y utiliza explicaciones de:
+
+- [R para Clima](https://eliocamp.github.io/r-clima/) de Paola Corrales y Elio Campitelli
+
+- [Master the Tidyverse](https://github.com/rstudio-education/master-the-tidyverse-instructors) de Garrett Grolemund
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

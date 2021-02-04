@@ -3,35 +3,39 @@ title: "03-EJ-manipulacion"
 output: html_document
 ---
 
-En esta sección trabajaremos con el paquete dplyr para modificar datos. Usaremos los el dataset decisiones Perú.
+En esta sección trabajaremos con el paquete dplyr para modificar datos. Usaremos los el dataset decisiones Colombia.
 
 Los cargamos en este bloque de código
-
+ 
 ```{r}
 library(tidyverse)
-decisiones <- read_csv("data/decisiones_asilo_peru.csv")
+decisiones <- read_csv("data/decisiones_asilo_colombia.csv")
 ```
 
 
 ## Tu turno 1
 
-Te dieron una tabla con datos de temperatura mínima y máxima para distintas estaciones meteorológicas de todo el país durante los 365 días de un año. Las columnas son: id_estacion, temperatura_maxima, temperatura_minima y provincia. En base a esos datos, te piden que computes la temperatura media anual de cada estación únicamente de las estaciones de Cusco.
+Te dieron una tabla con datos de decisiones a pedidos de asilo tomadas por los distintos países del mundo. Las columnas son: `anio`, `pais_origen`, `pais_asilo`, `pedidos_aceptados` y `pedidos_rechazados`. En base a esos datos, te piden que computes la cantidad total de pedidos de asilo recibidas por Colombia en cada año.
 
 ¿En qué orden ejecutarías estos pasos para obtener el resultado deseado?
 
-- usar `summarise()` para calcular la estadística mean(temperatura_media) para cada id_estacion
-- usar `group_by()` para agrupar por la columna id_estacion
-- usar `mutate()` para agregar una columna llamada temperatura_media que sea 
-`(temperatura_minima + temperatura_maxima)/2`
-- usar `filter()` para seleccionar solo las filas donde la columnas provincia es igual a "Cusco"
+- usar `summarise()` para calcular el total sum(`total_pedidos`) para cada `anio`
+- usar `group_by()` para agrupar por la columna `anio`
+- usar `mutate()` para generar una columna llamada `total_pedidos` que sea 
+`aceptados + rechazados`
+- usar `filter()` para seleccionar solo las filas donde la columna `pais_asilo` es igual a "Colombia"
 
 
 ## Tu turno 2: verbos `select` y `filter`
 
-1. Seleccionar solo las variables Anio, `Codigo Pais Origen `
+1. Seleccionar solo las variables Anio, `Codigo Pais Origen`
 
-2. Filtrar las entradas de los países Turquía y Argentina
+2. Filtrar las entradas de los países Turquía y Ecuador
 
+
+```{r}
+
+```
 
 ## Tu turno 3: verbo `mutate`
 
@@ -43,20 +47,27 @@ Te dieron una tabla con datos de temperatura mínima y máxima para distintas es
 
 ```{r}
 
-decisiones <- mutate(decisiones, 
-                     indicador_mas_rechazos = Rechazadas > Reconocidas)
-View(decisiones)
 ```
 
 
+## Tu turno 4: funciones de `dplyr`
 
-## Tu turno 4: verbos `dplyr`
+1. Obtener una tabla con la cantidad de pedidos de asilo rechazados por Colombia durante cada año
 
-1. Obtener una tabla con la cantidad de pedidos de asilo rechazados por Perú durante cada año
+2. Ordena esta tabla de mayor a menor según la cantidad de pedidos rechazados
 
-2. Ordena esta tabla de mayor a menor según la cantidad de pedidos aceptados
+3. ¿Qué cantidad de pedidos fueron rechazados en total durante el período estudiado?
 
-3. Que cantidad de pedidos fueron rechazados en total durante el período estudiado?
 
-4. Crea una nueva variable
+```{r}
 
+```
+
+## Tu turno 5: funciones de `dplyr`
+
+Puedes usar este chunk para probar el código del ejercicio que utiliza los datos 4W
+
+```{r}
+library(readxl)
+data_4W <- read_xlsx("data/4W_Publico_Consolidado_septiembre.xlsx")
+```
