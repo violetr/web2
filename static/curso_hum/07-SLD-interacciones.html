@@ -3,7 +3,8 @@
   <head>
     <title>Interaccion con Kobo y Power BI</title>
     <meta charset="utf-8" />
-    <meta name="date" content="2020-11-26" />
+    <meta name="date" content="2021-02-03" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
     <link rel="stylesheet" href="custom.css" type="text/css" />
@@ -26,21 +27,25 @@ background-color: #272822
 
 &lt;h1 style='color:white'&gt; &lt;center&gt; R para contextos humanitarios de emergencia&lt;/center&gt;&lt;/h1&gt; 
 ## &lt;center&gt;&lt;font style='color:#E495A5'&gt;I&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;n&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;t&lt;/font&gt;&lt;font style='color:#96B56C'&gt;e&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;r&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;a&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;c&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;c&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;i&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;ó&lt;/font&gt;&lt;font style='color:#E495A5'&gt;n&lt;/font&gt; &lt;font style='color:#D89F7F'&gt;c&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;o&lt;/font&gt;&lt;font style='color:#96B56C'&gt;n&lt;/font&gt; &lt;font style='color:#65BC8C'&gt;K&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;o&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;b&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;o&lt;/font&gt; &lt;font style='color:#C29DDE'&gt;y&lt;/font&gt; &lt;font style='color:#DE94C8'&gt;P&lt;/font&gt;&lt;font style='color:#E495A5'&gt;o&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;w&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;e&lt;/font&gt;&lt;font style='color:#96B56C'&gt;r&lt;/font&gt; &lt;font style='color:#65BC8C'&gt;B&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;I&lt;/font&gt;&lt;/center&gt; 
-### &lt;center&gt;&lt;font style='color:#E495A5'&gt;2&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;5&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;-&lt;/font&gt;&lt;font style='color:#96B56C'&gt;1&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;1&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;-&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;2&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;0&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;2&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;0&lt;/font&gt;&lt;/center&gt;
+### &lt;center&gt;&lt;font style='color:#E495A5'&gt;V&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;i&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;o&lt;/font&gt;&lt;font style='color:#96B56C'&gt;l&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;e&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;t&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;a&lt;/font&gt; &lt;font style='color:#91ACE1'&gt;R&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;o&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;i&lt;/font&gt;&lt;font style='color:#E495A5'&gt;z&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;m&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;a&lt;/font&gt;&lt;font style='color:#96B56C'&gt;n&lt;/font&gt;&lt;/center&gt;
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
-## Kobo
+## Kobo Toolbox
 
-Supongamos que tenemos que realizar muchas veces por semana un reporte de datos proveniente de un relevamiento recogido en Kobo Toolbox.
+Supongamos que tenemos que realizar muchas veces por semana (o por día) un **reporte** de datos proveniente de un relevamiento recogido en **Kobo Toolbox** (porque se van actualizando).
 
-Tenemos muchas formas de hacerlo pero lo mas comodo sera con un único código que podamos ejecutar y que nos genere el reporte automáticamente. 
+Tenemos muchas formas de hacerlo pero lo mas cómodo sera con un **único código** que podamos ejecutar y que nos genere el reporte **automáticamente**. 
 
-Podemos hacer esto con R a través de la API (Application Programming Interface) de Kobo Toolbox.
+Podemos hacer esto con **R** a través de la **API** (Application Programming Interface) de **Kobo Toolbox**.
+
+&lt;center&gt;&lt;img src="img/kobologin.png" alt="Interfaz de login de Kobo Toolbox." height="250"&gt;&lt;/center&gt;
+
+Usamos algunas funcionalidades del repositorio [ppsapkota/kobohr_apitoolbox](https://github.com/ppsapkota/kobohr_apitoolbox)
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
-## Kobo
+## Kobo: descargar respuestas de formulario
 
 Tenemos que generar en R una URL que le indique a Kobo lo que necesitamos
 
@@ -54,98 +59,235 @@ library(jsonlite)
 
 
 ```r
-# ID del formulario
-form_id = "559546"
-
-# "kc.humanitarianresponse.info" o "kc.kobotoolbox.org"
-
-# Generar datos 
-URL &lt;- paste0("https://kc.kobotoolbox.org/api/v1/data/", form_id, ".csv")
-res &lt;- GET(URL, authenticate("tallerrkobo", "TallerRKobo123"), progress())
+# A completar con tus datos
+usuario = "tallerrkobo"
+contrasenia = "TallerRKobo123"
+form_id = "559546" 
+# ATENCION puedes obtener el numero de tu formulario aqui :
+# https://im.unhcr.org/kobosupport/#form
+server = "kc.kobotoolbox.org"
+# o "kc.humanitarianresponse.info" o "kc.kobotoolbox.org"
+# Generar URL para descargar datos 
+URL &lt;- paste0("https://", server, "/api/v1/data/", form_id, ".csv")
+res &lt;- GET(URL, authenticate(usuario, contrasenia), progress())
 
 respuestas &lt;- read_csv(res$content)
-
-nrow(respuestas)
 ```
+
+
+
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
-## Kobo
+## Kobo: respuestas de formulario en R
+
+
+
+
+```r
+str(respuestas)
+```
+
+```
+## tibble [22 x 14] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+##  $ start                                                        : POSIXct[1:22], format: "2020-11-26 03:59:05" "2020-11-26 03:58:56" ...
+##  $ end                                                          : POSIXct[1:22], format: "2020-11-26 03:59:27" "2020-11-26 03:59:05" ...
+##  $ En_qu_fecha_lleg_a_este_asentamiento                         : Date[1:22], format: "2020-11-05" "2020-11-01" ...
+##  $ Cantidad_de_miembros_en_su_grupo_familiar                    : num [1:22] 3 2 NA 2 2 4 4 3 4 5 ...
+##  $ Recibi_provisi_n_de_agua_y_alimentos/s__y_es_suficiente      : logi [1:22] FALSE TRUE TRUE FALSE FALSE TRUE ...
+##  $ Recibi_provisi_n_de_agua_y_alimentos/s__pero_no_es_suficiente: logi [1:22] FALSE FALSE FALSE TRUE TRUE FALSE ...
+##  $ Recibi_provisi_n_de_agua_y_alimentos/no                      : logi [1:22] TRUE FALSE FALSE FALSE FALSE FALSE ...
+##  $ __version__                                                  : chr [1:22] "vwidvbwetGmC5pX5QEQBUD" "vwidvbwetGmC5pX5QEQBUD" "vwidvbwetGmC5pX5QEQBUD" "vwidvbwetGmC5pX5QEQBUD" ...
+##  $ meta/instanceID                                              : chr [1:22] "uuid:3eb0a5d5-9e79-477c-ba73-722c0d8b49e6" "uuid:908c73b5-9f5b-41f5-983e-4a98955b1357" "uuid:68228945-fb69-4c61-acf9-19ae2f5b7a68" "uuid:bbd84398-b9d7-44de-bf5b-651b11ee23ba" ...
+##  $ _uuid                                                        : chr [1:22] "3eb0a5d5-9e79-477c-ba73-722c0d8b49e6" "908c73b5-9f5b-41f5-983e-4a98955b1357" "68228945-fb69-4c61-acf9-19ae2f5b7a68" "bbd84398-b9d7-44de-bf5b-651b11ee23ba" ...
+##  $ _submission_time                                             : POSIXct[1:22], format: "2020-11-26 03:59:38" "2020-11-26 03:59:16" ...
+##  $ _tags                                                        : chr [1:22] "NA" "NA" "NA" "NA" ...
+##  $ _notes                                                       : chr [1:22] "NA" "NA" "NA" "NA" ...
+##  $ _validation_status                                           : chr [1:22] "{}" "{}" "{}" "{}" ...
+##  - attr(*, "spec")=
+##   .. cols(
+##   ..   start = col_datetime(format = ""),
+##   ..   end = col_datetime(format = ""),
+##   ..   En_qu_fecha_lleg_a_este_asentamiento = col_date(format = ""),
+##   ..   Cantidad_de_miembros_en_su_grupo_familiar = col_double(),
+##   ..   `Recibi_provisi_n_de_agua_y_alimentos/s__y_es_suficiente` = col_logical(),
+##   ..   `Recibi_provisi_n_de_agua_y_alimentos/s__pero_no_es_suficiente` = col_logical(),
+##   ..   `Recibi_provisi_n_de_agua_y_alimentos/no` = col_logical(),
+##   ..   `__version__` = col_character(),
+##   ..   `meta/instanceID` = col_character(),
+##   ..   `_uuid` = col_character(),
+##   ..   `_submission_time` = col_datetime(format = ""),
+##   ..   `_tags` = col_character(),
+##   ..   `_notes` = col_character(),
+##   ..   `_validation_status` = col_character()
+##   .. )
+```
+
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Kobo: subir formulario
 
 Existen otras funcionalidades de Kobo
 
 - Desarrollar formularios en R y actualizarlos desde R
-- El formato en este caso es XML
+- El formato en este caso es xlsx
 
 
 ```r
 library(devtools)
-source_url("https://raw.githubusercontent.com/ppsapkota/kobohr_apitoolbox/master/R/r_func_ps_kobo_utils.R")
+library(jsonlite)
+library(httr)
+# correr este codigo para cargar funciones, escribirlo todo en 1 linea:
+source_url("https://raw.githubusercontent.com/
+           ppsapkota/kobohr_apitoolbox/master/
+           R/r_func_ps_kobo_utils.R")
 
 #"kf.kobotoolbox.org" o "kobo.humanitarianresponse.info"
 kpi_url &lt;- "https://kf.kobotoolbox.org/imports/"
-kobo_form_xlsx &lt;- "abc.xlsx" # debe existir!
-d_content&lt;-kobohr_kpi_upload_xlsform(kpi_url,kobo_form_xlsx,pontuusuario,pontucontrasenia)
-import_url&lt;-d_content$url
+kobo_form_xlsx &lt;- "test-formulario.xlsx" #tu formulario
+
+# la siguiente funcion crea un borrador en tu usuario
+# con las preguntas indicadas en el xlsx
+d_content&lt;-kobohr_kpi_upload_xlsform(kpi_url,
+                kobo_form_xlsx,
+                "tallerrkobo",
+                "TallerRKobo123"
+import_url &lt;- d_content$url
 ```
 
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Kobo: obtener ID formulario recién subido 
+
+
+```r
+d_content &lt;- kobohr_kpi_get_asset_uid(import_url, #del paso anterior
+                                      "tallerrkobo",
+                                      "TallerRKobo123")
+asset_uid &lt;- d_content$messages$created$uid
+# codigo del formulario que aparecera en borradores en KoboToolbox
+```
+
+&lt;center&gt;&lt;img src="img/kobotoolbox.png" alt="KoboToolbox" height="350"&gt;&lt;/center&gt;
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Kobo: desplegar? deployar? formulario
+
+
+```r
+kobo_server_url&lt;-"https://kf.kobotoolbox.org/"
+kobohr_kpi_deploy_asset(asset_uid,
+                        "tallerrkobo",
+                        "TallerRKobo123")
+```
+
+Ahora ya se puede responder!
+
+***
+
+## Etc, etc.
+
+Muchas otras opciones
+
+Chequear paquete: [`koboloader`](https://github.com/mrdwab/koboloadeR)
+
+Blog introductorio: http://news.mrdwab.com/post/koboloader/
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## RHDX 
+
+También podemos conectarnos a HDX con [`rhdx`](https://github.com/dickoa/rhdx)
+
+
+```r
+# install.packages("remotes")
+# remotes::install_gitlab("dickoa/rhdx")
+library(rhdx)
+set_rhdx_config(hdx_site = "prod")
+
+search_datasets("Colombia", rows = 10)
+
+datitos = rhdx::pull_dataset("gifmm-joint-multi-sector-needs-assessment-covid-19-november-2020") %&gt;%
+  get_resource(1) %&gt;%
+  read_resource(sheet = 2)
+```
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
 ## Power BI
 
-Hay varios tipos de interacción posible entre R y Power BI. Vamos a ver 2 interacciones posibles:
+Hay varios tipos de interacción posible entre **R y Power BI**. 
 
-- Carga de datos a través de R
+&lt;center&gt;&lt;img src="img/power-bi.jpg" alt="KoboToolbox" height="150"&gt;&lt;/center&gt;
 
-- Generación de gráficos con scripts de R
+Vamos a ver 2 interacciones posibles:
 
-También puede usarse R para hacer queries de consulta y para importar ciertos datos desde el Market
+- **Carga de datos** a través de R
+
+- **Generación de gráficos** con scripts de R
+
+También puede usarse R para hacer **queries de consulta** y para utilizar ciertas funcionalidades del **Market**
+
+
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
-## Power BI - Importar datos
+## Power BI: Importar datos
 
 1)
-&lt;center&gt;&lt;img src="img/PowerBI1.png" alt="Hex stickers" height="450"&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="img/PowerBI1.png" alt="Power BI Interfaz. Acción 1 para importar datos." height="450"&gt;&lt;/center&gt;
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
-## Power BI - Importar datos
+## Power BI: Importar datos
 
 2)
-&lt;center&gt;&lt;img src="img/PowerBI2.png" alt="Hex stickers" height="450"&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="img/PowerBI2.png" alt="Power BI Interfaz. Acción 2 para importar datos." height="450"&gt;&lt;/center&gt;
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
-## Power BI - Importar datos
+## Power BI: Importar datos
 
 3)
-&lt;center&gt;&lt;img src="img/PowerBI3.png" alt="Hex stickers" height="450"&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="img/PowerBI3.png" alt="Power BI Interfaz. Acción 3 para importar datos." height="450"&gt;&lt;/center&gt;
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
-## Power BI - Importar datos
+## Power BI: Importar datos
 
 4)
-&lt;center&gt;&lt;img src="img/PowerBI4.png" alt="Hex stickers" height="450"&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="img/PowerBI4.png" alt="Power BI Interfaz. Acción 4 para importar datos." height="450"&gt;&lt;/center&gt;
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
-## Power BI - Graficos de R en Power BI
+## Power BI: Graficos de R en Power BI
 
-Generar un grafico de R en Power BI
+Generar un gráfico de R en Power BI
 
-&lt;center&gt;&lt;img src="img/PowerBI5.png" alt="Hex stickers" height="450"&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="img/PowerBI5.png" alt="Power BI Interfaz. Pasos a seguir para generar un gráfico de R en Power BI." height="450"&gt;&lt;/center&gt;
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
-## Power BI - Graficos de R en Power BI
+## Power BI: Graficos de R en Power BI
 
-Puedo agregar sliders para poder interactuar y filtrar con el grafico
+Puedo agregar sliders para poder interactuar y filtrar con el gráfico
 
 Los gráficos generados en R se actualizaran automáticamente
 
-&lt;center&gt;&lt;img src="img/PowerBI6.png" alt="Hex stickers" height="450"&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="img/PowerBI6.png" alt="Power BI Interfaz. Gráfico de R en Power BI con sliders." height="400"&gt;&lt;/center&gt;
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Tu turno 
+
+1. Importa uno de los datasets de Colombia en Power BI usando el paquete `rhdx`
+
+2. Elige una de las variables y haz un gráfico simple con R
+
+3. Agrega slider o botones para hacerlo "interactivo" 
+
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
@@ -153,10 +295,19 @@ Los gráficos generados en R se actualizaran automáticamente
 
 Para tener un abanico mayor de opciones, conecta a R con otras herramientas!
 
-&lt;center&gt;&lt;img src="img/starwars-teamwork.png" alt="Hex stickers" height="450"&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="img/starwars-teamwork.png" alt="Personajes de la película star wars juntando sus manos como un equipo." height="450"&gt;&lt;/center&gt;
 
 &lt;p style="color: gray; font-size:15px"&gt; Ilustración de Allison Horst
 &lt;/p&gt;
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+
+## Licencia y material usado
+
+Licencia: [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES).
+
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

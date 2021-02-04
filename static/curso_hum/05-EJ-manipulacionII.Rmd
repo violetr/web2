@@ -24,7 +24,7 @@ decisiones
 
 ```{r}
 paises_largo <- read_csv("data/paises_largo.csv")
-decisiones
+paises_largo
 ```
 
 ## Tu turno 1: `pivot_wider`
@@ -32,7 +32,10 @@ decisiones
 Covertir paises_largo al formato ordenado (variables como columnas)
 
 ```{r, message = FALSE}
-# paises_largo_tidy <- 
+paises_largo_tidy <- pivot_wider(paises_largo, 
+                                 names_from = variable,
+                                 values_from = valor)
+paises_largo_tidy
 ```
 
 ## Tu turno 2: para practicar después
@@ -40,7 +43,7 @@ Covertir paises_largo al formato ordenado (variables como columnas)
 Nos interesa anexar la informacion de la esperanza de vida de los países de origen  a la tabla de decisiones: Unir la tabla de países obtenida en Tu turno 1 (paises_largo_tidy) con la tabla de decisiones de asilo (decisiones). Utiliza como llave a las columnas con el nombre del país y el año. 
 
 ```{r}
-
+# no llegamos a verlo
 ```
 
 

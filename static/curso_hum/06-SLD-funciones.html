@@ -3,7 +3,8 @@
   <head>
     <title>Nuestras propias funciones</title>
     <meta charset="utf-8" />
-    <meta name="date" content="2020-11-26" />
+    <meta name="date" content="2021-02-03" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
     <link rel="stylesheet" href="custom.css" type="text/css" />
@@ -26,23 +27,40 @@ background-color: #272822
 
 &lt;h1 style='color:white'&gt; &lt;center&gt; R para contextos humanitarios de emergencia&lt;/center&gt;&lt;/h1&gt; 
 ## &lt;center&gt;&lt;font style='color:#E495A5'&gt;N&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;u&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;e&lt;/font&gt;&lt;font style='color:#96B56C'&gt;s&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;t&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;r&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;a&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;s&lt;/font&gt; &lt;font style='color:#C29DDE'&gt;p&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;r&lt;/font&gt;&lt;font style='color:#E495A5'&gt;o&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;p&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;i&lt;/font&gt;&lt;font style='color:#96B56C'&gt;a&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;s&lt;/font&gt; &lt;font style='color:#39BEB1'&gt;f&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;u&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;n&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;c&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;i&lt;/font&gt;&lt;font style='color:#E495A5'&gt;o&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;n&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;e&lt;/font&gt;&lt;font style='color:#96B56C'&gt;s&lt;/font&gt;&lt;/center&gt; 
-### &lt;center&gt;&lt;font style='color:#E495A5'&gt;2&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;6&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;-&lt;/font&gt;&lt;font style='color:#96B56C'&gt;1&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;1&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;-&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;2&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;0&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;2&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;0&lt;/font&gt;&lt;/center&gt;
+### &lt;center&gt;&lt;font style='color:#E495A5'&gt;V&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;i&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;o&lt;/font&gt;&lt;font style='color:#96B56C'&gt;l&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;e&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;t&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;a&lt;/font&gt; &lt;font style='color:#91ACE1'&gt;R&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;o&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;i&lt;/font&gt;&lt;font style='color:#E495A5'&gt;z&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;m&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;a&lt;/font&gt;&lt;font style='color:#96B56C'&gt;n&lt;/font&gt;&lt;/center&gt;
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
 ## Mini introducción a funciones
 
-- Si te encuentras una y otra vez copiando la misma linea de código para realizar una operación entonces es hora de escribir una función que haga esa tarea por ti.
+&lt;center&gt;
+&lt;blockquote class="twitter-tweet"&gt;&lt;p lang="en" dir="ltr"&gt;When you’ve written the same code 3 times, write a function&lt;br&gt;&lt;br&gt;When you’ve given the same in-person advice 3 times, write a blog post&lt;/p&gt;&amp;mdash; David Robinson (@drob) &lt;a href="https://twitter.com/drob/status/928447584712253440?ref_src=twsrc%5Etfw"&gt;November 9, 2017&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+&lt;/center&gt;
 
-- Hasta ahora estuvimos utilizando funciones que vienen con R (lo que llamamos R base) y funciones de paquetes que están disponibles para extender las funcionalidades de R. 
+- Si te encuentras escribiendo el mismo código 3 veces, entonces es hora de escribir una **función**.
 
-- función: conjunto de comandos o líneas de código definida para usarla en el futuro, con un nombre (uno que represente la acción u operación para la cual la estamos creando), elementos de entrada y el resultado final.
+- Hasta ahora estuvimos utilizando funciones que vienen con R (R base) y funciones de paquetes. 
+
+- **Pero... ¿qué es una función?:** es **conjunto ordenado de comandos** definidos para ser usados en el futuro, con un **nombre representativo**, elementos de **entrada** y una **salida**.
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+## Tu turno
+
+Piensa en una **función** que uses regularmente en tu trabajo.
+
+Si no existe, piensa en alguna función que podría servirte. 
+
+Piensa los **pasos a seguir**.
+
+¿Qué **nombre** le pondrías?
+
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
 ## Definición de funciones
 
-Supongamos que una medica desea efectuar una evaluación del índice de masa corporal en los adultos de un campamento. En base a esto se planearan acciones.
+**Situación:** Supongamos que una medica desea efectuar una evaluación del índice de masa corporal en los adultos de un campamento. En base a esto se planearán acciones.
 
 `\(IMC = peso (kg) / altura^2 (metros)\)`
 
@@ -55,16 +73,15 @@ IMC &lt;- function(peso, altura) {
 }
 ```
 
-Al correr estas lineas de código se generará un nuevo elemento en nuestro entorno (mesada). La función está lista para ser usada. Pero antes de probarla revisemos la receta para definir una función.
+Al ejecutar estas lineas de código se generará un nuevo elemento `IMC` en nuestro entorno (mesada). La función está **lista para ser usada**. 
 
-**function** indica que es una función y las **llaves delimitan** el cuerpo de la función. La función puede recibir uno o más elementos de entrada: los argumentos. En este caso recibe 2.
+**function** indica que es una función y las **llaves** `{}` delimitan la extensión de la función. La función puede recibir ninguno, uno o más elementos de entrada: los argumentos. En este caso recibe 2 (`peso` y `altura`).
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
 ## Usando la función
 
-Ahora probemos calcular mi índice de masa corporal utilizando la función.
-
+Ahora probemos calcular mi índice de masa corporal utilizando la función:
 
 
 ```r
@@ -75,7 +92,7 @@ IMC(60, 1.65)
 ## [1] 22.03857
 ```
 
-Los elementos de entrada en este caso son 2 números (60 y 1.65) y nos devolvió un número. Probemos con dos vectores
+Los **elementos de entrada** en este caso son 2 números (60 y 1.65) y nos devolvió un número como **salida**. Probemos con dos **vectores**
 
 
 ```r
@@ -87,18 +104,46 @@ IMC(peso_adultos, altura_adultos)
 ```
 ## [1] 18.36547 21.77384 17.57812 27.00513 34.60208
 ```
-- Es importante respetar el orden! 
-- Los vectores deben tener la misma longitud!
+
+- Es importante **respetar el orden**! 
+
+
+```r
+IMC(altura_adultos, peso_adultos)
+```
+
+```
+## [1] 0.0006600000 0.0004611111 0.0007901235 0.0003285714 0.0001700000
+```
+
+- Los vectores **deben tener la misma longitud**!
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
 ## Reflexiones sobre funciones
 
-- Definir funciones nos abre todo un mundo de posibilidades 🌍
+- Definir funciones nos abre todo un **mundo de posibilidades** 🌎
 
-- Cuando tengamos varias funciones definidas para trabajar en un mismo proyecto podemos hacer nuestro propio paquete! 🎁
+- Cuando tengamos **varias funciones** definidas para trabajar en un mismo proyecto/tema podemos hacer **nuestro propio paquete**! 🎁
 
-- Y si pensamos que le puede servir a otras personas podemos publicarlo para que sea accesible! Incluso ell@s pueden ayudarme a arreglar y extender mi paquete incorporando nuevas funcionalidades.
+- Y si pensamos que le puede **servir a otras personas** podemos **publicarlo** para que sea accesible! Incluso ell@s pueden ayudarme a arreglar y extender mi paquete incorporando nuevas funcionalidades
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+
+## Licencia y material usado
+
+Licencia: [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES).
+
+Este material está inspirado y utiliza explicaciones de:
+
+- [R para Clima](https://eliocamp.github.io/r-clima/) de Paola Corrales y Elio Campitelli
+
+- [De excel a R](https://paocorrales.github.io/deExcelaR/index.html) de Paola Corrales y Elio Campitelli
+
+- [Master the Tidyverse](https://github.com/rstudio-education/master-the-tidyverse-instructors) de Garrett Grolemund
+
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

@@ -3,7 +3,8 @@
   <head>
     <title>Intro</title>
     <meta charset="utf-8" />
-    <meta name="date" content="2020-11-26" />
+    <meta name="date" content="2021-01-29" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
     <link rel="stylesheet" href="custom.css" type="text/css" />
@@ -26,7 +27,7 @@ background-color: #272822
 
 &lt;h1 style='color:white'&gt; &lt;center&gt; R para contextos humanitarios de emergencia&lt;/center&gt;&lt;/h1&gt; 
 ## &lt;center&gt;&lt;font style='color:#E495A5'&gt;R&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;e&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;p&lt;/font&gt;&lt;font style='color:#96B56C'&gt;o&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;r&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;t&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;e&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;s&lt;/font&gt; &lt;font style='color:#C29DDE'&gt;p&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;a&lt;/font&gt;&lt;font style='color:#E495A5'&gt;r&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;a&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;m&lt;/font&gt;&lt;font style='color:#96B56C'&gt;é&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;t&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;r&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;i&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;c&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;o&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;s&lt;/font&gt; &lt;font style='color:#E495A5'&gt;y&lt;/font&gt; &lt;font style='color:#D89F7F'&gt;m&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;á&lt;/font&gt;&lt;font style='color:#96B56C'&gt;s&lt;/font&gt;&lt;/center&gt; 
-### &lt;center&gt;&lt;font style='color:#E495A5'&gt;2&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;6&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;-&lt;/font&gt;&lt;font style='color:#96B56C'&gt;1&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;1&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;-&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;2&lt;/font&gt;&lt;font style='color:#91ACE1'&gt;0&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;2&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;0&lt;/font&gt;&lt;/center&gt;
+### &lt;center&gt;&lt;font style='color:#E495A5'&gt;V&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;i&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;o&lt;/font&gt;&lt;font style='color:#96B56C'&gt;l&lt;/font&gt;&lt;font style='color:#65BC8C'&gt;e&lt;/font&gt;&lt;font style='color:#39BEB1'&gt;t&lt;/font&gt;&lt;font style='color:#55B8D0'&gt;a&lt;/font&gt; &lt;font style='color:#91ACE1'&gt;R&lt;/font&gt;&lt;font style='color:#C29DDE'&gt;o&lt;/font&gt;&lt;font style='color:#DE94C8'&gt;i&lt;/font&gt;&lt;font style='color:#E495A5'&gt;z&lt;/font&gt;&lt;font style='color:#D89F7F'&gt;m&lt;/font&gt;&lt;font style='color:#BDAB66'&gt;a&lt;/font&gt;&lt;font style='color:#96B56C'&gt;n&lt;/font&gt;&lt;/center&gt;
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
@@ -184,14 +185,16 @@ decisiones_filtrado %&gt;%
 Posibilidades
 
 
-
 ```r
 for (pais_actual in c("HTI", "VEN", "COL")) {
   rmarkdown::render("reporte_final.Rmd", 
-                  output_file = paste0("reporte-", pais_actual,".docx"),params = list(pais = pais_actual))
+                  output_file = paste0("reporte-",
+                                       pais_actual,
+                                       ".docx"),
+                  params = list(pais = pais_actual))
 }
 ```
-
+Este codigo crea 3 reportes!
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
 ## Control de chunks
@@ -459,11 +462,25 @@ kable(decisiones)
 
 ---
 &lt;div class="my-header"&gt;&lt;/div&gt;
-## Supertablas con `kableExtra`
+## Tablas lindas con `kableExtra`
 
 El paquete `kableExtra`, como su nombre lo indica, nació para extender el poder de la función kable.
 
 Descargalo y prueba sus funcionalidades
+
+
+---
+&lt;div class="my-header"&gt;&lt;/div&gt;
+
+## Licencia y material usado
+
+Licencia: [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES).
+
+Este material está inspirado y utiliza explicaciones de:
+
+- [R para Clima](https://eliocamp.github.io/r-clima/) de Paola Corrales y Elio Campitelli
+
+- [Master the Tidyverse](https://github.com/rstudio-education/master-the-tidyverse-instructors) de Garrett Grolemund
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

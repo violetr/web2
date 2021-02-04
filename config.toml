@@ -21,7 +21,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
   # Style options: default (pink), blue, green, pink, red, sea, violet
   # Use custom.css for your custom styling
   style = "violet"
-  description = "My personal website"
+  description = "Violeta Roizman. My personal website"
   copyright = "&copy;2018 Violeta Roizman"
   sidebarAbout = [
     "I'm Violeta, a freelance Data Scientist. I have a mathematical background and hold a PhD in Mathematics and Informatics. I like both R and Python :). I speak/write in Spanish and/or English.",

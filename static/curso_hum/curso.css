@@ -1,0 +1,42 @@
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700);
+
+body{
+  font-family: "Yanone Kaffeesatz", Verdana, sans-serif;
+  color: white;
+}
+
+#titulo{
+  font-family: "Yanone Kaffeesatz", Verdana, sans-serif;
+  background-image: linear-gradient(to left, #E495A5, #D89F7F, #BDAB66, #96B56C, #65BC8C, #39BEB1, #55B8D0, #91ACE1, #C29DDE, #DE94C8); -webkit-background-clip: text;
+  color: transparent;
+  font-size: 40;
+}
+
+
+p {
+  font-family: "Yanone Kaffeesatz", Verdana, sans-serif;
+  color: white;
+  font-size: 34;
+}
+
+a {
+  font-family: "Yanone Kaffeesatz", Verdana, sans-serif;
+  color: white;
+  font-size: 27;
+}
+
+a:hover{
+  font-family: "Yanone Kaffeesatz", Verdana, sans-serif;
+    background-image: linear-gradient(to left, #E495A5, #D89F7F, #BDAB66, #96B56C, #65BC8C, #39BEB1, #55B8D0, #91ACE1, #C29DDE, #DE94C8);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 28;
+}
+
+
+head{
+  font-family: "Yanone Kaffeesatz", Verdana, sans-serif;
+  color: white;
+}
