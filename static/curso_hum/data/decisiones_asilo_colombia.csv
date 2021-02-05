@@ -1,0 +1,134 @@
+Anio,Codigo Pais Origen,Codigo Pais Asilo,Nombre Pais de Origen,Nombre Pais Asilo,Tipo de procedimiento,Nombre del Procedimiento,Codigo de Tipo de Decision,Tipo de Datos de Decision,Datos de Decision,Promedio de Personas de decision por Caso,Reconocidas,Proteccion Complementaria,Cerradas de otra forma,Rechazadas
+2002,CUB,COL,Cuba,Colombia,U,UNHCR,FI,P,Persons,0,0,0,5,5
+2002,IRQ,COL,Iraq,Colombia,U,UNHCR,FI,P,Persons,0,0,0,5,0
+2003,IRN,COL,Iran (Islamic Republic of),Colombia,G,Government,FI,P,Persons,0,0,0,0,5
+2003,IRN,COL,Iran (Islamic Republic of),Colombia,U,UNHCR,FI,P,Persons,0,5,0,0,0
+2003,VEN,COL,Venezuela (Bolivarian Republic of),Colombia,G,Government,FI,P,Persons,0,5,0,0,0
+2004,CUB,COL,Cuba,Colombia,G,Government,FI,P,Persons,0,10,0,0,0
+2004,PER,COL,Peru,Colombia,G,Government,FI,P,Persons,0,0,0,0,5
+2004,UZB,COL,Uzbekistan,Colombia,G,Government,FI,P,Persons,0,5,0,0,0
+2005,CUB,COL,Cuba,Colombia,G,Government,AR,P,Persons,0,0,0,0,5
+2005,CUB,COL,Cuba,Colombia,G,Government,FI,P,Persons,0,22,0,0,10
+2005,ECU,COL,Ecuador,Colombia,G,Government,FI,P,Persons,0,0,0,0,10
+2005,ECU,COL,Ecuador,Colombia,U,UNHCR,FI,P,Persons,0,10,0,0,0
+2005,PER,COL,Peru,Colombia,G,Government,AR,P,Persons,0,0,0,0,5
+2005,PER,COL,Peru,Colombia,G,Government,FI,P,Persons,0,0,0,0,5
+2005,VEN,COL,Venezuela (Bolivarian Republic of),Colombia,G,Government,AR,P,Persons,0,0,0,0,5
+2005,VEN,COL,Venezuela (Bolivarian Republic of),Colombia,G,Government,FI,P,Persons,0,5,0,0,10
+2005,VEN,COL,Venezuela (Bolivarian Republic of),Colombia,U,UNHCR,FI,P,Persons,0,5,0,0,0
+2006,CUB,COL,Cuba,Colombia,G,Government,AR,P,Persons,1,0,0,0,13
+2006,CUB,COL,Cuba,Colombia,G,Government,FI,P,Persons,1,0,0,0,17
+2006,GNB,COL,Guinea-Bissau,Colombia,G,Government,AR,P,Persons,1,0,0,0,5
+2006,GNB,COL,Guinea-Bissau,Colombia,G,Government,FI,P,Persons,1,0,0,0,5
+2006,VEN,COL,Venezuela (Bolivarian Republic of),Colombia,G,Government,FI,P,Persons,1,0,0,5,0
+2007,CUB,COL,Cuba,Colombia,G,Government,FI,P,Persons,1,11,0,0,75
+2007,ETH,COL,Ethiopia,Colombia,G,Government,FI,P,Persons,1,5,0,0,0
+2007,IRN,COL,Iran (Islamic Republic of),Colombia,G,Government,FI,P,Persons,1,0,0,0,5
+2007,VEN,COL,Venezuela (Bolivarian Republic of),Colombia,G,Government,FI,P,Persons,1,11,0,0,0
+2008,CUB,COL,Cuba,Colombia,G,Government,AR,P,Persons,0,0,0,0,10
+2008,CUB,COL,Cuba,Colombia,G,Government,FI,P,Persons,0,0,0,0,66
+2008,ECU,COL,Ecuador,Colombia,G,Government,FI,P,Persons,0,0,0,0,5
+2008,SOM,COL,Somalia,Colombia,G,Government,FI,P,Persons,0,0,0,0,18
+2008,VEN,COL,Venezuela (Bolivarian Republic of),Colombia,G,Government,FI,P,Persons,0,5,0,0,0
+2009,CUB,COL,Cuba,Colombia,G,Government,AR,P,Persons,0,0,0,0,5
+2009,CUB,COL,Cuba,Colombia,G,Government,FI,P,Persons,0,0,0,0,19
+2009,ERI,COL,Eritrea,Colombia,G,Government,AR,P,Persons,0,0,0,0,5
+2009,ERI,COL,Eritrea,Colombia,G,Government,FI,P,Persons,0,5,0,0,116
+2009,ETH,COL,Ethiopia,Colombia,G,Government,AR,P,Persons,0,0,0,0,5
+2009,ETH,COL,Ethiopia,Colombia,G,Government,FI,P,Persons,0,11,0,0,39
+2009,GHA,COL,Ghana,Colombia,G,Government,FI,P,Persons,0,0,0,0,5
+2009,LKA,COL,Sri Lanka,Colombia,G,Government,FI,P,Persons,0,5,0,0,0
+2009,NPL,COL,Nepal,Colombia,G,Government,FI,P,Persons,0,0,0,0,5
+2009,SOM,COL,Somalia,Colombia,G,Government,FI,P,Persons,0,10,0,0,83
+2009,VEN,COL,Venezuela (Bolivarian Republic of),Colombia,G,Government,AR,P,Persons,0,0,0,0,5
+2009,VEN,COL,Venezuela (Bolivarian Republic of),Colombia,G,Government,FI,P,Persons,0,0,0,0,13
+2010,BGD,COL,Bangladesh,Colombia,G,Government,FI,P,Persons,1,0,0,5,0
+2010,BOL,COL,Bolivia (Plurinational State of),Colombia,G,Government,FI,P,Persons,1,0,0,0,5
+2010,COD,COL,Democratic Republic of the Congo,Colombia,G,Government,FI,P,Persons,1,0,0,0,5
+2010,CUB,COL,Cuba,Colombia,G,Government,FI,P,Persons,1,0,0,11,11
+2010,ERI,COL,Eritrea,Colombia,G,Government,FI,P,Persons,1,0,0,29,0
+2010,ETH,COL,Ethiopia,Colombia,G,Government,FI,P,Persons,1,0,0,10,0
+2010,SLV,COL,El Salvador,Colombia,G,Government,FI,P,Persons,1,5,0,0,0
+2010,SOM,COL,Somalia,Colombia,G,Government,FI,P,Persons,1,0,0,29,0
+2011,CUB,COL,Cuba,Colombia,G,Government,AR,P,Persons,1,0,0,0,5
+2011,CUB,COL,Cuba,Colombia,G,Government,FI,P,Persons,1,0,0,48,30
+2011,ERI,COL,Eritrea,Colombia,G,Government,FI,P,Persons,1,0,0,5,0
+2011,LKA,COL,Sri Lanka,Colombia,G,Government,FI,P,Persons,1,0,0,0,5
+2011,PER,COL,Peru,Colombia,G,Government,AR,P,Persons,1,0,0,0,5
+2011,PER,COL,Peru,Colombia,G,Government,FI,P,Persons,1,0,0,0,5
+2011,RUS,COL,Russian Federation,Colombia,G,Government,FI,P,Persons,1,5,0,0,0
+2011,SOM,COL,Somalia,Colombia,G,Government,FI,P,Persons,1,0,0,24,0
+2011,VEN,COL,Venezuela (Bolivarian Republic of),Colombia,G,Government,AR,P,Persons,1,0,0,0,5
+2011,VEN,COL,Venezuela (Bolivarian Republic of),Colombia,G,Government,FI,P,Persons,1,0,0,0,5
+2012,AFG,COL,Afghanistan,Colombia,G,Government,FI,P,Persons,2,0,0,5,0
+2012,CUB,COL,Cuba,Colombia,G,Government,AR,P,Persons,1,0,0,0,5
+2012,CUB,COL,Cuba,Colombia,G,Government,FI,P,Persons,2,0,0,11,43
+2012,ECU,COL,Ecuador,Colombia,G,Government,FI,P,Persons,2,5,0,0,0
+2012,ERI,COL,Eritrea,Colombia,G,Government,FI,P,Persons,2,0,0,31,0
+2012,ETH,COL,Ethiopia,Colombia,G,Government,FI,P,Persons,2,0,0,5,0
+2012,LKA,COL,Sri Lanka,Colombia,G,Government,FI,P,Persons,2,0,0,5,0
+2012,NPL,COL,Nepal,Colombia,G,Government,FI,P,Persons,2,0,0,5,0
+2012,PER,COL,Peru,Colombia,G,Government,AR,P,Persons,1,0,0,0,5
+2012,PER,COL,Peru,Colombia,G,Government,FI,P,Persons,2,0,0,0,5
+2012,SOM,COL,Somalia,Colombia,G,Government,FI,P,Persons,2,0,0,13,0
+2012,VEN,COL,Venezuela (Bolivarian Republic of),Colombia,G,Government,FI,P,Persons,2,0,0,0,5
+2013,BGD,COL,Bangladesh,Colombia,G,Government,FI,P,Persons,1,0,0,42,0
+2013,CUB,COL,Cuba,Colombia,G,Government,AR,P,Persons,1,0,0,0,14
+2013,CUB,COL,Cuba,Colombia,G,Government,FI,P,Persons,1,0,0,30,60
+2013,ECU,COL,Ecuador,Colombia,G,Government,FI,P,Persons,1,5,0,0,0
+2013,GHA,COL,Ghana,Colombia,G,Government,FI,P,Persons,1,0,0,10,0
+2013,HND,COL,Honduras,Colombia,G,Government,FI,P,Persons,1,0,0,0,5
+2013,CIV,COL,Côte d'Ivoire,Colombia,G,Government,FI,P,Persons,1,0,0,5,0
+2013,NPL,COL,Nepal,Colombia,G,Government,FI,P,Persons,1,0,0,0,5
+2013,NGA,COL,Nigeria,Colombia,G,Government,FI,P,Persons,1,0,0,5,0
+2013,SOM,COL,Somalia,Colombia,G,Government,FI,P,Persons,1,0,0,37,10
+2013,SYR,COL,Syrian Arab Republic,Colombia,G,Government,FI,P,Persons,1,0,0,5,5
+2013,VEN,COL,Venezuela (Bolivarian Republic of),Colombia,G,Government,AR,P,Persons,1,0,0,0,5
+2013,VEN,COL,Venezuela (Bolivarian Republic of),Colombia,G,Government,FI,P,Persons,1,0,0,0,14
+2014,BGD,COL,Bangladesh,Colombia,G,Government,FI,P,Persons,1,0,0,30,0
+2014,BTN,COL,Bhutan,Colombia,G,Government,FI,P,Persons,1,0,0,5,0
+2014,BOL,COL,Bolivia (Plurinational State of),Colombia,G,Government,FI,P,Persons,1,5,0,0,0
+2014,CUB,COL,Cuba,Colombia,G,Government,AR,P,Persons,0,0,0,0,14
+2014,CUB,COL,Cuba,Colombia,G,Government,FI,P,Persons,1,0,0,355,30
+2014,ECU,COL,Ecuador,Colombia,G,Government,FI,P,Persons,1,0,0,0,5
+2014,ERI,COL,Eritrea,Colombia,G,Government,FI,P,Persons,1,0,0,5,0
+2014,GHA,COL,Ghana,Colombia,G,Government,FI,P,Persons,1,0,0,5,0
+2014,IND,COL,India,Colombia,G,Government,FI,P,Persons,1,0,0,5,0
+2014,NPL,COL,Nepal,Colombia,G,Government,FI,P,Persons,1,0,0,84,0
+2014,PAK,COL,Pakistan,Colombia,G,Government,FI,P,Persons,1,0,0,5,0
+2014,SOM,COL,Somalia,Colombia,G,Government,FI,P,Persons,1,0,0,47,0
+2014,STA,COL,Stateless,Colombia,G,Government,FI,P,Persons,1,0,0,0,5
+2014,SYR,COL,Syrian Arab Republic,Colombia,G,Government,FI,P,Persons,1,0,0,5,0
+2014,VEN,COL,Venezuela (Bolivarian Republic of),Colombia,G,Government,FI,P,Persons,1,10,0,5,10
+2015,BGD,COL,Bangladesh,Colombia,G,Government,FI,P,Persons,1,0,0,10,0
+2015,CUB,COL,Cuba,Colombia,G,Government,AR,P,Persons,0,0,0,0,11
+2015,CUB,COL,Cuba,Colombia,G,Government,FI,P,Persons,1,0,0,233,58
+2015,ERI,COL,Eritrea,Colombia,G,Government,FI,P,Persons,1,0,0,5,0
+2015,ETH,COL,Ethiopia,Colombia,G,Government,FI,P,Persons,1,0,0,5,0
+2015,HTI,COL,Haiti,Colombia,G,Government,FI,P,Persons,1,0,0,5,0
+2015,IND,COL,India,Colombia,G,Government,FI,P,Persons,1,0,0,5,0
+2015,NPL,COL,Nepal,Colombia,G,Government,FI,P,Persons,1,0,0,10,0
+2015,NGA,COL,Nigeria,Colombia,G,Government,FI,P,Persons,1,0,0,5,0
+2015,PAK,COL,Pakistan,Colombia,G,Government,FI,P,Persons,1,0,0,10,0
+2015,SOM,COL,Somalia,Colombia,G,Government,FI,P,Persons,1,0,0,5,0
+2015,SYR,COL,Syrian Arab Republic,Colombia,G,Government,FI,P,Persons,1,5,0,5,0
+2015,USA,COL,United States of America,Colombia,G,Government,FI,P,Persons,1,0,0,5,0
+2015,VEN,COL,Venezuela (Bolivarian Republic of),Colombia,G,Government,AR,P,Persons,0,5,0,0,12
+2015,VEN,COL,Venezuela (Bolivarian Republic of),Colombia,G,Government,FI,P,Persons,1,5,0,68,16
+2016,AFG,COL,Afghanistan,Colombia,G,Government,FI,P,Persons,0,5,0,0,0
+2016,CUB,COL,Cuba,Colombia,G,Government,FI,P,Persons,0,10,0,40,0
+2016,HND,COL,Honduras,Colombia,G,Government,FI,P,Persons,0,5,0,0,0
+2016,IRQ,COL,Iraq,Colombia,G,Government,FI,P,Persons,0,5,0,0,0
+2016,SLV,COL,El Salvador,Colombia,G,Government,FI,P,Persons,0,5,0,0,0
+2016,VEN,COL,Venezuela (Bolivarian Republic of),Colombia,G,Government,AR,P,Persons,0,0,0,0,5
+2016,VEN,COL,Venezuela (Bolivarian Republic of),Colombia,G,Government,FI,P,Persons,0,5,0,55,0
+2017,CUB,COL,Cuba,Colombia,G,Government,FI,P,Persons,0,0,0,14,0
+2017,TUR,COL,Turkey,Colombia,G,Government,FI,P,Persons,0,0,0,12,0
+2017,VEN,COL,Venezuela (Bolivarian Republic of),Colombia,G,Government,FI,P,Persons,0,19,0,413,5
+2018,COD,COL,Democratic Republic of the Congo,Colombia,G,Government,FI,P,Persons,0,0,0,5,0
+2018,CUB,COL,Cuba,Colombia,G,Government,FI,P,Persons,0,5,0,0,0
+2018,PAK,COL,Pakistan,Colombia,G,Government,FI,P,Persons,0,0,0,5,0
+2018,TUR,COL,Turkey,Colombia,G,Government,FI,P,Persons,0,0,0,5,0
+2018,VEN,COL,Venezuela (Bolivarian Republic of),Colombia,G,Government,FI,P,Persons,0,32,0,288,5
+2019,TUR,COL,Turkey,Colombia,G,Government,FI,P,Persons,NA,5,0,0,0
+2019,VEN,COL,Venezuela (Bolivarian Republic of),Colombia,G,Government,FI,P,Persons,NA,332,0,4052,0
