@@ -10,6 +10,6 @@ weight: 1
 
 Hace poco me acordé de este sitio sobre Harry Potter que había creado y me pareció lindo revivirlo en el Día Internacional de la Mujer y la Niña en la Ciencia. No pude recrearlo exactamente porque no le dediqué nada de tiempo pero está realmente muy parecido salvo una imagen que falta y algún reacomodamiento de elementos.
 
-Para navegar el [sitio](https://violetr.netlify.app/harry_potter/) tenés que usar las flechas que se encuentran en la parte inferior de cada una de las páginas del sitio.
+Para navegar el [sitio](https://violetr.netlify.app/harry_potter/harrypotter1y2.html) tenés que usar las flechas que se encuentran en la parte inferior de cada una de las páginas del sitio.
 
->https://violetr.netlify.app/harry_potter/
+>https://violetr.netlify.app/harry_potter/harrypotter1y2.html
