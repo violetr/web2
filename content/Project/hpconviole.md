@@ -12,4 +12,6 @@ Hace poco me acordé de este sitio sobre Harry Potter que había creado y me par
 
 Para navegar el [sitio](https://violetr.netlify.app/harry_potter/harrypotter1y2.html) tenés que usar las flechas que se encuentran en la parte inferior de cada una de las páginas del sitio.
 
->https://violetr.netlify.app/harry_potter/harrypotter1y2.html
+![](/img/portfolio/followarrows.png)
+
+Este es el enlace para acceder [https://violetr.netlify.app/harry_potter/harrypotter1y2.html](https://violetr.netlify.app/harry_potter/harrypotter1y2.html).
