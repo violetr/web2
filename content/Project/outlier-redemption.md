@@ -1,5 +1,5 @@
 ---
-date: "2021-01-19T19:41:01+05:30"
+date: "2021-02-06T19:41:01+05:30"
 draft: false
 image: img/portfolio/card-or.png
 showonlyimage: false
