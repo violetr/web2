@@ -1,0 +1,118 @@
+
+
+.title-slide {
+  background-image: linear-gradient(to left, #E495A5, #D89F7F, #BDAB66, #96B56C, #65BC8C, #39BEB1, #55B8D0, #91ACE1, #C29DDE, #DE94C8);
+  color: black;
+  background-color: white;
+  font-family: "Didact Gothic"; 
+  background-position: left center;
+  background-size: 65%;
+}
+
+.table {
+  font-size: 15pt;
+}
+
+.cleo {
+  color: #E495A5;
+  font-weight: bold;
+}
+
+.left-graph {
+  width: 65%;
+  height: 92%;
+  float: left;
+}
+
+.dino {
+  font-size: 16pt;
+}
+
+.right-graph {
+  width: 35%;
+  height: 92%;
+  float: left;
+}
+
+.title-slide span {
+  color: black;
+  font-family: "Didact Gothic"; 
+
+}
+
+body {
+  font-family: "Didact Gothic"; 
+  font-size: 28pt;
+}
+
+.remark-slide-content {
+  font-size: 28pt;
+}
+  
+h1 {
+  font-family: "Didact Gothic"; 
+  font-weight: bold;
+}
+
+.subtitle {
+  color: black;
+  position: absolute;
+  bottom: 12%;
+  text-align: left;
+  left: 67%;
+}
+
+.title-slide h1 {
+  color: black;
+  font-size: 46pt;
+  position: absolute;
+  bottom: 23%;
+  left: 67%;
+  text-align: left;
+  font-weight: bold;
+}
+
+.title-slide h3 {
+  font-size: 36pt;
+  margin-top: -40px;
+  position: relative ;
+  text-align: right;
+  right: 5%;
+  top: 520px;
+}
+
+div.my-header {
+    background-color: #F77A00;
+    background: linear-gradient(to left, #E495A5, #D89F7F, #BDAB66, #96B56C, #65BC8C, #39BEB1, #55B8D0, #91ACE1, #C29DDE, #DE94C8);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 30px;
+    width: 100%;
+    text-align: left;
+}
+
+.last-slide span {
+  font-weight: bold;
+  font-size: 36pt;
+  font-family: "Didact Gothic"; 
+}
+
+.last-slide h1 span{
+  color: white;
+  background-color: black;
+  font-size: 46pt;
+  font-weight: bold;
+}
+
+.bomb span{
+  font-size: 28pt;
+  bottom: 30%;
+  left: 20%;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 36pt;
+  font-family: "Didact Gothic"; 
+}
